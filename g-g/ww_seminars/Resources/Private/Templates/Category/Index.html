@@ -1,0 +1,16 @@
+<f:comment><f:debug>{categories.0.downloads.originalResource.title}</f:debug></f:comment>
+
+<div class=" container__element seminar_categories">
+    <div class="container-md">
+        <div class="row">
+            <f:for each="{categories}" as="category">
+                <div class="col-md-6 col-sm-12 mb-2">
+                    <h2><f:format.raw>{category.title}</f:format.raw></h2>
+                    <f:format.raw>{category.description}</f:format.raw>
+                    <f:link.action controller="Place" action="index" arguments="{category_id : category.uid}" class="ww-button ww-button--primary" >Details</f:link.action>
+                </div>
+            </f:for>
+            
+        </div>
+    </div>
+</div>

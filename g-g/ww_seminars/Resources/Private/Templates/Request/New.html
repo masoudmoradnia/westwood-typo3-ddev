@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+  <div class="container">
+    <div v-if="status" :class="'p-3 mb-2 bg-'+status+' text-white'">
+      <div v-for="item in msg" class="py-1">{{ item }}</div>
+    </div>
+    <h3 class="text-primary my-4">Anmeldung für: {seminar.title}</h3>
+    <f:form action="create" name="newRequest" object="{newRequest}" id="seminar_form">
+      <f:form.hidden property="seminar" value="{seminar.uid}" />
+      <f:render partial="Request/FormFields" />
+      <button type="submit" class="ww-button ww-button--primary mt-4" @click="submitForm">Senden</button>
+
+    </f:form>
+  </div>
+</f:section>
+
+</html>

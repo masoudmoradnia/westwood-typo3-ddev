@@ -1,0 +1,24 @@
+.ww-notification {
+  background-color: var(--primary-color);
+  color: white;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.ww-notification__title {
+  font-size: 1.25rem;
+  font-weight: var(--fontweight-bold);
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  .ww-notification {
+    max-width: 350px;
+    position: absolute;
+    right: 0;
+    /* margin: -5rem 0 0 auto; */
+    z-index: 10;
+    transform: translate(0, -75%);
+    width: 30%;
+  }
+}

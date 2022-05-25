@@ -1,0 +1,22 @@
+#mediateck_header {
+	border-bottom: 1px solid var(--primary-color);
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 1rem;
+	align-items: center;
+	height: 4rem;
+}
+#bulkdownload {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 1rem;
+	width: 6rem;
+}
+
+#bulkdownload:after {
+	content: url('/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/zip-file.png');
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    cursor: pointer;
+}  

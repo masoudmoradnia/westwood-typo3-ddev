@@ -1,0 +1,199 @@
+.ww-menu .ww-logo {
+  width: 100%;
+  max-width: 125px;
+  height: auto;
+}
+
+.ww-menu__offcanvasButton span {
+  display: block;
+  width: 1rem;
+  height: 1px;
+  background-color: white;
+  margin-bottom: 0.25rem;
+}
+
+.ww-menu__offcanvasButton--close {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+.ww-menu__offcanvasButton--close span,
+.ww-menu__offcanvasButton span:last-child {
+  margin-bottom: 0;
+}
+
+.ww-menu__offcanvasButton--close span:nth-child(1) {
+  transform-origin: center;
+  transform: rotate(45deg);
+  position: absolute;
+}
+.ww-menu__offcanvasButton--close span:nth-child(2) {
+  transform-origin: center;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+#offcanvasMenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#offcanvasMenu ul a {
+  color: var(--gray);
+}
+
+#offcanvasMenu .accordion-item {
+  border-bottom-color: var(--primary-color);
+}
+
+#offcanvasMenu .accordion-button:not(.collapsed)::after,
+#offcanvasMenu .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2374b12c'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+
+#offcanvasMenu .accordion-button.witoutsub::after {
+  background-image: none !important;
+}
+#offcanvasMenu .accordion-button:not(.collapsed) {
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+#metamenuOffcanvas,
+#langmenuOffcanvas {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  padding-left: 1rem;
+}
+#langmenuOffcanvas ul{
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#langmenuOffcanvas li {
+  width: 47%;
+}
+#metamenuOffcanvas a,
+#langmenuOffcanvas a {
+  color: var(--light-gray);
+}
+
+.navbar-nav .nav-link {
+  color: var(--gray);
+  border-bottom: 3px solid transparent;
+}
+
+.navbar-nav a {
+  color: var(--gray);
+}
+
+.navbar-nav a:hover,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.show {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.show {
+  border-bottom-color: var(--primary-color);
+}
+
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+
+.col-megamenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-megamenu .title {
+  border-bottom: 1px solid var(--gray);
+  padding: 0.5rem 0;
+}
+
+.navbar .megamenu {
+  padding: 4rem;
+  border: none;
+  border-radius: 0;
+}
+
+.ww-menu__area {
+  align-items: flex-end;
+  display: flex;
+  font-size: 1rem;
+  height: 2.5rem;
+  justify-content: center;
+  padding: 0.5rem 0.5rem 0;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translate3d(1rem, -1rem, 0);
+  width: 1.3rem;
+  top: 0.5rem;
+  color: #fff;
+}
+
+
+.ww-menu__area--balkon {
+  background-color: var(--ww-balkon);
+}
+.ww-menu__area--parken {
+  background-color: var(--ww-parken);
+}
+.ww-menu__area--industrie {
+  background-color: var(--ww-industrie);
+}
+.ww-menu__area--agrar {
+  background-color: var(--ww-agrar);
+}
+.ww-menu__area--gewerbe {
+  background-color: var(--ww-gewerbe);
+}
+.ww-menu__area--verkehr {
+  background-color: var(--ww-verkehr);
+}
+.ww-menu__area--tiefbau {
+  background-color: var(--ww-tiefbau);
+}
+.ww-menu__area--holzbau {
+  background-color: var(--ww-holzbau);
+}
+.ww-menu__area--wellness {
+  background-color: var(--ww-wellness);
+}
+.ww-menu__area--spezial {
+  background-color: var(--ww-spezial);
+}
+.ww-menu__area--dach {
+  background-color: var(--ww-dach);
+}
+
+@media all and (min-width: 768px) {
+  .navbar .has-megamenu {
+    position: static !important;
+  }
+  .navbar .megamenu {
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar.fixed-top .navbar-collapse,
+  .navbar.sticky-top .navbar-collapse {
+    overflow-y: auto;
+    max-height: 90vh;
+    margin-top: 10px;
+  }
+}

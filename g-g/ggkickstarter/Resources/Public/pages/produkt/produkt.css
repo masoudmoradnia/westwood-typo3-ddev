@@ -1,0 +1,121 @@
+.ww-product {
+  /* min-height: 100vh; */
+  /* background-attachment: fixed; */
+  background-color: #fff;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255) 10%,
+      rgba(255, 255, 255) 50%
+    ),
+    url("../../assets/img/beton/beton_1200.jpg");
+  background-position: top center, top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% auto;
+}
+
+#ww-product__detail.ww-product {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(245, 245, 245, 0.6) 0%,
+    rgba(245, 245, 245) 10%,
+    rgba(245, 245, 245) 50%
+  ),
+  url("../../assets/img/beton/beton_1200.jpg");
+}
+
+#ww-product__solutions a {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* === Accordion === */
+
+.ww-product .accordion-item {
+  border: none;
+}
+
+.ww-product .accordion-button:not(.collapsed) {
+  color: var(--gray);
+  background-color: #fff;
+  box-shadow: none;
+  font-weight: var(--fontweight-bold);
+}
+
+.ww-product .accordion-button:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgb(116 177 44 / 25%);
+}
+
+.ww-product .accordion-button:not(.collapsed)::after {
+  content: "-";
+  background-image: none;
+  transform: translateY(-0.4rem) rotate(180deg);
+}
+
+.ww-product .accordion-button::after {
+  font-size: 1.6rem;
+  transform: translateY(-0.3rem);
+  transform-origin: 0.2em 0.66em;
+  color: var(--primary-color);
+  content: "+";
+  background-image: none;
+}
+
+/* === Accordion END === */
+
+/* === Seitenleiste === */
+
+.ww-product__toggle {
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.ww-product__toggleButton {
+  padding: 1rem;
+  border: none;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ww-product__toggleButton svg .Linie_1 {
+  display: none;
+}
+.ww-product__toggleButton.collapsed svg .Linie_1 {
+  display: initial;
+}
+
+.ww-product__toggleContent {
+  padding: 1rem;
+}
+
+.ww-product__toggleContent ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ww-product__toggleContent ul a {
+  display: block;
+  background-color: #40495233;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.875rem 1rem;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.ww-product__toggleContent ul a:hover,
+.ww-product__toggleContent ul a.active {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+}
+
+/* === Seitenleiste END === */

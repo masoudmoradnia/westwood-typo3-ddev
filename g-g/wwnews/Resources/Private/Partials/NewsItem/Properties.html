@@ -1,0 +1,53 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <table class="tx-wwnews">
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.title" />
+      </td>
+      <td>{newsItem.title}</td>
+    </tr>
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.subtitle" />
+      </td>
+      <td>{newsItem.subtitle}</td>
+    </tr>
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.image" />
+      </td>
+      <td>
+        <f:image
+          src="{newsItem.image.originalResource.publicUrl}"
+          width="200"
+          loading="lazy"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.introduction" />
+      </td>
+      <td>{newsItem.introduction}</td>
+    </tr>
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.text" />
+      </td>
+      <td>{newsItem.text}</td>
+    </tr>
+    <tr>
+      <td>
+        <f:translate key="tx_wwnews_domain_model_newsitem.pdf" />
+      </td>
+      <td>
+        <a href="{newsItem.pdf.originalResource.publicUrl}">
+          {newsItem.pdf.originalResource.name}
+        </a>
+      </td>
+    </tr>
+  </table>
+</html>

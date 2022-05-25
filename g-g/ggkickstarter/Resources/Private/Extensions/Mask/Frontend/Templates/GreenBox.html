@@ -1,0 +1,11 @@
+<div id="c{data.uid}" class="d-inline-block bg-primary text-white p-3 ww-greenbox {f:if(condition:'{data.tx_mask_class}', then: '{data.tx_mask_class}')}">
+    <f:if condition="{data.header}">
+        <p class="fs-5 mb-0">{data.header}</p>
+    </f:if>
+    <f:if condition="{data.subheader}">
+        <p class="fw-bold mb-0">{data.subheader}</p>
+    </f:if>
+    <f:if condition="{data.bodytext}">
+        {data.bodytext -> f:format.html()}
+    </f:if>
+</div>

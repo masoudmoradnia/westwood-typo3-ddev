@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:fachverarbeitersuche/Resources/Private/Language/locallang_csh" date="2021-07-13T11:27:35Z" product-name="fachverarbeitersuche">
+		<header/>
+		<body>
+			<trans-unit id="address.description" resname="address.description">
+				<source>address</source>
+			</trans-unit>
+			<trans-unit id="application.description" resname="application.description">
+				<source>application</source>
+			</trans-unit>
+			<trans-unit id="ramp.description" resname="ramp.description">
+				<source>ramp</source>
+			</trans-unit>
+			<trans-unit id="stairway.description" resname="stairway.description">
+				<source>stairway</source>
+			</trans-unit>
+			<trans-unit id="parking.description" resname="parking.description">
+				<source>parking</source>
+			</trans-unit>
+			<trans-unit id="topdeck.description" resname="topdeck.description">
+				<source>topdeck</source>
+			</trans-unit>
+			<trans-unit id="betweendeck.description" resname="betweendeck.description">
+				<source>betweendeck</source>
+			</trans-unit>
+			<trans-unit id="area.description" resname="area.description">
+				<source>area</source>
+			</trans-unit>
+			<trans-unit id="email.description" resname="email.description">
+				<source>email</source>
+			</trans-unit>
+			<trans-unit id="firstname.description" resname="firstname.description">
+				<source>firstname</source>
+			</trans-unit>
+			<trans-unit id="lastname.description" resname="lastname.description">
+				<source>lastname</source>
+			</trans-unit>
+			<trans-unit id="tel.description" resname="tel.description">
+				<source>tel</source>
+			</trans-unit>
+			<trans-unit id="message.description" resname="message.description">
+				<source>message</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

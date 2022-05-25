@@ -1,0 +1,67 @@
+<div class="text-center" v-if="loading">
+  <!-- Referenzen werden geladen ... -->
+  <div class="w-6 h-6 lds-spinner lds-spinner--primary">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<div class="ww-reference__list col-md-8 col-lg-9" v-if="!loading">
+  <section v-for="ref in references" v-if="(ref.referencesmm).length > 0">
+    <p :class="'h1 text-'+ref.class">{{ ref.title }}</p>
+
+    <article
+      v-if="index < ref.refToShow"
+      v-for="(item, index) in ref.referencesmm"
+      class="ww-reference__item ww-reference__item--short"
+    >
+      <aside>
+        <img
+          style="width: 128px"
+          class="img-fluid"
+          :src="api_url+'api/img'+(JSON.parse(item.images))[0]+'?w=200&fit=max'"
+          loading="lazy"
+        />
+      </aside>
+      <header>
+        <h1>{{ item.title }}</h1>
+        <h2>{{ item.subtitle }}</h2>
+      </header>
+      <footer>
+        <a :href="'{refPageUri}'+item.id"
+          ><span>weiterlesen</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+            ></path></svg
+        ></a>
+      </footer>
+    </article>
+
+    <footer
+      class="mt-4 text-center"
+      v-if="ref.refToShow <  (ref.referencesmm).length"
+    >
+      <button @click="ref.refToShow += 3" class="text-primary btn btn-link">
+        <!-- <div class="lds-spinner lds-spinner--primary"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> -->
+        <div>weitere anzeigen</div>
+      </button>
+    </footer>
+  </section>
+</div>

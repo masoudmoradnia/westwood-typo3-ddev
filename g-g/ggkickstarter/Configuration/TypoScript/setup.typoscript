@@ -1,0 +1,323 @@
+
+@import 'EXT:ggkickstarter/Configuration/TypoScript/Libs'
+@import 'EXT:ggkickstarter/Configuration/TypoScript/Helper/DynamicContent.typoscript'
+@import 'EXT:ggkickstarter/Configuration/TypoScript/Container/1col-container.typoscript'
+@import 'EXT:ggkickstarter/Configuration/TypoScript/Container/2col-container.typoscript'
+@import 'EXT:ggkickstarter/Configuration/TypoScript/Container/3col-container.typoscript'
+
+
+###Body Tag###
+#############
+page.bodyTagCObject  >
+page.bodyTagCObject < lib.bodyTagCObject
+
+
+page = PAGE
+page {
+  typeNum = 0
+
+  headerData.1 = TEXT
+  headerData.1.value = <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f90eb670-f8e6-4280-94c0-f819214500f8" data-blockingmode="auto" type="text/javascript"></script>
+
+ #headerData.2 = TEXT
+ #headerData.2.value(
+ #  <!-- Global site tag (gtag.js) - Google Analytics -->
+ #  <script async src=https://www.googletagmanager.com/gtag/js?id=G-4W9X96XTQ8></script>
+ #   <script>
+ #     window.dataLayer = window.dataLayer || [];
+ #     function gtag(){dataLayer.push(arguments);}
+ #     gtag('js', new Date());
+ #     gtag('config', 'G-4W9X96XTQ8');
+ #   </script>
+ #)
+ headerData.2 = TEXT
+ headerData.2.value(
+	 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+	})(window,document,'script','dataLayer','GTM-WWTL9BS');</script>
+
+	<!-- End Google Tag Manager -->
+ )
+ 
+#headerData.10 = TEXT
+#headerData.10.value(
+#  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCChGdNJyPSTbH2XY8MEL-mwun4WxpHCV0&libraries=places">##</script>
+#)
+
+  ### META dynamisch ausgeben ###
+###############################
+page.meta{
+#     keywords.field = keywords
+#     keywords.ifEmpty (
+#          
+#     )
+#     description.field = description
+#     description.ifEmpty (
+#          
+#     )
+# organization = 
+# copyright = 
+# author = 
+# publisher = 
+#language = de, deutsch, german
+robots = index, follow
+revisit-after = 7 days
+ viewport = width=device-width, initial-scale=1, maximum-scale=1 
+ http-equiv="X-UA-Compatible" content="IE=edg e,chrome=1"
+}
+
+
+  // Part 1: Fluid template section
+  10 = FLUIDTEMPLATE
+  10 {
+  file.stdWrap.cObject = CASE
+  file.stdWrap.cObject {
+        key.data = pagelayout
+
+        default = TEXT
+        default.value = EXT:ggkickstarter/Resources/Private/Templates/Page/Default.html
+
+        3 = TEXT
+        3.value = EXT:ggkickstarter/Resources/Private/Templates/Page/Listungenfuer.html
+
+        4 = TEXT
+        4.value = EXT:ggkickstarter/Resources/Private/Templates/Page/All.html
+
+        5 = TEXT
+        5.value = EXT:ggkickstarter/Resources/Private/Templates/Page/Search.html
+
+  }
+    // templateName = TEXT
+    // templateName.stdWrap.cObject = CASE
+    // templateName.stdWrap.cObject {
+    //   key.data = pagelayout
+
+    //   pagets__ggkickstarter_default = TEXT
+    //   pagets__ggkickstarter_default.value = Default
+
+    //   default = TEXT
+    //   default.value = Default
+    // }
+    templateRootPaths {
+      0 = EXT:ggkickstarter/Resources/Private/Templates/Page/
+      1 = {$page.fluidtemplate.templateRootPath}
+    }
+    partialRootPaths {
+      0 = EXT:ggkickstarter/Resources/Private/Partials/Page/
+      1 = {$page.fluidtemplate.partialRootPath}
+      // 200 = EXT:ggkickstarter/Resources/Private/Extensions/fluid_styled_content/Partials/
+    }
+    layoutRootPaths {
+      0 = EXT:ggkickstarter/Resources/Private/Layouts/Page/
+      1 = {$page.fluidtemplate.layoutRootPath}
+    }
+    dataProcessing {
+
+      5 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        5 {
+           special = directory
+           special.value=55
+           levels = 2
+           as = main_menu_extras
+           expandAll = 1
+           titleField = nav_title // title
+           dataProcessing {
+             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+             10 {
+               references.fieldName = media
+             }
+           }
+          
+        }
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+           special = directory
+           special.value=2
+           levels = 1
+           as = topnavigation
+           expandAll = 1
+           titleField = nav_title // title
+           dataProcessing {
+             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+             10 {
+               references.fieldName = media
+             }
+           }
+        }
+
+        20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        20 {
+           special = directory
+           special.value=7
+           levels = 1
+           as = quicknav
+           expandAll = 1
+           titleField = nav_title // title
+           dataProcessing {
+             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+             10 {
+               references.fieldName = media
+             }
+           }
+        }
+
+        30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        30 {
+           special = directory
+           special.value=12
+           levels = 1
+           as = footernav
+           expandAll = 1
+           titleField = nav_title // title
+           dataProcessing {
+             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+             10 {
+               references.fieldName = media
+             }
+           }
+        }
+
+        40 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        40 {
+          table = tx_mask_tabs
+          pidInList = 1
+
+          as = leistungenfuer
+          dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+               references.fieldName = tx_mask_img
+            }
+          }
+        }
+        50 = GG\Ggkickstarter\DataProcessing\GetMenuDataFromApi
+        50 {        
+          url = https://api.westwood.de/api/menu
+          as = apimenu
+          
+        }
+
+        
+    }
+  }
+
+   includeCSS {
+    bootstrap = EXT:ggkickstarter/Resources/Public/vendor/bootstrap/bootstrap.min.css
+    fonts = EXT:ggkickstarter/Resources/Public/assets/css/font.css
+
+    button = EXT:ggkickstarter/Resources/Public/components/button/button.css
+    fabricatorsearch = EXT:ggkickstarter/Resources/Public/components/fabricatorsearch/fabricatorsearch.css
+    footer = EXT:ggkickstarter/Resources/Public/components/footer/footer.css
+    hero = EXT:ggkickstarter/Resources/Public/components/hero/hero.css
+    menu = EXT:ggkickstarter/Resources/Public/components/menu/menu.css
+    metamenu = EXT:ggkickstarter/Resources/Public/components/metamenu/metamenu.css
+    news = EXT:ggkickstarter/Resources/Public/components/news/news.css
+    notification = EXT:ggkickstarter/Resources/Public/components/notification/notification.css
+    quicknav = EXT:ggkickstarter/Resources/Public/components/quicknav/quicknav.css
+    reference = EXT:ggkickstarter/Resources/Public/components/reference/reference.css
+    search = EXT:ggkickstarter/Resources/Public/components/search/search.css
+    targetgroupselect = EXT:ggkickstarter/Resources/Public/components/targetgroupselect/targetgroupselect.css
+    headline = EXT:ggkickstarter/Resources/Public/components/headline/headline.css
+    services = EXT:ggkickstarter/Resources/Public/components/services/services.css
+    media = EXT:ggkickstarter/Resources/Public/components/media/media.css
+
+    einsatzgebiete = EXT:ggkickstarter/Resources/Public/pages/einsatzgebiete/einsatzgebiete.css
+    referenzen = EXT:ggkickstarter/Resources/Public/pages/referenzen/referenzen.css
+    system = EXT:ggkickstarter/Resources/Public/pages/systeme/system.css
+    produkt = EXT:ggkickstarter/Resources/Public/pages/produkt/produkt.css
+    kontakt = EXT:ggkickstarter/Resources/Public/pages/kontakt/kontakt.css
+    unternehmen = EXT:ggkickstarter/Resources/Public/pages/unternehmen/unternehmen.css
+    news = EXT:ggkickstarter/Resources/Public/components/news/news.css
+    newsPage = EXT:ggkickstarter/Resources/Public/pages/news/news.css
+    seminare = EXT:ggkickstarter/Resources/Public/pages/seminare/seminare.css
+
+    loader =  EXT:ggkickstarter/Resources/Public/assets/css/loader.css
+    form = @import './form.css
+  
+
+    website = EXT:ggkickstarter/Resources/Public/assets/css/main.css
+    vueAagileCss = EXT:ggkickstarter/Resources/Public/vendor/vue-agile/VueAgile.css
+  }
+
+  // Part 3: JavaScript file inclusion
+  includeJS {
+    #jq = EXT:ggkickstarter/Resources/Public/vendor/jquery/jquery-3.6.0.min.js
+    #env = EXT:ggkickstarter/Resources/Public/assets/js/enviroment.js
+    #vue = EXT:ggkickstarter/Resources/Public/vendor/vue/vue.min.js
+    #vueAagile = EXT:ggkickstarter/Resources/Public/vendor/vue-agile/VueAgile.umd.min.js
+  }
+
+  includeJSFooter {
+
+    jq = EXT:ggkickstarter/Resources/Public/vendor/jquery/jquery-3.6.0.min.js
+    env = EXT:ggkickstarter/Resources/Public/assets/js/enviroment.js
+    vue = EXT:ggkickstarter/Resources/Public/vendor/vue/vue.min.js
+    vueAagile = EXT:ggkickstarter/Resources/Public/vendor/vue-agile/VueAgile.umd.min.js
+
+    bootstrap = EXT:ggkickstarter/Resources/Public/vendor/bootstrap/bootstrap.min.js
+    popper = EXT:ggkickstarter/Resources/Public/vendor/popperjs/popper.min.js
+
+    menu= EXT:ggkickstarter/Resources/Public/components/menu/menu.js
+    search = EXT:ggkickstarter/Resources/Public/components/search/search.js
+    hero = EXT:ggkickstarter/Resources/Public/components/hero/hero.js
+    reference = EXT:ggkickstarter/Resources/Public/components/reference/reference.js
+    media = EXT:ggkickstarter/Resources/Public/components/media/media.js    
+    fabricatorsearch = EXT:ggkickstarter/Resources/Public/components/fabricatorsearch/fabricatorsearch.js
+    contact = EXT:ggkickstarter/Resources/Public/components/contact/contact.js
+    responsive = EXT:ggkickstarter/Resources/Public/assets/js/responsive.js
+    referenzenFilter = EXT:ggkickstarter/Resources/Public/pages/referenzen/referenzenFilter.js
+    report = EXT:ggkickstarter/Resources/Public/pages/referenzen/report.js
+    system = EXT:ggkickstarter/Resources/Public/pages/systeme/system.js
+    produkt =EXT:ggkickstarter/Resources/Public/pages/produkt/produkt.js
+    seminar =EXT:ggkickstarter/Resources/Public/pages/seminare/seminar.js
+    fslightbox = EXT:ggkickstarter/Resources/Public/assets/js/fslightbox.js
+    
+  }
+}
+
+// Part 4: global site configuration
+config {
+  absRefPrefix = auto
+  cache_period = 86400
+  debug = 0
+  disablePrefixComment = 1
+  doctype = html5
+  extTarget =
+  index_enable = 1
+  index_externals = 1
+  index_metatags = 1
+  inlineStyle2TempFile = 1
+  intTarget =
+  linkVars = L
+  metaCharset = utf-8
+  no_cache = 0
+  pageTitleFirst = 1
+  prefixLocalAnchors = all
+  removeDefaultJS = 0
+  renderCharset = utf-8
+  sendCacheHeaders = 1
+  uniqueLinkVars = 1
+
+  // Compression and concatenation of CSS and JS Files
+  compressCss = 0
+  compressJs = 0
+  concatenateCss = 0
+  concatenateJs = 0
+}
+
+page.20 = TEXT
+page.20.value(
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-WWTL9BS
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+)

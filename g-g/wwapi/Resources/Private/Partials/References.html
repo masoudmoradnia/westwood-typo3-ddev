@@ -1,0 +1,109 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<f:if condition="{elements.header}">
+    <section id="ww-hero" class="ww-hero">
+        <article class="ww-hero__article">
+            <aside>
+                <f:image src="{api_url}api/img{elements.header}?w=1400&h=600&fit=crop" alt="" loading="lazy"/>
+            </aside>       
+        </article>
+    </section>
+</f:if>
+<div id="ww-reference-report" class="ww-area--{wwapi:setClassForReferences(refId: elements.applications.0.id)}">
+    <div class="ww-headline container_fluid">
+        <div class="ww-headline__icon"><svg xmlns="http://www.w3.org/2000/svg" width="101" height="164"
+                viewBox="0 0 101 164">
+                <defs></defs>
+                <g transform="translate(-760 -3808)">
+                    <rect fill="{wwapi:setColorValue(refId: elements.applications.0.id)}" width="101" height="164" transform="translate(760 3808)"></rect><text
+                        fill="#ffffff" font-size="78" transform="translate(785 3953)">
+                        <tspan x="0" y="0">{wwapi:getfirstletter(word: elements.applications.0.title)}</tspan>
+                    </text>
+                </g>
+            </svg></div>
+        <div class="ww-headline__text">
+            <h1>{elements.title}</h1>
+            <h2 class="fs-5">{elements.subtitle}</h2>
+        </div>
+    </div>
+    <section class="ww-area-teaser">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5 d-md-flex flex-column justify-content-md-center">
+                    <f:format.raw>{elements.processor}</f:format.raw>
+                </div>
+                <div class="col-md-7" id="ww-reference-report-images">
+                    <f:variable name="images" value="{wwapi:jsondecoder(jsonstring: elements.images)}" />
+                    <agile :options="refReportOptions" @after-change="e => currentSlide = e.currentSlide">
+                        <f:for each="{images}" as="img">
+                            <div>
+                                <div class="position-relative">
+                                    <a href="{api_url}{filesRepo}{img}" data-fslightbox="gallery" data-type="image"></a>
+                                    <f:image src="{api_url}api/img{img}?w=640&fit=max" alt="" loading="lazy" />
+                                </div>
+                            </div>
+                        </f:for>
+                        <template slot="caption">{{ currentSlide+1 }} / <f:count>{images}</f:count></template>
+                        <template slot="prevButton">
+                            <svg height="1.5rem" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
+                        </template>
+                        <template slot="nextButton">
+                            <svg height="1.5rem" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
+                        </template>
+                    </agile>
+                </div>
+            </div>
+    </section>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <f:format.raw>{elements.description}</f:format.raw>
+                <div class="row mt-5">
+                    <f:if condition="{elements.systems->f:count()}">
+                        <div class="col-md">
+                            <p class="fw-bold">Verwendete Systeme</p>
+                            <ul class="ww-list ww-list--plus">
+                                <f:for each="{elements.systems}" as="system">
+                                    <f:variable name="group" value="{related_system_systemgroup_array.{system.id}}" />
+                                    <li>
+                                        <f:link.action pageUid="34" arguments="{system_id:system.id, group:group}">
+                                            {system.title}
+                                        </f:link.action>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </div>
+                    </f:if>
+                    <f:if condition="{elements.downloads->f:count()}">
+                        <div class="col-md">
+                            <p class="fw-bold">Downloads</p>
+                            <ul class="ww-list ww-list--download">
+                                <f:for each="{elements.downloads}" as="download">
+                                    <f:variable name="dl" value="{wwapi:jsondecoder(jsonstring: download.data_file)}" />
+                                    <f:if condition="{dl}">
+                                        <li><a target="_blank" href="{api_url}{filesRepo}{dl.0.download_link}">PDF |&nbsp;{download.title}</a></li>
+                                    </f:if>
+                                </f:for>
+                            </ul>
+                        </div>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ww-references my-5">
+        <div class="ww-references__container container-fluid">
+            <div class="container p-4">
+                <h1 class="ww-references__headline">Aktuelle Referenzen</h1>
+            </div>
+            <div id="ww-references-slider" class="container">
+                <f:render partial="AllRefs" arguments="{_all}" />
+
+            </div>
+            <div class="container p-2">
+                <f:link.page pageUid="3" class="ww-button ww-button--secondary ww-button--full my-2 my-md-4">
+                    Alle Referenzen
+                </f:link.page>
+            </div>
+        </div>
+    </section>
+</div>

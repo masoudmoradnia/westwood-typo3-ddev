@@ -1,0 +1,31 @@
+<section class="ww-targetgroupselect container-md">
+  <header>
+    <f:if condition="{data.header}">
+      <h1>{data.header}</h1>
+    </f:if>
+    <f:if condition="{data.bodytext}">
+      {data.bodytext -> f:format.html()}
+    </f:if>
+  </header>
+
+  <ul class="ww-targetgroupselect__list">
+    <f:for each="{data.tx_mask_tabs}" as="data_item">
+      <li
+        class="ww-targetgroupselect__item"
+        data-img="fileadmin{data_item.tx_mask_img.0.identifier}"
+      >
+        <f:link.typolink parameter="{data_item.tx_mask_link}"
+          >{data_item.tx_mask_title}</f:link.typolink
+        >
+      </li>
+    </f:for>
+  </ul>
+
+  <aside>
+    <img
+      data-src="fileadmin{data.tx_mask_tabs.0.tx_mask_img.0.identifier}"
+      alt=""
+      loading="lazy"
+    />
+  </aside>
+</section>

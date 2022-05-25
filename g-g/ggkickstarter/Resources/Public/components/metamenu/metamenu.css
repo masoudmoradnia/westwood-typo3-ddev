@@ -1,0 +1,33 @@
+.ww-metamenu {
+  padding: 0.65rem 0;
+}
+
+.ww-metamenu .nav-link {
+  color: var(--light-gray);
+  fill: var(--light-gray);
+  text-decoration: none;
+  transition: all var(--transition-duration) var(--transition-timing);
+  display: flex;
+  gap: 0.25em;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.ww-metamenu li:first-child .nav-link {
+  padding-left: 0;
+}
+.ww-metamenu li:last-child .nav-link {
+  padding-right: 0;
+}
+
+.ww-metamenu .nav-link:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+  fill: var(--primary-color);
+}
+
+.ww-metamenu ul {
+  border-bottom: 1px solid var(--light-gray);
+}

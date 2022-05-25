@@ -1,0 +1,29 @@
+<section class="ww-services">
+  <div class="container">
+    <f:for each="{data.tx_mask_service}" as="data_item">
+      <section
+        class="ww-serviceBox"
+        id="{data_item.tx_mask_title -> f:format.urlencode()}"
+      >
+        <div class="serviceBox__image">
+          <f:image image="{data_item.tx_mask_img.0}" width="830" />
+        </div>
+
+        <div class="ww-serviceBox__content">
+          <h1>{data_item.tx_mask_title}</h1>
+          {data_item.tx_mask_text -> f:format.html()}
+          <f:if condition="{data_item.tx_mask_link}">
+            <div class="ww-serviceBox__action">
+              <f:link.typolink
+                parameter="{data_item.tx_mask_link}"
+                class="ww-button ww-button--primary"
+              >
+                {data_item.tx_mask_link_text}
+              </f:link.typolink>
+            </div>
+          </f:if>
+        </div>
+      </section>
+    </f:for>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwcontact/Resources/Private/Language/locallang_db" date="2021-07-15T15:10:06Z" product-name="wwcontact">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwcontact_domain_model_request" resname="tx_wwcontact_domain_model_request">
+				<source>Request</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_form.name" resname="tx_wwcontact_form.name">
+				<source>Kontakt Formular</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_form.description" resname="tx_wwcontact_form.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,24 @@
+<div
+  class="container__element layout-1 gray__container_image_protrude {f:if(condition:'{data.tx_mask_reverse}', then: 'reverse')}"
+>
+  <div class="container-md">
+    <div class="row">
+      <div class="col-sm">
+        <f:if condition="{data.header}">
+          <h2>{data.header}</h2>
+        </f:if>
+        <f:if condition="{data.subheader}">
+          <strong>{data.subheader}</strong>
+        </f:if>
+        <f:if condition="{data.bodytext}">
+          {data.bodytext -> f:format.html()}
+        </f:if>
+      </div>
+      <div class="col-sm">
+        <f:for each="{data.image}" as="file">
+          <f:image image="{file}" width="600" />
+        </f:for>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<f:variable name="info" value="{wwapi:returnAllApiInfo()}" />
+<f:variable name="t3conf" value="{wwapi:T3ConfVar()}" />
+<f:if condition="{data.header}">
+    <h2>{data.header}</h2>
+</f:if>
+<f:if condition="{data.bodytext}">
+    <div class="mt-4 w-50">
+        {data.bodytext -> f:format.html()}
+    </div>
+</f:if>
+
+<div class="row row-cols-auto my-5">
+    <f:for each="{info.applications}" as="application">
+
+        <f:switch expression="{application.id}">
+            <f:case value="1">
+                <f:variable name="class" value="balkon" />
+            </f:case>
+            <f:case value="2">
+                <f:variable name="class" value="parken" />
+            </f:case>
+            <f:case value="3">
+                <f:variable name="class" value="verkehr" />
+            </f:case>
+            <f:case value="4">
+                <f:variable name="class" value="dach" />
+            </f:case>
+            <f:case value="5">
+                <f:variable name="class" value="spezial" />
+            </f:case>
+            <f:defaultCase>
+                <f:variable name="class" value="spezial" />
+            </f:defaultCase>
+        </f:switch>
+
+        <div class="col mt-xl-0" style="margin-top: 5rem;">
+            <f:link.page pageUid="32" additionalParams="{cid: application.id}" class="position-relative d-block area-link" style="width: 168px; height: 112px;">
+                <img image src="{t3conf.api_url}storage/{application.menu_img}" style="width: 100%; height: 100%; object-fit: cover;" />
+                <h6 class="title my-2 p-2 border-bottom border-dark">{application.title}</h6>
+                <div class="ww-application__area ww-menu__area--{class}" style="transform: translate3d(1rem, -1.3rem, 0);">
+                    <wwapi:getfirstletter word="{application.title}" />
+                </div>
+            </f:link.page>
+        </div> <!-- col-.// -->
+    </f:for>
+</div>

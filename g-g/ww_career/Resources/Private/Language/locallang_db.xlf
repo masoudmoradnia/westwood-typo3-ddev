@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ww_career/Resources/Private/Language/locallang_db" date="2021-09-17T10:55:06Z" product-name="ww_career">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwcareer_domain_model_position" resname="tx_wwcareer_domain_model_position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_ww_career_career.name" resname="tx_ww_career_career.name">
+				<source>Karriere</source>
+			</trans-unit>
+			<trans-unit id="tx_ww_career_career.description" resname="tx_ww_career_career.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

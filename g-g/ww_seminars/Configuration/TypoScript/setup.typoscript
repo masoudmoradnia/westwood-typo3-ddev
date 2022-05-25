@@ -1,0 +1,92 @@
+plugin.tx_wwseminars_seminars {
+    view {
+        templateRootPaths.0 = EXT:ww_seminars/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_wwseminars_seminars.view.templateRootPath}
+        partialRootPaths.0 = EXT:ww_seminars/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_wwseminars_seminars.view.partialRootPath}
+        layoutRootPaths.0 = EXT:ww_seminars/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_wwseminars_seminars.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_wwseminars_seminars.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_wwseminars._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    .tx-ww-seminars table {
+        border-collapse:separate;
+        border-spacing:10px;
+    }
+
+    .tx-ww-seminars table th {
+        font-weight:bold;
+    }
+
+    .tx-ww-seminars table td {
+        vertical-align:top;
+    }
+
+    .typo3-messages .message-error {
+        color:red;
+    }
+
+    .typo3-messages .message-ok {
+        color:green;
+    }
+)
+
+
+lib.validateSeminarAction = USER_INT
+lib.validateSeminarAction {
+ userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+  extensionName = WwSeminars
+  pluginName = Seminars
+  vendorName = GG
+ 
+  switchableControllerActions {
+        Request {
+          1 = create
+        }
+  }
+ 
+  settings < tx_wwseminars_seminars
+}
+validateForm = PAGE
+validateForm {
+	typeNum = 225898745
+	config {
+		disableAllHeaderCode = 1
+        additionalHeaders {
+      10 {
+        header = Content-Type: application/json
+        replace = 1
+      }
+    }
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+	}
+	10 < lib.validateSeminarAction
+}

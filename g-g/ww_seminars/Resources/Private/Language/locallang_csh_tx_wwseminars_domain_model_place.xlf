@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ww_seminars/Resources/Private/Language/locallang_csh" date="2021-09-29T13:32:50Z" product-name="ww_seminars">
+		<header/>
+		<body>
+			<trans-unit id="city.description" resname="city.description">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="address.description" resname="address.description">
+				<source>address</source>
+			</trans-unit>
+			<trans-unit id="tel.description" resname="tel.description">
+				<source>tel</source>
+			</trans-unit>
+			<trans-unit id="fax.description" resname="fax.description">
+				<source>fax</source>
+			</trans-unit>
+			<trans-unit id="email.description" resname="email.description">
+				<source>email</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

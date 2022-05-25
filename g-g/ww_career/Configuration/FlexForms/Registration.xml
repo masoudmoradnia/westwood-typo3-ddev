@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- Add settings here ... -->
+
+                    <!-- Example setting: input field with name settings.includeCategories -->
+                    <settings.category>
+                        <TCEforms>
+                            <label>Kategorie</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">Festanstellung</numIndex>
+                                        <numIndex index="1">Festanstellung</numIndex>
+                                    </numIndex>                           
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">Praktikum</numIndex>
+                                        <numIndex index="1">Praktikum</numIndex>
+                                    </numIndex>                           
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">Ausbildung</numIndex>
+                                        <numIndex index="1">Ausbildung</numIndex>
+                                    </numIndex>                           
+                                </items>
+
+
+                                <minitems>0</minitems>
+                                <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.category>
+                    
+
+                    <!-- end of settings -->
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

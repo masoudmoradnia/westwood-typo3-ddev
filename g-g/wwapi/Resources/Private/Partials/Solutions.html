@@ -1,0 +1,33 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<div class="ww-systems">
+  <div class="container py-5">
+    <h1 class="text-primary text-center ww-systems__title">
+      <f:translate key="tx_wwapi_domain_model_{category}" />
+    </h1>
+  </div>
+  <div class="container ww-systems__grid">
+    <div class="row g-5 row-cols-2 row-cols-md-3 row-cols-lg-4">
+      <f:for each="{elements}" as="element">
+        <f:link.page
+          pageUid="52"
+          class="col"
+          additionalParams="{sid:element.id}"
+        >
+          <div class="ww-systems__griditem h-100">
+            <div class="overflow-hidden p-4 bg-white">
+              <f:image
+                src="{api_url}api/img{element.image}?w=250&h=250&fit=fill&bg=white"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div class="ww-systems__griditem__title">
+              <p>{element.title}</p>
+              <p>{element.subtitle}</p>
+            </div>
+          </div>
+        </f:link.page>
+      </f:for>
+    </div>
+  </div>
+</div>

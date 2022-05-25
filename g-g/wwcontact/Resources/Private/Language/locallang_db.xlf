@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwcontact/Resources/Private/Language/locallang_db" date="2021-08-31T13:27:57Z" product-name="wwcontact">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwcontact_domain_model_request" resname="tx_wwcontact_domain_model_request">
+				<source>Request</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.name" resname="tx_wwcontact_domain_model_request.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.street" resname="tx_wwcontact_domain_model_request.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.zip" resname="tx_wwcontact_domain_model_request.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.city" resname="tx_wwcontact_domain_model_request.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.email" resname="tx_wwcontact_domain_model_request.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.tel" resname="tx_wwcontact_domain_model_request.tel">
+				<source>Tel</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.company" resname="tx_wwcontact_domain_model_request.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.function" resname="tx_wwcontact_domain_model_request.function">
+				<source>Function</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_domain_model_request.message" resname="tx_wwcontact_domain_model_request.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_form.name" resname="tx_wwcontact_form.name">
+				<source>Kontakt Formular</source>
+			</trans-unit>
+			<trans-unit id="tx_wwcontact_form.description" resname="tx_wwcontact_form.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,50 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<div class="ww-reference__list col-md-8 col-xl-9" style="justify-content: flex-start;">
+  <div id="mediateck_header" v-if="downloads.length > 0">
+    <div>
+      <input type="checkbox" class="position-relative filter form-check-input" id="selectAll" value="1"
+        @change="selectAll($event)"> <span class="mx-4">Alle Ergebnisse auswählen</span> 
+    </div>
+    <div class="position-relative" id="bulkdownload" v-if="bulkdownload.length > 0" @click="dlAll">
+      {{ bulkdownload.length }}
+    </div>
+  </div>
+
+
+  <section>
+    <div v-if="selected.categories != 18">
+      <article v-if="item.data_file != '[]'" v-for="(item, index) in downloads" class="ww-reference__item ww-reference__item--short mb-2">
+        <aside>
+          <div class="form-check">
+            <input v-if="item.data_file != '[]'" class="filter form-check-input" type="checkbox"
+              :value="(JSON.parse(item.data_file))[0].download_link" v-model="bulkdownload" />
+          </div>
+          <img src="/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/file-download.svg" class="w-100 m-3"
+            alt="" />
+        </aside>
+        <header>
+          <h1>
+			  <a v-if="item.title" :href="api_url+'storage'+(JSON.parse(item.data_file))[0].download_link"
+				 target="_blank">{{ item.title }}</a>
+		  </h1>
+        </header>
+        <footer>
+          <a v-if="item.title" :href="api_url+'storage'+(JSON.parse(item.data_file))[0].download_link"
+            target="_blank"><span>weiterlesen</span>
+          </a>
+        </footer>
+      </article>
+    </div>
+    <div v-else class="row">
+      <div class="col-6" v-for="(item, index) in downloads">
+        <div class="video-container mb-2">
+          <iframe :src="'https://www.youtube-nocookie.com/embed/'+item.youtube_id+'?modestbranding=1&rel=0'"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        </div>
+        <div v-html="item.description"></div>
+      </div>
+    </div>
+  </section>
+</div>

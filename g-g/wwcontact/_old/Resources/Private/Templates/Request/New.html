@@ -1,0 +1,55 @@
+<section class="ww-contactform" id="ww-contactform">
+  <aside>
+    <f:image class="img-cover" image="{image.image.0}"></f:image>
+  </aside>
+  <div class="container p-5">
+    <div>
+      <h1 class="text-primary">{settings.title}</h1>
+      <p>
+        <f:format.html>{settings.intro}</f:format.html>
+      </p>
+    </div>
+    <form action="">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Vor- und Nachname">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Straße">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="PLZ">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Ort">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="E-Mail Adresse*">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Telefonnummer*">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Firma">
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <input type="text" placeholder="Funktion">
+        </div>
+        <div class="col-md-8">
+          <textarea name="" id="" cols="30" rows="10" placeholder="Ihre Nachricht*"></textarea>
+        </div>
+        <div class="col-md-4 d-flex flex-column justify-content-between">
+          <label class="d-flex gap-2">
+            <input type="checkbox" class="mt-2">
+            <p>
+              WestWood schützt persönliche Daten gewissenhaft und verwendet sie ausschließlich zu dem Zweck, zu dem sie
+              zur Verfügung gestellt werden. Mit der Erhebung und Verwendung dieser personenbezogenen Daten (siehe <a
+                href="">Datenschutz</a>) bin ich einverstanden. *
+            </p>
+          </label>
+          <button type="submit" class="ww-button ww-button--primary ww-button--full">Senden</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

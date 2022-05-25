@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwapi/Resources/Private/Language/locallang" date="2021-07-28T16:59:49Z" product-name="wwapi">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwapi_domain_model_item" resname="tx_wwapi_domain_model_item">
+				<source>Item</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_domain_model_Joints" resname="tx_wwapi_domain_model_Joints">
+				<source>Fugen</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_domain_model_Upstands_and_edges" resname="tx_wwapi_domain_model_Upstands_and_edges">
+				<source>Auf- und Abkantungen</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_domain_model_Penetrations" resname="tx_wwapi_domain_model_Penetrations">
+				<source>Durchdringungen</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_domain_model_Application_Areas" resname="tx_wwapi_domain_model_Application_Areas">
+				<source>Einsatzgebiete</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

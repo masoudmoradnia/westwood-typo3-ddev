@@ -1,0 +1,91 @@
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    425,
+                    173
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": true,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "Position",
+                "objectsettings": {
+                    "addDeletedField": false,
+                    "addHiddenField": false,
+                    "addStarttimeEndtimeFields": false,
+                    "aggregateRoot": false,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "ValueObject",
+                    "uid": "490149797567"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [],
+        "description": "",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 10.4.0-10.4.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "generateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "10.4.0-10.4.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "ww_career",
+        "name": "Karriere",
+        "originalExtensionKey": "ww_career",
+        "originalVendorName": "GG",
+        "persons": [
+            {
+                "company": "Graphic Group Mensch und Media",
+                "email": "masoud.moradnia@graphic-group.de",
+                "name": "Masoud Moradnia",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "",
+                    "noncacheableActions": ""
+                },
+                "description": "",
+                "key": "career",
+                "name": "Karriere"
+            }
+        ],
+        "vendorName": "GG"
+    },
+    "wires": [],
+    "storagePath": "\/home\/www\/p592027\/html\/typo3\/typo3conf\/ext\/",
+    "log": {
+        "last_modified": "2021-09-17 10:55",
+        "extension_builder_version": "9.11.0",
+        "be_user": " (1)"
+    }
+}

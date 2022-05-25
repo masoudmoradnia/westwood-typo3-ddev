@@ -1,0 +1,250 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+
+<div class="col-md-7 offset-md-1 col-xl-8">
+  <section class="pt-1 mb-5 row">
+    <div class="col-lg-6">
+      <div class="fs-5">
+        <p>{elements.subtitle}</p>
+      </div>
+      <div>
+        <f:format.raw>{elements.description}</f:format.raw>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="ww-systems__imageslide">
+        <f:variable
+          name="slides"
+          value="{wwapi:jsondecoder(jsonstring: elements.images)}"
+        />
+        <agile
+          class="main"
+          ref="main"
+          :options="options1"
+          :as-nav-for="asNavFor1"
+        >
+          <f:for each="{slides}" as="slide" iteration="iterator">
+            <div class="slide" class="slide--{iterator.cycle}">
+              <img src="{api_url}api/img{slide}?w=480fit=max" loading="lazy" />
+            </div>
+          </f:for>
+        </agile>
+        <f:if condition="{slides -> f:count()} > 1">
+          <agile
+            class="thumbnails"
+            ref="thumbnails"
+            :options="{
+                autoplay: false,
+                centerMode: false,
+                navButtons: false,
+                infinite: true,
+            }"
+            :dots="{f:if(condition: '{slides -> f:count()} > 3', then: 'true', else: 'false')}"
+            :as-nav-for="asNavFor2"
+            :slides-to-show="{f:if(condition: '{slides -> f:count()} < 3', then: '{slides -> f:count()}', else: '3')}"
+          >
+            <f:for each="{slides}" as="slide" iteration="iterator">
+              <div
+                class="slide slide--thumbnail"
+                class="slide--{iterator.cycle}"
+                @click="$refs.thumbnails.goTo({iterator.cycle - 1})"
+              >
+                <img src="{api_url}{filesRepo}/{slide}" />
+              </div>
+            </f:for>
+          </agile>
+        </f:if>
+      </div>
+    </div>
+  </section>
+  <section class="pt-1 my-5">
+    <div id="ww-systems__description" class="accordion accordion-flush">
+      <h1 class="fs-4 text-primary mb-4 mt-5">Systembeschreibung</h1>
+      <div class="accordion-item mb-4">
+        <h2 id="flush-headingOne" class="accordion-header">
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="false"
+            aria-controls="flush-collapseOne"
+            class="accordion-button collapsed fs-5"
+          >
+            Anwendungsbereiche
+          </button>
+        </h2>
+        <div
+          id="flush-collapseOne"
+          aria-labelledby="flush-headingOne"
+          data-bs-parent="#ww-systems__description"
+          class="accordion-collapse collapse"
+        >
+          <div class="accordion-body">
+            <f:format.raw>{elements.Application}</f:format.raw>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item mb-4">
+        <h2 id="flush-headingTwo" class="accordion-header">
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+            class="accordion-button collapsed fs-5"
+          >
+            Eigenschaften und Vorteile
+          </button>
+        </h2>
+        <div
+          id="flush-collapseTwo"
+          aria-labelledby="flush-headingTwo"
+          data-bs-parent="#ww-systems__description"
+          class="accordion-collapse collapse"
+        >
+          <div class="accordion-body">
+            <div class="ww-list">
+              <f:format.raw>{elements.properties}</f:format.raw>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item mb-4">
+        <h2 id="flush-headingThree" class="accordion-header">
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree"
+            aria-expanded="false"
+            aria-controls="flush-collapseThree"
+            class="accordion-button collapsed fs-5"
+          >
+            Dokumente &amp; Downloads
+          </button>
+        </h2>
+        <div
+          id="flush-collapseThree"
+          aria-labelledby="flush-headingThree"
+          data-bs-parent="#ww-systems__description"
+          class="accordion-collapse collapse"
+        >
+          <div class="accordion-body">
+            <div class="_row _row-cols-1 _row-cols-lg-2">
+              <f:for each="{downloads}" as="dlCategory">
+                <f:if condition="{dlCategory.downloads->f:count()}">
+                  <div class="_col">
+                    {dlCategory.title}
+                    <ul class="ww-list ww-list--download mt-2">
+                      <f:for each="{dlCategory.downloads}" as="data">
+                        <f:variable
+                          name="data_file"
+                          value="{wwapi:jsondecoder(jsonstring: data.data_file)}"
+                        />
+                        <li>
+                          <a
+                            target="_blank"
+                            href="{api_url}{filesRepo}{data_file.0.download_link}"
+                            >PDF |&nbsp;{data.title}</a
+                          >
+                        </li>
+                      </f:for>
+                    </ul>
+                  </div>
+                </f:if>
+              </f:for>
+              <!-- <div class="col">
+                                <f:for each="{downloads}" as="dlCategory" iteration="dlIterator">
+                                    <f:if condition="{dlIterator.cycle} % 2">
+                                        <f:if condition="{dlCategory.downloads->f:count()}">
+                                            {dlIterator.cycle} - {dlCategory.title}
+                                            <ul class="ww-list ww-list--download mt-2">
+                                                <f:for each="{dlCategory.downloads}" as="data">
+                                                    <f:variable name="data_file"
+                                                        value="{wwapi:jsondecoder(jsonstring: data.data_file)}" />
+                                                    <li>
+                                                        <a target="_blank"
+                                                            href="{api_url}{filesRepo}{data_file.0.download_link}">PDF
+                                                            |&nbsp;{data.title}</a>
+                                                    </li>
+                                                </f:for>
+                                            </ul>
+                                        </f:if>
+                                    </f:if>
+                                </f:for>
+                            </div>
+                            <div class="col">
+                                <f:for each="{downloads}" as="dlCategory" iteration="dlIterator">
+                                    <f:if condition="({dlIterator.cycle} % 2) == false">
+                                        <f:if condition="{dlCategory.downloads->f:count()}">
+                                            {dlIterator.cycle} - {dlCategory.title}
+                                            <ul class="ww-list ww-list--download mt-2">
+                                                <f:for each="{dlCategory.downloads}" as="data">
+                                                    <f:variable name="data_file"
+                                                        value="{wwapi:jsondecoder(jsonstring: data.data_file)}" />
+                                                    <li>
+                                                        <a target="_blank"
+                                                            href="{api_url}{filesRepo}{data_file.0.download_link}">PDF
+                                                            |&nbsp;{data.title}</a>
+                                                    </li>
+                                                </f:for>
+                                            </ul>
+                                        </f:if>
+                                    </f:if>
+                                </f:for>
+                            </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section class="my-5"><button class="ww-button ww-button--square ww-button--full ww-button--lg">Lorem
+            Ipsum: www.ausschreiben.de</button></section> -->
+  <f:if condition="{elements.referencesmm -> f:count()} >= 1">
+    <section class="pt-1 my-5">
+      <h1 class="fs-4 text-primary mb-4 mt-5">
+        Einsatz des Systems in Referenzen
+      </h1>
+
+      <f:variable name="agile_options" value="options3" />
+      <f:render partial="RefCarousel" arguments="{_all}" />
+
+      <div class="my-5 container-fluid">
+        <f:link.page
+          pageUid="3"
+          class="ww-button ww-button--secondary ww-button--full"
+        >
+          Alle Referenzen
+        </f:link.page>
+      </div>
+    </section>
+  </f:if>
+
+  <section class="pt-1 my-5">
+    <f:if condition="{elements.downloads -> f:count()} > 1">
+      <f:for each="{elements.downloads}" as="download" iteration="iterator">
+        <f:if condition="{download.youtube_id}">
+          <h1 class="fs-4 text-primary mb-4 mt-5">{download.title}</h1>
+          <f:format.raw>{download.description}</f:format.raw>
+          <iframe
+            class="w-100"
+            width="720"
+            height="405"
+            src="https://www.youtube-nocookie.com/embed/{download.youtube_id}?modestbranding=1&rel=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </f:if>
+      </f:for>
+    </f:if>
+    <!-- <div class="demo-digitaler-inhalt"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                data-icon="file-video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                class="svg-inline--fa fa-file-video fa-w-12">
+                <path fill="currentColor"
+                    d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.005 24.005 0 0 1 384 121.941zM224 136V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248c-13.2 0-24-10.8-24-24zm96 144.016v111.963c0 21.445-25.943 31.998-40.971 16.971L224 353.941V392c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V280c0-13.255 10.745-24 24-24h112c13.255 0 24 10.745 24 24v38.059l55.029-55.013c15.011-15.01 40.971-4.491 40.971 16.97z">
+                </path>
+            </svg></div> -->
+  </section>
+</div>

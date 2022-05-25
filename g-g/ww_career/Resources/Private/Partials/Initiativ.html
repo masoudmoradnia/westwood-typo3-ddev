@@ -1,0 +1,40 @@
+<div class="ww-headline">
+    <div class="ww-headline__text">
+        <h1>
+            {jobContent.content.title}
+        </h1>
+    </div>
+</div>
+<div class="job_introductin">
+    <p>{jobContent.content.subtitle}</p>
+    <p>{jobContent.compony.name}</p>
+    <p>{jobContent.locationData.location}</p>
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.introduction}" />
+    </f:format.raw>
+</div>
+
+<div class="tasks frame-space-before-small">
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.tasks.blockOne}" />
+    </f:format.raw>
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.tasks.blockTwo}" />
+    </f:format.raw>
+</div>
+<div class="specifications frame-space-before-small">
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.specifications.blockOne}" />
+    </f:format.raw>
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.specifications.blockTwo}" />
+    </f:format.raw>
+</div>
+<div class="applicationDetails  frame-space-before-small">
+    <f:format.raw>
+        <wwapi:changeTags text="{jobContent.content.applicationDetails}" />
+    </f:format.raw>
+</div>
+<div class="mt-5">
+    <a href="{jobContent.links.application}" class="ww-button ww-button--primary" target="_blank">jetzt online bewerben</a>
+</div>

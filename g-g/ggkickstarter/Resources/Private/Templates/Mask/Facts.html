@@ -1,0 +1,17 @@
+
+<section class="ww-facts my-5 pt-5">
+    <div class="container-md py-4">
+        <div class="row g-5">
+            <f:for each="{data.tx_mask_fact}" as="data_item">
+                <div class="col-md-6 col-lg-4">
+                    <div class="ww-fact">
+                        <div class="ww-fact__value">{data_item.tx_mask_title}</div>
+                        <div class="ww-fact__title">{data_item.tx_mask_subtitle}</div>
+                        <div class="ww-fact__subtitle">{data_item.tx_mask_description -> f:format.nl2br()}</div>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+
+    </div>
+</section>

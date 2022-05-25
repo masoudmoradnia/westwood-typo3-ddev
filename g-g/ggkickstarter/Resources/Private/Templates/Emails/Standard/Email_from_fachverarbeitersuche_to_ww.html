@@ -1,0 +1,169 @@
+<p style="margin-bottom: 15px;">Sehr geehrte Damen und Herren,</p>
+<p style="margin-bottom: 15px;">
+    ein Interessent hat Ihre Website besucht und Ihnen eine Anfrage gesendet.<br />
+    Bitte setzen Sie sich umgehend mit dem Interessenten in Verbindung:
+</p>
+
+<table width="500">
+
+    <f:if condition="{newRequests.address}">
+        <tr>
+            <td>Adresse</td>
+            <td>{newRequests.address}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.applicationarea}">
+        <tr>
+            <td>Einsatzgebiet</td>
+            <td>{newRequests.applicationarea}</td>
+        </tr>
+    </f:if>
+
+    <f:if condition="{newRequests.balkon}">
+        <tr>
+            <td>Balkon</td>
+            <td>{newRequests.balkon}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.arcade}">
+        <tr>
+            <td>Laubengang</td>
+            <td>{newRequests.arcade}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.terrasse}">
+        <tr>
+            <td>Terrasse</td>
+            <td>{newRequests.terrasse}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.stairway}">
+        <tr>
+            <td>Treppe</td>
+            <td>{newRequests.stairway}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.ramp}">
+        <tr>
+            <td>Rampe</td>
+            <td>{newRequests.ramp}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.parking}">
+        <tr>
+            <td>Tiefgarage</td>
+            <td>{newRequests.parking}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.topdeck}">
+        <tr>
+            <td>Topdeck</td>
+            <td>{newRequests.topdeck}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.betweendeck}">
+        <tr>
+            <td>Zwischendeck</td>
+            <td>{newRequests.betweendeck}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.dachkuppel}">
+        <tr>
+            <td>Dachkuppel</td>
+            <td>{newRequests.dachkuppel}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.flachdach}">
+        <tr>
+            <td>Flachdach</td>
+            <td>{newRequests.flachdach}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.dachterasse}">
+        <tr>
+            <td>Dachterasse</td>
+            <td>{newRequests.dachterasse}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.keller}">
+        <tr>
+            <td>Keller</td>
+            <td>{newRequests.keller}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.konstruktion}">
+        <tr>
+            <td>Konstruktion</td>
+            <td>{newRequests.konstruktion}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.sonder}">
+        <tr>
+            <td>Sonder</td>
+            <td>{newRequests.sonder}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.betonfuge}">
+        <tr>
+            <td>WU-Beton-Fuge</td>
+            <td>{newRequests.betonfuge}</td>
+        </tr>
+    </f:if>
+
+
+
+    <f:if condition="{newRequests.betonfahrbahntafel}">
+        <tr>
+            <td>Betonfahrbahntafel</td>
+            <td>{newRequests.betonfahrbahntafel}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.brueckenkappe}">
+        <tr>
+            <td>Brückenkappe</td>
+            <td>{newRequests.brueckenkappe}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.stahlbruecke}">
+        <tr>
+            <td>Stahlbrücke</td>
+            <td>{newRequests.stahlbruecke}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.trogbauwerk}">
+        <tr>
+            <td>Trogbauwerk</td>
+            <td>{newRequests.trogbauwerk}</td>
+        </tr>
+    </f:if>
+    <f:if condition="{newRequests.area}">
+        <tr>
+            <td>Gesamtfläche</td>
+            <td>{newRequests.area}</td>
+        </tr>
+    </f:if>
+    <tr>
+        <td>Name</td>
+        <td>{newRequests.title} {newRequests.firstname} {newRequests.lastname}</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td>{newRequests.email}</td>
+    </tr>
+    <tr>
+        <td>Telefon</td>
+        <td>{newRequests.tel}</td>
+    </tr>
+    <tr>
+        <td>Nachricht</td>
+        <td>{newRequests.message}</td>
+    </tr>
+
+
+</table>
+
+<p>
+    Mit freundlichen Grüßen<br />
+
+    Ihr WestWood-Team aus Petershagen
+</p>

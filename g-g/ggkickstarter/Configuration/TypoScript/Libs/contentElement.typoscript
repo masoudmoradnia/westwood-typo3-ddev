@@ -1,0 +1,12 @@
+lib.contentElement {
+//    templateRootPaths {
+//       200 = EXT:your_extension_key/Resources/Private/Templates/
+//    }
+   partialRootPaths {
+      200 = EXT:ggkickstarter/Resources/Private/Extensions/fluid_styled_content/Partials
+
+   }
+//    layoutRootPaths {
+//       200 = EXT:your_extension_key/Resources/Private/Layouts/
+//    }
+}

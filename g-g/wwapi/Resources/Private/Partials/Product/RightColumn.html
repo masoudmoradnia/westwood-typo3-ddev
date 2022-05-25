@@ -1,0 +1,145 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+
+<div class="col-md-7 offset-md-1 col-xl-8">
+    <section class="mb-5">
+        <p class="fs-5">{elements.subtitle}</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <f:format.raw>{elements.description}</f:format.raw>
+            </div>
+            <div class="col-lg-4 mt-2 mt-lg-0"><img src="{api_url}api/img{elements.image}?w=480&fit=max" alt="" loading="lazy">
+            </div>
+        </div>
+    </section>
+    <section class="my-5">
+        <div id="ww-systems__description" class="accordion accordion-flush">
+            <h1 class="fs-4 text-primary mb-4 mt-5">Produktbeschreibung</h1>
+            <div class="accordion-item mb-4">
+                <h2 id="flush-headingOne" class="accordion-header"><button type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
+                        class="accordion-button collapsed fs-5">
+                        Material
+                    </button></h2>
+                <div id="flush-collapseOne" aria-labelledby="flush-headingOne" data-bs-parent="#ww-systems__description"
+                    class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <f:format.raw>{elements.material}</f:format.raw>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-4">
+                <h2 id="flush-headingTwo" class="accordion-header"><button type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"
+                        class="accordion-button collapsed fs-5">
+                        Farbtöne
+                    </button></h2>
+                <div id="flush-collapseTwo" aria-labelledby="flush-headingTwo" data-bs-parent="#ww-systems__description"
+                    class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <ul class="ww-list list-unstyled">
+                            <f:for each="{elements.colors}" as="color">
+                                <li class="mt-2"><img src="{api_url}{filesRepo}{color.icon}" class="ww__color__icon"
+                                        alt="">{color.title}</li>
+                            </f:for>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-4">
+                <h2 id="flush-headingThree" class="accordion-header"><button type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"
+                        class="accordion-button collapsed fs-5">
+                        Einsatzbereiche
+                    </button></h2>
+                <div id="flush-collapseThree" aria-labelledby="flush-headingThree"
+                    data-bs-parent="#ww-systems__description" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <f:format.raw>{elements.area_of_application}</f:format.raw>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-4">
+                <h2 id="flush-headingFour" class="accordion-header"><button type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour"
+                        class="accordion-button collapsed fs-5">
+                        Eigenschaften &amp; Vorteile
+                    </button></h2>
+                <div id="flush-collapseFour" aria-labelledby="flush-headingFour"
+                    data-bs-parent="#ww-systems__description" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <f:format.raw>{elements.properties}</f:format.raw>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-4">
+                <h2 id="flush-headingFive" class="accordion-header"><button type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive"
+                        class="accordion-button collapsed fs-5">
+                        Dokumente &amp; Downloads
+                    </button></h2>
+                <div id="flush-collapseFive" aria-labelledby="flush-headingFive"
+                    data-bs-parent="#ww-systems__description" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="_row _row-cols-1 _row-cols-lg-2">
+                            <f:for each="{downloads}" as="dlCategory">
+                                <f:if condition="{dlCategory.downloads->f:count()}">
+                                    <div class="col">
+                                        {dlCategory.title}
+                                        <ul class="ww-list ww-list--download mt-2">
+                                            <f:for each="{dlCategory.downloads}" as="data">
+                                                <f:variable name="data_file"
+                                                    value="{wwapi:jsondecoder(jsonstring: data.data_file)}" />
+                                                <li><a target="_blank"
+                                                        href="{api_url}{filesRepo}{data_file.0.download_link}">PDF
+                                                        |&nbsp;{data.title}</a>
+                                                </li>
+                                            </f:for>
+                                        </ul>
+                                    </div>
+                                </f:if>
+
+                            </f:for>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <f:if condition="{elements.referencesmm -> f:count()} > 1">
+    <section class="my-5">
+        <h1 class="fs-4 text-primary my-3">Einsatz des Produktes in Referenzen</h1>
+        <f:variable name="agile_options" value="options1" />
+        <f:render partial="RefCarousel" arguments="{_all}" />
+        <div class="my-5 container-fluid">
+            <f:link.page pageUid="39" class="ww-button ww-button--secondary ww-button--full">
+                Alle Referenzen
+            </f:link.page>
+        </div>
+    </section>
+    </f:if>
+
+    <section class="my-5">
+        <f:if condition="{elements.downloads -> f:count()} > 1">
+            <f:for each="{elements.downloads}" as="download" iteration="iterator">
+                <f:if condition="{download.youtube_id != null}">
+                    <f:if condition="{iterator.isLast}">
+
+                        <h1 class="fs-4 text-primary mb-4 mt-5">{download.title}</h1>
+                        <iframe class="w-100" width="720" height="405" src="https://www.youtube-nocookie.com/embed/{download.youtube_id}?modestbranding=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                    </f:if>
+                </f:if>
+            </f:for>
+        </f:if>
+        <!-- <h1 class="fs-4 text-primary my-3">Digitaler Inhalt. Wenn vorhanden.</h1>
+        <div class="demo-digitaler-inhalt"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                data-icon="file-video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                class="svg-inline--fa fa-file-video fa-w-12">
+                <path fill="currentColor"
+                    d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.005 24.005 0 0 1 384 121.941zM224 136V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248c-13.2 0-24-10.8-24-24zm96 144.016v111.963c0 21.445-25.943 31.998-40.971 16.971L224 353.941V392c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V280c0-13.255 10.745-24 24-24h112c13.255 0 24 10.745 24 24v38.059l55.029-55.013c15.011-15.01 40.971-4.491 40.971 16.97z">
+                </path>
+            </svg></div> -->
+    </section>
+</div>

@@ -1,0 +1,126 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<div class="col-md-4 col-xl-3">
+    <section class="ww-systems__toggle">
+        <button type="button" data-bs-toggle="collapse"
+            data-bs-target="#ww-systems__systemuebersicht" aria-expanded="false"
+            aria-controls="ww-systems__systemuebersicht" class="ww-systems__toggleButton">
+            <span>Systemübersicht</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                  <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)" fill="#74b12c"/>
+                  <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                </g>
+            </svg>
+        </button>
+        <div id="ww-systems__systemuebersicht" class="show collapse ww-systems__toggleContent">
+            <ul class="list-unstyled">
+                <f:for each="{all_info.systemgroups}" as="systemgroups">
+                    <li>
+                        <f:if condition="{systemgroups.id} == {elements.group}">
+                            <f:then>
+                                <f:variable name="class" value="active" />
+                            </f:then>
+                            <f:else>
+                                <f:variable name="class" value="" />
+                            </f:else>
+                        </f:if>
+
+                        <f:link.action pageUid="33" arguments="{sid:systemgroups.id}" class="{class}">
+                            {systemgroups.title}
+                        </f:link.action>
+                    </li>
+                </f:for>
+
+            </ul>
+        </div>
+    </section>
+    <section class="ww-systems__toggle">
+        <button type="button" data-bs-toggle="collapse"
+            data-bs-target="#ww-systems__areas" aria-expanded="false" aria-controls="ww-systems__areas"
+            class="ww-systems__toggleButton">
+            <span>Einsatz des Systems in</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                  <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)" fill="#74b12c"/>
+                  <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                </g>
+            </svg>
+        </button>
+        <div id="ww-systems__areas" class="show collapse ww-systems__toggleContent">
+            <ul class="list-unstyled">
+                <f:for each="{elements.applications}" as="application">
+                    <f:switch expression="{application.id}">
+                        <f:case value="1">
+                            <f:variable name="class" value="balkon" />
+                        </f:case>
+                        <f:case value="2">
+                            <f:variable name="class" value="parken" />
+                        </f:case>
+                        <f:case value="3">
+                            <f:variable name="class" value="verkehr" />
+                        </f:case>
+                        <f:case value="4">
+                            <f:variable name="class" value="dach" />
+                        </f:case>
+                        <f:case value="5">
+                            <f:variable name="class" value="spezial" />
+                        </f:case>
+                        <f:defaultCase>
+                            <f:variable name="class" value="spezial" />
+                        </f:defaultCase>
+                    </f:switch>
+                    <li>
+                        <f:link.action pageUid="32" arguments="{application_id:application.id}">
+                            {application.title}
+                            <span class="area-icon bg-{class}">
+                                <wwapi:getfirstletter word="{application.title}" />
+                            </span>
+                        </f:link.action>
+                    </li>
+
+                </f:for>
+            </ul>
+        </div>
+    </section>
+
+    
+    <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#ww-systems__products" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-bs-target
+    </button>
+     
+    <div class="collapse" id="ww-systems__products">
+        <ul class="list-unstyled">
+            <f:for each="{elements.products}" as="product">
+                <li>
+                    <f:link.page pageUid="36" additionalParams="{cid:product.id}">{product.title}</f:link.page>
+                </li>
+            </f:for>
+        </ul>
+    </div> -->
+
+    <section class="ww-systems__toggle">
+        <button type="button" data-bs-toggle="collapse"
+            data-bs-target="#ww-systems__products" aria-expanded="false" aria-controls="ww-systems__products"
+            class="ww-systems__toggleButton collapsed">
+            <span>Verwendete Produkte</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                  <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)" fill="#74b12c"/>
+                  <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                </g>
+            </svg>
+        </button>
+        <div id="ww-systems__products" class="collapse ww-systems__toggleContent">
+            <ul class="list-unstyled">
+                <f:for each="{elements.products}" as="product">
+                    <li>
+                        <f:link.action pageUid="36" arguments="{prid:product.id}">{product.title}</f:link.action>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </section>
+</div>

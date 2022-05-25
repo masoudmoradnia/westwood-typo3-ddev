@@ -1,0 +1,189 @@
+.ww-referenzen {
+  background-color: #f5f5f5;
+}
+
+.ww-reference__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ww-reference__list section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ww-reference__item--short {
+  display: flex;
+  gap: 1rem;
+  background-color: #fff;
+}
+
+.ww-reference__item--short aside {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  min-width: 4.5rem;
+}
+
+.ww-reference__item--short header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ww-reference__item--short header h1 {
+  font-weight: var(--fontweight-bold);
+}
+.ww-reference__item--short header h1,
+.ww-reference__item--short header h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.ww-reference__item--short header,
+.ww-reference__item--short footer {
+  padding: 1rem;
+}
+
+.ww-reference__item--short footer a span {
+  display: none;
+}
+
+.ww-reference__item--short footer {
+  margin-right: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.ww-reference__item--short footer a svg {
+  width: 0.5rem;
+  color: var(--gray);
+}
+
+@media screen and (min-width: 768px) {
+  .ww-reference__item--short footer a {
+    border: 1px solid var(--gray);
+    color: var(--gray);
+    text-decoration: none;
+    background-color: transparent;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+  }
+  .ww-reference__item--short footer a:hover {
+    background-color: var(--primary-color);
+    border: 1px solid transparent;
+    color: white;
+  }
+
+  .ww-reference__item--short footer a span {
+    display: initial;
+  }
+  .ww-reference__item--short footer a svg {
+    margin-left: 0.5em;
+  }
+  .ww-reference__item--short footer a:hover svg {
+    color: white;
+  }
+}
+
+.ww-reference__filter {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.ww-reference__filter .form-check-input {
+  background-color: #fff;
+  border-color: var(--primary-color);
+  border-radius: 100%;
+  border-width: 2px;
+}
+
+.ww-reference__filter .form-check-input:checked {
+  border-width: 5px;
+}
+
+/* .ww-reference__filter button {
+  border: none;
+  background-color: transparent;
+}
+
+.ww-reference__filter button::before {
+  display: inline-block;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 2px solid var(--primary-color);
+}
+
+.ww-reference__filter button.active {
+  color: var(--primary-color);
+}
+
+.ww-reference__filter button.active::before {
+  border-width: 5px;
+} */
+
+/* === Referenz Report === */
+
+#ww-reference-report .ww-area-teaser img {
+  transform: none;
+}
+
+#ww-reference-report .agile__nav-button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+}
+
+#ww-reference-report .agile__dots {
+  margin: 0.5rem 0 0;
+}
+
+#ww-reference-report-images .agile__caption {
+  margin: 1rem 0;
+  text-align: center;
+}
+#ww-reference-report-images .agile__actions {
+  margin-top: -3rem;
+  transform: translateY(-0.4rem);
+  justify-content: space-evenly;
+}
+
+#ww-reference-report .agile__dot button {
+  width: 3rem;
+  height: 2px;
+  background-color: #fff;
+  border: none;
+  margin: 0 0.5rem;
+}
+#ww-reference-report .agile__dot.agile__dot--current button {
+  background-color: var(--primary-color);
+}
+
+#ww-reference-report-images {
+  margin-top: -3.5rem;
+}
+
+#ww-reference-report-images a[data-fslightbox] {
+  position: absolute;
+  z-index: 3;
+  top:0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(255,255,255,0.5) url("/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/maximize-2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px;
+}
+
+/* === Referenz Report END === */

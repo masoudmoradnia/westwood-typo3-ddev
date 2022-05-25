@@ -1,0 +1,34 @@
+<!--
+	=====================
+	Partials/ResultRows.html
+-->
+<div class="clearer"> </div>
+<h2>{numberofresults} {f:translate(key:
+	'LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:num_results_plain')}:</h2>
+<f:render partial="Sorting" arguments="{conf: conf, numberofresults: numberofresults, sortingLinks: sortingLinks}" />
+<f:if condition="{conf.pagebrowserOnTop}">
+	<div id="kesearch_pagebrowser_top">
+		<f:render partial="PageBrowser"
+			arguments="{conf: conf, numberofresults:numberofresults, pagebrowser:pagebrowser}" />
+	</div>
+</f:if>
+<div id="kesearch_results">
+	<f:for each='{gg:ExistedTypeInKESearchResult(results:"{resultrows}")}' as="type" iteration="i">
+		<div id="{type}" class="search_result_container {f:if(condition:'{i.isFirst}', then:'activecontainer', else:'')}">
+			<f:for each="{resultrows}" as="resultrow">
+				<f:if condition="{resultrow.type} == {type}">
+					<f:render partial="ResultRow" arguments="{conf: conf, resultrow: resultrow}" />
+				</f:if>
+			</f:for>
+		</div>
+	</f:for>
+</div>
+<f:if condition="{conf.pagebrowserAtBottom}">
+	<div id="kesearch_pagebrowser_bottom">
+		<f:render partial="PageBrowser"
+			arguments="{conf: conf, numberofresults:numberofresults, pagebrowser:pagebrowser}" />
+	</div>
+</f:if>
+<f:if condition="{conf.showQueryTime}">
+	<div id="kesearch_query_time">{queryTimeText}</div>
+</f:if>

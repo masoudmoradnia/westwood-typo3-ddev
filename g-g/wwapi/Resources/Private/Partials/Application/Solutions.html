@@ -1,0 +1,25 @@
+<section class="ww-detailloesungen container-md my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">Detaillösungen</h1>
+        </div>
+        <div class="col-md">
+            <f:format.raw>{settings.solutionDes}</f:format.raw>
+        </div>
+        <div class="col-md">
+            <div class="d-flex justify-content-evenly gap-4">
+                <f:for each="{solution_categories}" key="key" as="category">
+                    <f:link.page pageUid="40" additionalParams="{category: key, application:elements.id}"
+                        class="text-center">
+                        <img class="w-24" src="/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/{key}.png"
+                            alt="{key}" loading="lazy">
+                        <p class="text-primary fw-bold text-center pt-2">
+                            <f:translate key="tx_wwapi_domain_model_{key}" />
+                        </p>
+                    </f:link.page>
+                </f:for>
+            </div>
+        </div>
+    </div>
+
+</section>

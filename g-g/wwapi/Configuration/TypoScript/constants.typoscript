@@ -1,0 +1,14 @@
+plugin.tx_wwapi_api {
+    view {
+        # cat=plugin.tx_wwapi_api/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:wwapi/Resources/Private/Templates/
+        # cat=plugin.tx_wwapi_api/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:wwapi/Resources/Private/Partials/
+        # cat=plugin.tx_wwapi_api/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:wwapi/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_wwapi_api//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

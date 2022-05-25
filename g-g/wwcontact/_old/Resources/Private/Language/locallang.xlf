@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwcontact/Resources/Private/Language/locallang" date="2021-07-15T15:10:06Z" product-name="wwcontact">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwcontact_domain_model_request" resname="tx_wwcontact_domain_model_request">
+				<source>Request</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

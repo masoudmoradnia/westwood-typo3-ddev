@@ -1,0 +1,79 @@
+.ww-area-teaser {
+  color: white;
+  padding: 2rem 1rem 0;
+  margin: 5rem 0;
+}
+
+.ww-area-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(2rem);
+}
+
+.ww-area--parken .ww-area-teaser {
+  background-color: var(--ww-parken);
+}
+.ww-area--balkon .ww-area-teaser {
+  background-color: var(--ww-balkon);
+}
+.ww-area--verkehr .ww-area-teaser {
+  background-color: var(--ww-verkehr);
+}
+.ww-area--dach .ww-area-teaser {
+  background-color: var(--ww-dach);
+}
+.ww-area--spezial .ww-area-teaser {
+  background-color: var(--ww-spezial);
+}
+
+.ww-downloadlist ul {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  /* overflow-x: scroll; */
+  scroll-snap-type: proximity;
+  /* scrollbar-width: none; */
+  flex-wrap: wrap;
+  /* justify-content: center; */
+}
+.ww-downloadlist ul li {
+  flex-basis: 31%;
+  border-bottom: 1px solid var(--gray);
+}
+
+.ww-downloadlist ul::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.ww-downloadlist ul img {
+  width: 100%;
+}
+
+.ww-downloadlist ul a > div {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ww-downloadlist ul div svg {
+  width: 50px;
+}
+
+.ww-downloadlist ul div span {
+  color: var(--gray);
+}
+
+@media screen and (min-width: 768px) {
+  .ww-area-teaser img {
+    transform: translateY(-5rem);
+  }
+  .ww-downloadlist ul li {
+    flex-basis: 22%;
+    border-bottom: 1px solid var(--gray);
+  }
+}

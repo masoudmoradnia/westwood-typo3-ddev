@@ -1,0 +1,109 @@
+plugin.tx_wwcontact_form {
+    view {
+        templateRootPaths.0 = EXT:wwcontact/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_wwcontact_form.view.templateRootPath}
+        partialRootPaths.0 = EXT:wwcontact/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_wwcontact_form.view.partialRootPath}
+        layoutRootPaths.0 = EXT:wwcontact/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_wwcontact_form.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_wwcontact_form.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_wwcontact._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    .tx-wwcontact table {
+        border-collapse:separate;
+        border-spacing:10px;
+    }
+
+    .tx-wwcontact table th {
+        font-weight:bold;
+    }
+
+    .tx-wwcontact table td {
+        vertical-align:top;
+    }
+
+    .typo3-messages .message-error {
+        color:red;
+    }
+
+    .typo3-messages .message-ok {
+        color:green;
+    }
+)
+
+
+lib.validateAction = USER_INT
+lib.validateAction {
+ userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+  extensionName = Wwcontact
+  pluginName = Form
+  vendorName = GG
+ 
+  switchableControllerActions {
+        Request {
+          1 = validate
+        }
+  }
+ 
+  settings < plugin.tx_wwcontact_form
+}
+validateContactForm = PAGE
+validateContactForm {
+	typeNum = 85986896522
+	config {
+		disableAllHeaderCode = 1
+        additionalHeaders {
+      10 {
+        header = Content-Type: application/json
+        replace = 1
+      }
+    }
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+	}
+	10 < lib.validateAction
+}
+// test = PAGE
+// test {
+// 	typeNum = 150
+// 	config {
+// 		disableAllHeaderCode = 1
+//         additionalHeaders {
+//       10 {
+//         header = Content-Type: application/json
+//         replace = 1
+//       }
+//     }
+// 		admPanel = 0
+// 		debug = 0
+// 		no_cache = 1
+// 	}
+// 	10 < lib.validateAction
+// }

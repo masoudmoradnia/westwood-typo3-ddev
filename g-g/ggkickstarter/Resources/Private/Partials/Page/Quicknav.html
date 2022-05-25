@@ -1,0 +1,12 @@
+<section class="ww-quicknav">
+    <ul>
+        <f:for each="{quicknav}" as="item">
+            <li >
+                <a href="{item.link}" >
+                    <f:image image="{item.files.0}" style="height: 1rem; width: auto;" />
+                    <span>{item.title}</span>
+                </a>
+            </li>
+        </f:for>
+    </ul>
+</section>

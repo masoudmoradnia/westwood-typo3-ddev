@@ -1,0 +1,11 @@
+<div class="container__element layout-{data.layout}">
+    <div class="container-md">
+        <div class="row">
+            <div class="col-md-12">
+                <f:for each="{children_101}" as="element">
+                    {element.renderedContent -> f:format.raw()}
+                </f:for>
+            </div>
+        </div>
+    </div>
+</div>

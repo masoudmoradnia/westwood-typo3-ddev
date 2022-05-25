@@ -1,0 +1,17 @@
+base: /
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    base: /
+    typo3Language: de
+    locale: de_DE.UTF-8
+    iso-639-1: de
+    websiteTitle: Westwood
+    navigationTitle: Westwood
+    hreflang: de-de
+    direction: ''
+    flag: de
+    languageId: 0
+rootPageId: 1
+websiteTitle: Westwood

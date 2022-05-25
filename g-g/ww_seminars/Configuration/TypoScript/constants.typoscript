@@ -1,0 +1,14 @@
+plugin.tx_wwseminars_seminars {
+    view {
+        # cat=plugin.tx_wwseminars_seminars/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:ww_seminars/Resources/Private/Templates/
+        # cat=plugin.tx_wwseminars_seminars/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:ww_seminars/Resources/Private/Partials/
+        # cat=plugin.tx_wwseminars_seminars/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:ww_seminars/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_wwseminars_seminars//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

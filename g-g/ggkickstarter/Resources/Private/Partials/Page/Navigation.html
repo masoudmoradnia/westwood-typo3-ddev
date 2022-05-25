@@ -1,0 +1,430 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+{namespace kesearch=Tpwd\KeSearch\ViewHelpers}
+
+<nav class="ww-menu navbar navbar-expand-md sticky-top" id="ww-main__menu">
+    <div class="w-100 d-flex align-items-center align-items-md-end">
+        <f:link.page pageUid="1" class="navbar-brand">
+            <img class="ww-logo" src="/fileadmin/assets/images/WestWood_Logo_2019_RGB_quer.svg" alt="" width="150">
+        </f:link.page>
+
+        <div class="d-none d-md-block ms-5">
+            <ul class="navbar-nav flex-row justify-content-between gap-3">
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="/einsatzgebiet"
+                        data-bs-toggle="dropdown">Einsatzgebiete</a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row gap-3 row-cols-auto">
+                            <f:for each="{apimenu.applications}" as="application">
+
+                                <f:switch expression="{application.id}">
+                                    <f:case value="1">
+                                        <f:variable name="class" value="balkon" />
+                                    </f:case>
+                                    <f:case value="2">
+                                        <f:variable name="class" value="parken" />
+                                    </f:case>
+                                    <f:case value="3">
+                                        <f:variable name="class" value="verkehr" />
+                                    </f:case>
+                                    <f:case value="4">
+                                        <f:variable name="class" value="dach" />
+                                    </f:case>
+                                    <f:case value="5">
+                                        <f:variable name="class" value="spezial" />
+                                    </f:case>
+                                    <f:defaultCase>
+                                        <f:variable name="class" value="spezial" />
+                                    </f:defaultCase>
+                                </f:switch>
+
+                                <div class="col">
+                                    <div class="col-megamenu">
+                                        <f:link.action pageUid="32" extensionName="Wwapi" pluginName="Api"
+                                            controller="Item" arguments="{application_id: application.id}"
+                                            class="position-relative">
+                                            <f:image src="{data.api_url}api/img{application.menu_img}?w=250" width="250"
+                                                loading="lazy" />
+                                            <h6 class="title">{application.title}</h6>
+                                            <div class="ww-menu__area ww-menu__area--{class}">
+                                                <wwapi:getfirstletter word="{application.title}" />
+                                            </div>
+                                        </f:link.action>
+                                    </div> <!-- col-megamenu.// -->
+                                </div>
+                            </f:for>
+
+                        </div><!-- end row -->
+                    </div> <!-- dropdown-mega-menu.// -->
+                </li>
+
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="/systeme" data-bs-toggle="dropdown">Systeme</a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row gap-3 row-cols-auto">
+
+                            <f:for each="{apimenu.systemgroups}" as="systemgroup">
+                                <div class="col">
+                                    <div class="col-megamenu">
+                                        <f:link.action pageUid="33" extensionName="Wwapi" pluginName="Api"
+                                            controller="Item" arguments="{sid: systemgroup.id}">
+                                            <f:image src="{data.api_url}api/img{systemgroup.menu_img}?w=250" width="250"
+                                                loading="lazy" />
+                                            <h6 class="title">{systemgroup.title}</h6>
+                                        </f:link.action>
+                                    </div> <!-- col-megamenu.// -->
+                                </div>
+                            </f:for>
+
+                        </div><!-- end row -->
+                    </div> <!-- dropdown-mega-menu.// -->
+                </li>
+
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="/produkt" data-bs-toggle="dropdown">Produkte</a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row gap-3 row-cols-auto">
+
+                            <f:for each="{apimenu.productlevels}" as="productlevel">
+                                <div class="col">
+                                    <div class="col-megamenu">
+                                        <f:link.action pageUid="35" arguments="{productlevel_id: productlevel.id}"
+                                            extensionName="Wwapi" pluginName="Api" controller="Item">
+                                            <f:image src="{data.api_url}api/img{productlevel.menu_img}?w=250"
+                                                width="250" loading="lazy" />
+                                            <h6 class="title">{productlevel.title}</h6>
+                                        </f:link.action>
+                                    </div> <!-- col-megamenu.// -->
+                                </div>
+                            </f:for>
+
+                        </div><!-- end row -->
+                    </div> <!-- dropdown-mega-menu.// -->
+                </li>
+
+                <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="/leistungen-fuer" data-bs-toggle="dropdown">Leistungen für
+                        ...</a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row gap-3 row-cols-auto">
+                            <f:for each="{leistungenfuer}" as="item">
+                                <div class="col">
+                                    <div class="col-megamenu">
+                                        <f:link.typolink parameter="{item.data.tx_mask_link}">
+                                            <f:image image="{item.files.0}" width="250" loading="lazy" />
+                                            <h6 class="title">{item.data.tx_mask_title}</h6>
+                                        </f:link.typolink>
+                                    </div> <!-- col-megamenu.// -->
+                                </div>
+                            </f:for>
+
+                        </div><!-- end row -->
+                    </div> <!-- dropdown-mega-menu.// -->
+                </li>
+                <!-- extra  -->
+                <f:for each="{main_menu_extras}" as="item">
+                    <li class="nav-item dropdown has-megamenu">
+                        <a href="{item.link}"
+                            class="nav-link  {f:if(condition:'{item.children}' , then: 'dropdown-toggle')}"
+                            {f:if(condition:'{item.children}' , then: 'data-bs-toggle="dropdown"' )}>
+                            {item.title}
+                        </a>
+                        <f:if condition="{item.children}">
+                            <div class="dropdown-menu megamenu" role="menu">
+                                <div class="row gap-3 row-cols-auto">
+                                    <f:for each="{item.children}" as="itemchild">
+                                        <div class="col">
+                                            <div class="col-megamenu">
+                                                <a href="{itemchild.link}">
+                                                    <f:image image="{itemchild.files.0}" width="250" loading="lazy" />
+                                                    <h6 class="title">{itemchild.title}</h6>
+                                                </a>
+                                            </div> <!-- col-megamenu.// -->
+                                        </div>
+                                    </f:for>
+
+                                </div><!-- end row -->
+                            </div> <!-- dropdown-mega-menu.// -->
+                        </f:if>
+
+
+                    </li>
+                </f:for>
+
+
+
+                <!-- <li class="nav-item dropdown has-megamenu">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Service</a>
+                    <div class="dropdown-menu megamenu" role="menu">
+                        <div class="row _g-3 row-cols-auto"></div>
+                    </div>
+                </li> -->
+
+            </ul>
+        </div>
+
+        <div class="navbar-text ms-auto _me-4">
+            <section class="ww-search" id="ww-search">
+                <svg @click="toggleSearchOverlay" class="ww-search__open" xmlns="http://www.w3.org/2000/svg"
+                    width="23.938" height="23.938" viewBox="0 0 23.938 23.938">
+                    <defs></defs>
+                    <path
+                        d="M20.109,18.056H19.027l-.383-.37a8.91,8.91,0,1,0-.958.958l.37.383v1.081l6.843,6.83L26.938,24.9Zm-8.212,0A6.159,6.159,0,1,1,18.056,11.9,6.151,6.151,0,0,1,11.9,18.056Z"
+                        transform="translate(-3 -3)" />
+                </svg>
+                <transition name="fade">
+                    <div class="ww-search__overlay" v-if="overlayActive">
+                        <svg @click="toggleSearchOverlay" class="ww-search__close" height="24" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <h1 class="ww-search__headline">Was suchen Sie?</h1>
+                        <f:comment>
+                            <form class="ww-search__form" action="{f:uri.page(pageUid:'57')}">
+                                <input v-model="query" name="query" type="text" class="ww-search__input"
+                                    placeholder="Suchbegriff eingeben    ">
+                            </form>
+                        </f:comment>
+
+
+
+
+                        <form method="get" id="form_kesearch_pi1"
+                            onsubmit="return submitEditedsearchFormFunction(event)" name="form_kesearch_pi1"
+                            action="{f:uri.page(pageUid: 66)}">
+
+                            
+
+                            <input v-focus class="ww-search__input" id="ww-search__input"
+                                    name="tx_kesearch_pi1[sword]" value="{searchword -> f:format.raw()}"
+                                    placeholder="Suchbegriff eingeben    "
+                                    {f:if(condition: '{extConf.allowEmptySearch} == 0' , then: 'required' )}
+                                    minlength="{extConf.searchWordLength}" />
+                        </form>
+
+
+
+
+
+                        <ul class="ww-search__results" v-if="query">
+                            <li v-for="(result, i) in computedResults" :key="i">{{result}}</li>
+                        </ul>
+                    </div>
+                </transition>
+            </section>
+        </div>
+        <button class="d-md-none ms-4 ww-button ww-button--primary ww-button--square ww-menu__offcanvasButton"
+            type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel"></h5>
+                <button type="button"
+                    class="ww-button ww-button--primary ww-button--square ww-menu__offcanvasButton ww-menu__offcanvasButton--close _btn-close _text-reset"
+                    data-bs-dismiss="offcanvas" aria-label="Close">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="accordion accordion-flush" id="menuOffcanvas">
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="menuEinsatzgebiete">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                Einsatzgebiete </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="menuEinsatzgebiete"
+                            data-bs-parent="#menuOffcanvas">
+                            <div class="accordion-body">
+                                <ul>
+                                    <f:for each="{apimenu.applications}" as="application">
+                                        <li>
+                                            <f:link.action pageUid="32" extensionName="Wwapi" pluginName="Api"
+                                                controller="Item" arguments="{application_id: application.id}">
+                                                {application.title}
+                                            </f:link.action>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="menuEinsatzgebiete">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                Systeme </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="menuEinsatzgebiete"
+                            data-bs-parent="#menuOffcanvas">
+                            <div class="accordion-body">
+                                <ul>
+                                    <f:for each="{apimenu.systemgroups}" as="systemgroup">
+                                        <li>
+                                            <f:link.action pageUid="33" extensionName="Wwapi" pluginName="Api"
+                                                controller="Item" arguments="{sid: systemgroup.id}">
+                                                {systemgroup.title}
+                                            </f:link.action>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="menuEinsatzgebiete">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                Produkte </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="menuEinsatzgebiete"
+                            data-bs-parent="#menuOffcanvas">
+                            <div class="accordion-body">
+                                <ul>
+                                    <f:for each="{apimenu.productlevels}" as="productlevel">
+                                        <li>
+                                            <f:link.action pageUid="35" arguments="{productlevel_id: productlevel.id}"
+                                                extensionName="Wwapi" pluginName="Api" controller="Item">
+                                                {productlevel.title}
+                                            </f:link.action>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="menuEinsatzgebiete">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                Leistungen für ... </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="menuEinsatzgebiete"
+                            data-bs-parent="#menuOffcanvas">
+                            <div class="accordion-body">
+                                <ul>
+                                    <f:for each="{leistungenfuer}" as="item">
+                                        <li>
+                                            <f:link.typolink parameter="{item.data.tx_mask_link}">
+                                                {item.data.tx_mask_title}
+                                            </f:link.typolink>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <f:for each="{main_menu_extras}" as="item">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="menuEinsatzgebiete">
+                                <a href="{item.link}" class="accordion-button collapsed witoutsub">
+                                    {item.title}
+                                </a>
+                            </h2>
+                        </div>
+                    </f:for>
+
+
+
+
+
+                    <!-- <div class="accordion-item">
+                        <h2 class="accordion-header" id="menuEinsatzgebiete">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                Service </button>
+                        </h2>
+                        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="menuEinsatzgebiete"
+                            data-bs-parent="#menuOffcanvas">
+                            <div class="accordion-body">
+                                <ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+                <div id="metamenuOffcanvas">
+                    <ul>
+                        <f:for each="{topnavigation}" as="item">
+                            <li>
+                                <a href="{item.link}">
+                                    {item.title}
+                                </a>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+                <hr>
+                <div id="langmenuOffcanvas">
+                    <ul>
+                        <li>
+                            <a href="/">Deutsch (Deutschland)</a>
+                        </li>
+                        <li>
+                            <a href="https://www.westwood-at.com/">Deutsch (Österreich)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-ch.com/">Deutsch (Schweiz)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-ch.com/fr/">Français (Suisse)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-ch.com/it/">Italiano (Svizzera)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-uk.com/">English (Great Britain)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.altglobal.com/">English (United States)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-be.com/">Vlaams</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-be.com/">Nederlands</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-it.eu/">Italiano (Italia)</a>
+                        </li>
+                        <li>
+                            <a href="http://www.westwood-tr.com/">Türkçe (Türkiye)</a>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function submitEditedsearchFormFunction() {
+        let search = document.getElementById("ww-search__input").value;
+        let searchWord = '';
+
+        if (search.indexOf(' ') !== -1) {
+            searchWord = '"' + search.replace(/(^"|"$)/g, '') + '"';
+        } else {
+            searchWord = search;
+        }
+        document.getElementById("ww-search__input").value = searchWord;
+        document.getElementById("form_kesearch_pi1").submit();
+        return false;
+    }
+</script>

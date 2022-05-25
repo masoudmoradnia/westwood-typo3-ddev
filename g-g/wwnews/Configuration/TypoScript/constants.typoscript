@@ -1,0 +1,28 @@
+plugin.tx_wwnews_shortlist {
+    view {
+        # cat=plugin.tx_wwnews_shortlist/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:wwnews/Resources/Private/Templates/
+        # cat=plugin.tx_wwnews_shortlist/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:wwnews/Resources/Private/Partials/
+        # cat=plugin.tx_wwnews_shortlist/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:wwnews/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_wwnews_shortlist//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+plugin.tx_wwnews_list {
+    view {
+        # cat=plugin.tx_wwnews_list/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:wwnews/Resources/Private/Templates/
+        # cat=plugin.tx_wwnews_list/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:wwnews/Resources/Private/Partials/
+        # cat=plugin.tx_wwnews_list/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:wwnews/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_wwnews_list//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

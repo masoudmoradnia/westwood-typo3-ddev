@@ -1,0 +1,59 @@
+<section class="ww-contactform" id="ww-contactform">
+  <aside>
+    <f:image class="img-cover" image="{image.image.0}"></f:image>
+  </aside>
+  <div class="ww-contactform__content container-md _p-5">
+    <div>
+      <h2 class="text-primary font-weight-bold">{settings.title}</h2>
+      <p>
+        <f:format.html>{settings.intro}</f:format.html>
+      </p>
+    </div>
+	<div id="validation_message">
+		<div v-if="status" :class="'p-3 mb-2 bg-'+status+' text-white'" >
+		  <div v-for="item in msg" class="py-1">{{ item }}</div>
+		</div>
+	</div>
+    <f:form action="validate" name="newRequest" object="{newRequest}" class="_ww-contactform" id="contactform">
+
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="name" placeholder="Vor- und Nachname*" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="street" placeholder="Straße" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="zip" placeholder="PLZ" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="city" placeholder="Ort" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="email" placeholder="E-Mail Adresse*" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="tel" placeholder="Telefonnummer*" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="company" placeholder="Firma" />
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <f:form.textfield property="function" placeholder="Funktion" />
+        </div>
+        <div class="col-md-8">
+          <f:form.textarea property="message" cols="30" rows="10" placeholder="Ihre Nachricht*" />
+        </div>
+        <div class="col-md-4 d-flex flex-column justify-content-between">
+          <label class="d-flex gap-2">
+            <!-- <input type="checkbox" name="check1" class="mt-2 me-2"> -->
+            <p>
+              WestWood schützt persönliche Daten gewissenhaft und verwendet sie ausschließlich zu dem Zweck, zu dem sie zur Verfügung gestellt werden. Nähere Informationen zu unserer Datenverarbeitung finden Sie hier: <f:link.page pageUid="14">Datenschutz</f:link.page>
+            </p>
+          </label>
+          <button type="submit" class="ww-button ww-button--primary ww-button--full" @click="submitForm">Senden</button>
+        </div>
+      </div>
+    </f:form>
+  </div>
+</section>

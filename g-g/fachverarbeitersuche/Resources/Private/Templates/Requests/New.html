@@ -1,0 +1,281 @@
+<div id="ww-fabricatorsearch-anchor"></div>
+<section class="ww-fabricatorsearch" id="ww-fabricatorsearch">
+  <aside>
+
+
+    <img
+      src="/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/fachverarbeitersuche/fachverarbeitersuche_2000.jpg"
+      alt="">
+  </aside>
+  <div class="ww-fabricatorsearch__content container-md">
+    <h2 class="text-primary font-weight-bold">
+      {settings.title}
+    </h2>
+
+    <f:if condition="!{consent_googlemap}">
+      <f:then>
+        <f:format.raw>{settings.intro}</f:format.raw>
+        <p>Um diesen Service optimal anbieten zu können, greifen wir auf der nachfolgenden Seite auf den Dienst von
+          Google Maps zurück. Bitte klicken Sie den nachfolgenden Button „weiter“ zur Bestätigung Ihres
+          Einverständnisses zur Nutzung von Google Maps. </p>
+        <form action="">
+          <input type="hidden" name="consent_googlemap" value="1" />
+          <button type="submit" class="ww-button ww-button--primary mt-4">weiter</button>
+        </form>
+      </f:then>
+      <f:else>
+
+
+
+
+
+
+
+        <f:form action="create" name="newRequests" object="{newRequests}" class="ww-fabricatorsearch__form"
+          id="fabricatorsearch__form">
+          <f:form.hidden name="zip" id="zip"></f:form.hidden>
+          <fieldset v-show="currentStep == 1">
+            <f:format.raw>{settings.intro}</f:format.raw>
+            <ol>
+              <li>
+                <label for="">
+                  <f:translate key="tx_fachverarbeitersuche_domain_model_requests.firstpoint" />
+                </label>
+                <f:form.textfield property="address" id="address" placeholder="Straße, PLZ, Ort" />
+              </li>
+              <li>
+                <label for="">
+                  <f:translate key="tx_fachverarbeitersuche_domain_model_requests.secontpoint" />
+                </label>
+                <div class="select">
+                  <select name="applicationarea" id="" v-model="selectedArea">
+                    <option value="" selected disabled>Einsatzgebiet</option>
+                    <option v-for="area in areas" :value="area.class">{{ area.title }}</option>
+                  </select>
+                </div>
+              </li>
+              <li v-if="selectedArea">
+                <label>
+                  <f:translate key="tx_fachverarbeitersuche_domain_model_requests.thirdpoint" />
+                </label>
+
+                <div v-if="selectedArea == 'parken'" class="ww-fabricatorsearch__bauteile">
+                  <div>
+                    <f:form.textfield property="ramp" id="ramp" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Rampe
+                  </div>
+                  <div>
+                    <f:form.textfield property="stairway" id="stairway" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Treppe
+                  </div>
+                  <div>
+                    <f:form.textfield property="parking" id="parking" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Tiefgarage
+                  </div>
+                  <div>
+                    <f:form.textfield property="topdeck" id="topdeck" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Topdeck
+                  </div>
+                  <div>
+                    <f:form.textfield property="betweendeck" id="betweendeck" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Zwischendeck
+                  </div>
+                </div>
+
+                <div v-if="selectedArea == 'balkon'" class="ww-fabricatorsearch__bauteile">
+                  <div>
+                    <f:form.textfield property="balkon" id="balkon" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Balkon
+                  </div>
+                  <div>
+                    <f:form.textfield property="arcade" id="arcade" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Laubengang
+                  </div>
+                  <div>
+                    <f:form.textfield property="terrasse" id="terrasse" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Terrasse
+                  </div>
+                  <div>
+                    <f:form.textfield property="stairway" id="stairway" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Treppe
+                  </div>
+                </div>
+
+                <div v-if="selectedArea == 'dach'" class="ww-fabricatorsearch__bauteile">
+                  <div>
+                    <f:form.textfield property="dachkuppel" id="dachkuppel" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Dachkuppel
+                  </div>
+                  <div>
+                    <f:form.textfield property="flachdach" id="flachdach" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Flachdach
+                  </div>
+                  <div>
+                    <f:form.textfield property="dachterrasse" id="dachterrasse" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Dachterrasse
+                  </div>
+
+                </div>
+
+                <div v-if="selectedArea == 'spezial'" class="ww-fabricatorsearch__bauteile">
+                  <div>
+                    <f:form.textfield property="keller" id="keller" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Keller
+                  </div>
+                  <div>
+                    <f:form.textfield property="konstruktion" id="konstruktion" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" />
+                    Konstruktion
+                  </div>
+                  <div>
+                    <f:form.textfield property="sonder" id="sonder" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Sonder
+                  </div>
+                  <div>
+                    <f:form.textfield property="betonfuge" id="betonfuge" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> WU-Beton-Fuge
+                  </div>
+
+                </div>
+                <div v-if="selectedArea == 'verkehr'" class="ww-fabricatorsearch__bauteile">
+
+                  <div>
+                    <f:form.textfield property="betonfahrbahntafel" id="betonfahrbahntafel" type="number"
+                      placeholder="00" additionalAttributes="{min: '0'}" /> Betonfahrbahntafel
+                  </div>
+                  <div>
+                    <f:form.textfield property="brueckenkappe" id="brueckenkappe" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Brückenkappe
+                  </div>
+                  <div>
+                    <f:form.textfield property="stahlbruecke" id="stahlbruecke" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Stahlbrücke
+                  </div>
+                  <div>
+                    <f:form.textfield property="trogbauwerk" id="trogbauwerk" type="number" placeholder="00"
+                      additionalAttributes="{min: '0'}" /> Trogbauwerk
+                  </div>
+
+                </div>
+
+              </li>
+              <li v-if="selectedArea">
+                <label for="">
+                  <f:translate key="tx_fachverarbeitersuche_domain_model_requests.fourthpoint" />
+                </label>
+                <div class="row align-items-center">
+                  <div class="col-lg-6 col-xl-3">
+                    <f:form.textfield property="area" id="area" placeholder="ca. qm" />
+                  </div>
+                  <div class="col-lg-6 col-xl-3">
+                    <div>Quadratmeter *</div>
+                  </div>
+                </div>
+              </li>
+            </ol>
+
+            <button type="button" class="ww-button ww-button--primary mt-4" :disabled="!selectedArea"
+              @click="nextStep">weiter</button>
+          </fieldset>
+          <fieldset v-show="currentStep == 2">
+
+            <f:format.raw>{settings.intro}</f:format.raw>
+
+            <div v-if="status" :class="'p-3 mb-2 bg-'+status+' text-white'">
+              <div v-for="item in msg" class="py-1">{{ item }}</div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-sm-4">
+                <div class="select">
+                  <f:form.select property="title" options="{null: 'Anrede', Herr: 'Herr', Frau: 'Frau'}" />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <f:form.textfield property="firstname" id="firstname" placeholder="Vorname*" />
+              </div>
+              <div class="col-sm-4">
+                <f:form.textfield property="lastname" id="lastname" placeholder="Nachname*" />
+              </div>
+              <div class="col-sm-4">
+                <f:form.textfield property="email" id="email" placeholder="E-Mail Adresse*" />
+
+
+              </div>
+              <div class="col-sm-4">
+                <f:form.textfield property="tel" id="tel" placeholder="Telefonnummer*" />
+              </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+              <div class="col-lg-8">
+                <f:form.textarea property="message" id="message" cols="30" rows="10" placeholder="Ihre Nachricht" />
+              </div>
+              <div class="col-lg">
+                <label class="d-flex gap-2">
+                  <input type="checkbox" name="check1" class="mt-2 me-2">
+                  <p>Ich bin damit einverstanden, dass meine Kontaktdaten für eine Beratung oder die Zusendung von
+                    Unterlagen an einen autorisierten WestWood Fachverarbeiter gesendet werden.
+                    Ich habe die <f:link.page pageUid="14">Datenschutzerklärung</f:link.page> gelesen und stimme dieser
+                    zu.*</p>
+                </label>
+                <!--label class="d-flex gap-2">
+              <input type="checkbox" name="check2" class="mt-2 me-2">
+              <p>
+                Ich bin damit einverstanden, dass meine Kontaktdaten für eine Beratung oder die Zusendung von Unterlagen
+                an einen autorisierten Westwood Fachverarbeiter gesendet werden.*
+              </p>
+            </label-->
+              </div>
+            </div>
+
+
+
+
+            <div class="row g-4 mt-4">
+              <div class="col">
+                <button type="button" class="col ww-button ww-button--secondary" @click="previousStep">zurück</button>
+              </div>
+              <div class="col col-lg-4">
+                <button class="col ww-button ww-button--primary ww-button--full" @click="submitForm($event)"
+                  v-if="! loading">
+                  Anfrage starten
+                </button>
+
+                <button class="col ww-button ww-button--primary ww-button--full" disabled v-if="loading">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Anfrage starten
+                </button>
+              </div>
+            </div>
+          </fieldset>
+        </f:form>
+
+  </div>
+
+
+</section>
+
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCChGdNJyPSTbH2XY8MEL-mwun4WxpHCV0&libraries=places"></script>
+<script type="text/javascript">
+  var options = {
+    componentRestrictions: { country: "de" }
+  };
+  google.maps.event.addDomListener(window, 'load', function () {
+    var places = new google.maps.places.Autocomplete(document.getElementById('address'), options);
+    google.maps.event.addListener(places, 'place_changed', function () {
+      var place = places.getPlace();
+      var address = place.formatted_address;
+      var latitude = place.geometry.location.A;
+      var longitude = place.geometry.location.F;
+      var mesg = "Address: " + address;
+      mesg += "\nLatitude: " + latitude;
+      mesg += "\nLongitude: " + longitude;
+      var zip = place.address_components.filter(obj => obj.types[0] == "postal_code");
+      document.getElementById("zip").value = zip[0].long_name;
+    });
+  });
+</script>
+</f:else>
+</f:if>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:fachverarbeitersuche/Resources/Private/Language/locallang" date="2021-07-13T11:27:35Z" product-name="fachverarbeitersuche">
+		<header/>
+		<body>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests" resname="tx_fachverarbeitersuche_domain_model_requests">
+				<source>Requests</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.intro" resname="tx_fachverarbeitersuche_domain_model_requests.intro">
+				<source> Wie finde ich einen qualifizierten Fachverarbeiter in der Nähe? – Hier nennen wir Ihnen nach einigen Klicks zertifizierte Fachunternehmen. Bitte geben Sie an, wo Sie welche Baumaßnahme planen. Sie erhalten die Liste der passenden Fachbetriebe per E-Mail. Übrigens: alle aufgeführten Unternehmen bilden sich regelmäßig bei uns fort und erweitern ihre Qualität und Erfahrung. </source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.title" resname="tx_fachverarbeitersuche_domain_model_requests.title">
+				<source>Fachverarbeitersuche</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.firstpoint" resname="tx_fachverarbeitersuche_domain_model_requests.firstpoint">
+				<source>Bitte geben Sie den Standort Ihres Bauvorhabens ein.</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.secontpoint" resname="tx_fachverarbeitersuche_domain_model_requests.secontpoint">
+				<source>Wo und wie soll WestWood zum Einsatz kommen?</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.thirdpoint" resname="tx_fachverarbeitersuche_domain_model_requests.thirdpoint">
+				<source>Jedes Bauvorhaben hat seine Besonderheiten. Damit wir Ihnen die richtigen Verarbeiter nennen können, geben Sie bitte das zu sanierende Bauteil an (Mehrfachnennung möglich). </source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.fourthpoint" resname="tx_fachverarbeitersuche_domain_model_requests.fourthpoint">
+				<source>Ihr Bauvorhaben umfasst eine Gesamtfläche von: </source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.address" resname="tx_fachverarbeitersuche_domain_model_requests.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.application" resname="tx_fachverarbeitersuche_domain_model_requests.application">
+				<source>Application</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.ramp" resname="tx_fachverarbeitersuche_domain_model_requests.ramp">
+				<source>Ramp</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.stairway" resname="tx_fachverarbeitersuche_domain_model_requests.stairway">
+				<source>Stairway</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.parking" resname="tx_fachverarbeitersuche_domain_model_requests.parking">
+				<source>Parking</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.topdeck" resname="tx_fachverarbeitersuche_domain_model_requests.topdeck">
+				<source>Topdeck</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.betweendeck" resname="tx_fachverarbeitersuche_domain_model_requests.betweendeck">
+				<source>Betweendeck</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.area" resname="tx_fachverarbeitersuche_domain_model_requests.area">
+				<source>Area</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.email" resname="tx_fachverarbeitersuche_domain_model_requests.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.firstname" resname="tx_fachverarbeitersuche_domain_model_requests.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.lastname" resname="tx_fachverarbeitersuche_domain_model_requests.lastname">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.tel" resname="tx_fachverarbeitersuche_domain_model_requests.tel">
+				<source>Tel</source>
+			</trans-unit>
+			<trans-unit id="tx_fachverarbeitersuche_domain_model_requests.message" resname="tx_fachverarbeitersuche_domain_model_requests.message">
+				<source>Message</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

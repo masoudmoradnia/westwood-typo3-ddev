@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- Add settings here ... -->
+
+                    <!-- Example setting: input field with name settings.includeCategories -->
+                    <settings.renderType>
+                        <TCEforms>
+                            <label>Typ</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">Einsatzgebiete</numIndex>
+                                        <numIndex index="1">applications</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">System-Gruppen</numIndex>
+                                        <numIndex index="1">systemgroups</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">System</numIndex>
+                                        <numIndex index="1">system</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">Produktebenen</numIndex>
+                                        <numIndex index="1">productlevels</numIndex>
+                                    </numIndex>
+                                    <numIndex index="5" type="array">
+                                        <numIndex index="0">Produkt</numIndex>
+                                        <numIndex index="1">product</numIndex>
+                                    </numIndex>
+                                    <numIndex index="6" type="array">
+                                        <numIndex index="0">Referenzen</numIndex>
+                                        <numIndex index="1">references</numIndex>
+                                    </numIndex>
+                                    <numIndex index="7" type="array">
+                                        <numIndex index="0">Referenzenkarussell  </numIndex>
+                                        <numIndex index="1">carousel</numIndex>
+                                    </numIndex>
+                                    <numIndex index="8" type="array">
+                                        <numIndex index="0">Referenzen-List</numIndex>
+                                        <numIndex index="1">referenceslist</numIndex>
+                                    </numIndex>
+                                    <numIndex index="9" type="array">
+                                        <numIndex index="0">Detaillösungen</numIndex>
+                                        <numIndex index="1">solutions</numIndex>
+                                    </numIndex>
+                                    <numIndex index="10" type="array">
+                                        <numIndex index="0">Detaillösungen-Einzelansicht</numIndex>
+                                        <numIndex index="1">solution</numIndex>
+                                    </numIndex>
+                                    <numIndex index="11" type="array">
+                                        <numIndex index="0">mediathek</numIndex>
+                                        <numIndex index="1">media</numIndex>
+                                    </numIndex>
+                                </items>
+
+
+                                <minitems>0</minitems>
+                                <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.renderType>
+                    <settings.dlCatsegories>
+                        <TCEforms>
+                            <label>Download Ketegories</label>
+                            <config>
+                                <type>input</type>
+                                <size>20</size>
+                                <max>30</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.dlCatsegories>
+
+                    <settings.solutionDes>
+                        <TCEforms>
+                            <label>Detaillösungen-Einführungstext</label>
+                            <displayCond>FIELD:settings.renderType:=:applications</displayCond>
+                            <config>
+                                <type>text</type>
+                                <enableRichtext>1</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </settings.solutionDes>
+
+                    <settings.mediaDes>
+                        <TCEforms>
+                            <label>Mediathek-Einführungstext</label>
+                            <displayCond>FIELD:settings.renderType:=:media</displayCond>
+                            <config>
+                                <type>text</type>
+                                <enableRichtext>1</enableRichtext>
+                            </config>
+                        </TCEforms>
+                    </settings.mediaDes>
+
+                    <!-- end of settings -->
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

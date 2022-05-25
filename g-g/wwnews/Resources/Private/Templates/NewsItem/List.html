@@ -1,0 +1,30 @@
+<f:layout name="default" />
+
+<f:section name="content">
+    <div class="ww-news-archive pt-4">
+        <div class="container-md p-3 p-lg-5 my-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h1 class="text-primary text-center">{settings.title}</h1>
+                    <f:format.html>{settings.intro}</f:format.html>
+                </div>
+            </div>
+        </div>
+        
+        <section class="ww-news__archive mt-4">
+            <div class="container-md">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <f:render partial="filters" arguments="{_all}" />
+                    </div>
+                    <div class="col-md-8 offset-lg-1">
+                        <f:for each="{newsItems}" as="newsItem">
+                            <f:render partial="newsArticle" arguments="{_all}" />
+                        </f:for>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</f:section>

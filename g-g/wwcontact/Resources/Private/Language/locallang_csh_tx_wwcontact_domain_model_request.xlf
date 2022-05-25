@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwcontact/Resources/Private/Language/locallang_csh" date="2021-08-31T13:27:57Z" product-name="wwcontact">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="street.description" resname="street.description">
+				<source>street</source>
+			</trans-unit>
+			<trans-unit id="zip.description" resname="zip.description">
+				<source>zip</source>
+			</trans-unit>
+			<trans-unit id="city.description" resname="city.description">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="email.description" resname="email.description">
+				<source>email</source>
+			</trans-unit>
+			<trans-unit id="tel.description" resname="tel.description">
+				<source>tel</source>
+			</trans-unit>
+			<trans-unit id="company.description" resname="company.description">
+				<source>company</source>
+			</trans-unit>
+			<trans-unit id="function.description" resname="function.description">
+				<source>function</source>
+			</trans-unit>
+			<trans-unit id="message.description" resname="message.description">
+				<source>message</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

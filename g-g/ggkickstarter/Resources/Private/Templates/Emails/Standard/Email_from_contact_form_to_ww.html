@@ -1,0 +1,32 @@
+<table width="500">
+
+    <tr>
+        <td>Vor- und Nachname</td>
+        <td>{newRequest.name}</td>
+    </tr>
+    <tr>
+        <td>Adresse</td>
+        <td>{newRequest.street} {newRequest.zip} {newRequest.city}</td>
+    </tr>
+    <tr>
+        <td>E-Mail Adresse</td>
+        <td>{newRequest.email}</td>
+    </tr>
+    <tr>
+        <td>Telefonnummer</td>
+        <td>{newRequest.tel}</td>
+    </tr>
+    <tr>
+        <td>Eirma</td>
+        <td>{newRequest.company}</td>
+    </tr>
+    <tr>
+        <td>Funktion</td>
+        <td>{newRequest.function}</td>
+    </tr>
+    <tr>
+        <td>Nachricht</td>
+        <td><f:format.raw>{newRequest.message}</f:format.raw></td>
+    </tr>
+    
+</table>

@@ -1,0 +1,5 @@
+tt_content.1col-container =< lib.contentElement
+tt_content.1col-container {
+  templateName = 1col-container
+  dataProcessing.13 = B13\Container\DataProcessing\ContainerProcessor
+}

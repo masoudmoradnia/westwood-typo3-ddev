@@ -1,0 +1,26 @@
+<f:be.container pageTitle="Fachverarbeitersuche Export" includeCssFiles="{  
+    0: '{f:uri.resource(path:\'Assets/Css/FachverarbeitersucheExport.css\')}'    
+}" />
+<f:if condition="{error}">
+    <div class="alert">Angabe Fehler!</div>
+</f:if>
+<div class="statisticsContainer">
+    <f:form action="export" method="post">
+        <div id="statisticsContainer">
+            <div class="flex">
+                <div>
+                    <label for="start">Start Datum:</label>
+                    <input type="date" id="start" name="start">
+                </div>
+                <div>
+                    <label for="start">End Datum:</label>
+                    <input type="date" id="start" name="end">
+                </div>
+                <!-- <input name="filter" type="submit" value="filtern"> -->
+                <input name="export" type="submit" value="Exportieren">
+
+            </div>
+        </div>
+
+    </f:form>
+</div>

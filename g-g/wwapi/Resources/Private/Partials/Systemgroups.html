@@ -1,0 +1,37 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+
+<div class="ww-systems">
+    <div class="container py-5">
+        <h1 class="text-primary text-center ww-systems__title">{elements.title}</h1>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h2 class="fs-5">{elements.subtitle}</h2>
+                <f:format.raw>{elements.description}</f:format.raw>
+            </div>
+            <div class="col-md-4 offset-md-2 d-none d-md-block">
+                <f:image class="img-fluid" src="{api_url}api/img{elements.image}?w=480&fit=max" loading="lazy" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container ww-systems__grid">
+        <div class="row g-5 row-cols-2 row-cols-md-3 row-cols-lg-4">
+            <f:for each="{elements.systems}" as="system">
+                <f:link.action pageUid="34" arguments="{system_id:system.id, group:elements.id}" class="col" noCacheHash="1">
+                    <div class="ww-systems__griditem h-100">
+                        <f:variable name="img" value="{wwapi:jsondecoder(jsonstring: system.images)}" />
+                        <div class="overflow-hidden p-4 bg-white">
+
+                            <img class="" src='{api_url}api/img{img.0}?w=250&h=250&fit=fill&bg=white' alt="" loading="lazy">
+                        </div>
+                        <div class="ww-systems__griditem__title">
+                            <p>{system.title}</p>
+                        </div>
+                    </div>
+                </f:link.action>
+            </f:for>
+        </div>
+    </div>
+
+
+</div>

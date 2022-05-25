@@ -1,0 +1,93 @@
+<div class="ww-news-detail">
+  <div class="container py-4 px-3">
+    <f:link.page
+      pageUid="22"
+      class="text-primary text-decoration-none d-flex align-items-center"
+    >
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="list"
+        class="w-6 h-6"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="currentColor"
+          d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+        ></path>
+      </svg>
+      <span class="ms-2 text-dark">Zurück zur Übersicht</span>
+    </f:link.page>
+  </div>
+
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <p class="text-light-gray">
+          {newsItem.category.title} –
+          <span class="small"
+            ><f:format.date format="d.m.Y"
+              >{newsItem.crdate}</f:format.date
+            ></span
+          >
+        </p>
+        <h1 class="text-primary">{newsItem.title}</h1>
+        <h2 class="fs-4">{newsItem.subtite}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="ww-news__content">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md">
+          <f:format.html>{newsItem.introduction}</f:format.html>
+        </div>
+        <div class="col-md">
+          <div class="position-relative img-container">
+            <a
+              href="{newsItem.image.originalResource.publicUrl}"
+              data-fslightbox="gallery"
+              data-type="image"
+            ></a>
+            <figure class="ww-figure">
+              <f:image
+                src="{newsItem.image.originalResource.publicUrl}"
+                width="640"
+                alt=""
+                class="img-fluid"
+                loading="lazy"
+              />
+              <f:if condition="{newsItem.image.originalResource.title}">
+                <figcaption>{newsItem.image.originalResource.title}</figcaption>
+              </f:if>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <f:format.html>{newsItem.text}</f:format.html>
+          <f:if condition="{newsItem.pdf}">
+            <ul class="ww-list ww-list--download mt-3">
+              <li>
+                <a
+                  href="{newsItem.pdf.originalResource.publicUrl}"
+                  target="_blank"
+                >
+                  <f:if condition="{newsItem.pdf.originalResource.title}">
+                    <f:then>{newsItem.pdf.originalResource.title}</f:then>
+                    <f:else>Download</f:else>
+                  </f:if>
+                </a>
+              </li>
+            </ul>
+          </f:if>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

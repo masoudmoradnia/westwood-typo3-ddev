@@ -1,0 +1,8 @@
+{namespace gg=GG\Ggkickstarter\ViewHelpers}
+<ul class="search_result_nav">
+    <f:for each='{gg:ExistedTypeInKESearchResult(results:"{resultrows}")}' as="type" iteration="i">
+        <li class="{f:if(condition:'{i.isFirst}', then:'active', else:'')}" data-target="{type}">
+            <f:translate key="LLL:EXT:ggkickstarter/Resources/Private/Language/locallang.xml:search.{type}"/>
+        </li>
+    </f:for>
+</ul>

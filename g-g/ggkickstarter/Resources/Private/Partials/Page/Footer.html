@@ -1,0 +1,19 @@
+<section class="ww-footer">
+  <div class="container-md">
+    <ul class="ww-footer__nav">
+      <f:for each="{footernav}" as="item">
+        <li>
+          <a href="{item.link}">{item.title}</a>
+        </li>
+      </f:for>
+    </ul>
+    <div class="ww-footer__copyright">
+      &copy; WestWood
+      <f:format.date format="Y">+2 seconds</f:format.date>
+      <img
+        src="fileadmin/assets/images/WestWood_Logo_2019_weiss_quer.svg"
+        height="36"
+      />
+    </div>
+  </div>
+</section>

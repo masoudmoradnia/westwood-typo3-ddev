@@ -1,0 +1,45 @@
+.ww-headline {
+  margin-top: 0rem;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.ww-headline__icon {
+  margin-top: -5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ww-headline__icon img {
+  max-width: 164px;
+  height: auto;
+}
+
+.ww-headline__text {
+  background-color: #fff;
+  margin-top: 2.5rem;
+  /* color: var(--primary-color); */
+}
+
+.ww-headline__text h1 {
+  color: var(--primary-color);
+  font-size: 3.125rem;
+}
+
+.ww-area--parken .ww-headline__text h1 {
+  color: var(--ww-parken);
+}
+
+.ww-area--balkon .ww-headline__text h1 {
+  color: var(--ww-balkon);
+}
+
+.ww-area--verkehr .ww-headline__text h1 {
+  color: var(--ww-verkehr);
+}
+.ww-area--dach .ww-headline__text h1 {
+  color: var(--ww-dach);
+}
+.ww-area--spezial .ww-headline__text h1 {
+  color: var(--ww-spezial);
+}

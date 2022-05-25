@@ -1,0 +1,9 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/constants.txt">
+
+page {
+  fluidtemplate {
+    layoutRootPath = EXT:ggkickstarter/Resources/Private/Layouts/Page/
+    partialRootPath = EXT:ggkickstarter/Resources/Private/Partials/Page/
+    templateRootPath = EXT:ggkickstarter/Resources/Private/Templates/Page/
+  }
+}

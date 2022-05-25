@@ -1,0 +1,90 @@
+<div id="map_sales_container" class="layout-1" >
+    <div class="container-md ">
+        <div class="row">
+            <div class="col-md">
+                <header class="mb-3">
+                    <h2>
+                        <f:format.raw>{data.header}</f:format.raw>
+                    </h2>
+                    <f:format.raw>{data.bodytext}</f:format.raw>
+                    <div class="d-flex align-items-center">
+                        <img width="28" class="me-2" src="typo3conf/ext/ggkickstarter/Resources/Public/assets/img/pointer_click.svg"/>
+                        <p class="mb-0">
+                            <strong>Bitte wählen Sie Ihre Region auf der Karte.</strong>
+                        </p>
+                    </div>
+                </header>
+
+                <f:for each="{data.tx_mask_areas}" as="area">
+                    <div data-region="{area.tx_mask_area }" class="d-none d-inline-block bg-primary text-white p-4 ww-greenbox">
+                        <p class="fs-5 mb-0">{area.tx_mask_title}</p>
+                        <p class="fs-5 mb-0">{area.tx_mask_title2}&nbsp;</p>
+                        <p class="fw-bold mb-0">{area.tx_mask_position}</p>
+                        <p>
+                            <f:if condition="{area.tx_mask_tel}">
+                                Mobil: {area.tx_mask_tel}<br />
+                            </f:if>
+                            <f:if condition="{area.tx_mask_email}">
+                                <a href="mailto:{area.tx_mask_email}">{area.tx_mask_email}</a>
+                            </f:if>
+                            
+                        </p>
+                    </div>                    
+                </f:for>
+
+                
+                
+                
+                
+                
+            </div>
+            <div class="col-md text-center">
+                <object class="mw-100 h-auto" id="svgMapDe"
+                    data="/typo3conf/ext/ggkickstarter/Resources/Public/assets/map.de.svg" type="image/svg+xml"></object>
+                    <style>
+                        #svgMapDe {
+                            margin-top: 1rem;
+                        }
+                        @media screen and (min-width: 768px) {
+                            #svgMapDe {
+                                margin-top: -6rem;
+                            }
+                        }
+                    </style>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function initSvgMap(id) {
+        const svgMap = document.getElementById(id)
+        if (!svgMap) return
+        svgMap.addEventListener('load', function () {
+            const svgDoc = svgMap.contentDocument
+            const regionen = svgDoc.getElementById('regionen')
+            regionen.querySelectorAll('g').forEach((element) => {
+                element.addEventListener('click', function(){
+                    // reset possibly previously selected
+                    regionen.querySelectorAll('g').forEach((g) => g.classList.remove('active'))
+                    toggleAgent()
+                    // activate
+                    this.classList.toggle('active');
+                    toggleAgent(this.getAttribute('id'));
+                })
+            })
+        })
+    }
+
+    function toggleAgent(region) {
+        if(!region){
+            document.querySelectorAll(`[data-region]`).forEach(agent => agent.classList.add('d-none'))
+        }
+        const agent = document.querySelector(`[data-region=${region}]`)
+        if (!agent) return
+        agent.classList.toggle('d-none')
+    }
+
+    initSvgMap('svgMapDe')
+</script>

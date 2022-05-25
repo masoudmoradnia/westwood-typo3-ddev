@@ -1,0 +1,30 @@
+TCEFORM.tt_content.header_layout {
+    altLabels {
+        0 = Standard
+        1 = h1
+        2 = h2
+        3 = h3
+        4 = h4
+    }
+    removeItems = 5
+
+    addItems {
+        10 = h1 Green
+        20 = h2 Green
+        30 = h3 Green
+    }
+}
+
+TCEFORM.tt_content.layout {
+    altLabels {
+        0 = Standard
+        1 = Gray background        
+    }
+    removeItems = 2,3
+
+    // addItems {
+    //     10 = h1 Green
+    //     20 = h2 Green
+    //     30 = h3 Green
+    // }
+}

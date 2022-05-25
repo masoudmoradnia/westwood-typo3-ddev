@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwapi/Resources/Private/Language/locallang_db" date="2021-07-28T16:59:49Z" product-name="wwapi">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwapi_domain_model_item" resname="tx_wwapi_domain_model_item">
+				<source>Item</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_api.name" resname="tx_wwapi_api.name">
+				<source>Api</source>
+			</trans-unit>
+			<trans-unit id="tx_wwapi_api.description" resname="tx_wwapi_api.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

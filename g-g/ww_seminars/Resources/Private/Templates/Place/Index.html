@@ -1,0 +1,167 @@
+<div class="ww-beton-bg pt-5">
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-primary text-center"><f:format.raw>{category.title}</f:format.raw></h1>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <f:format.raw>{category.introduction}</f:format.raw>
+            <ul class="ww-list ww-list--download mt-3 d-flex justify-content-start mb-5">
+                <f:for each="{category.downloads}" as="download">
+
+                    <li style="margin-right:5rem;">
+                        <a href="/fileadmin{download.originalResource.identifier}" target="_blank">
+                            {download.originalResource.title}
+                        </a>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+
+        <div class="mt-5">
+            <h2>Termine</h2>
+            <f:for each="{places}" as="place">
+                <f:if condition="{place.seminar -> f:count()}">
+                    <section class="mt-5">
+                        <h1 class="text-primary fs-5 fw-bold">{place.city}</h1>
+                        <div class="mb-5 seminar_place_header">
+                            <f:format.raw>{place.address}</f:format.raw>
+                            <f:if condition="{place.tel}">
+                                <span style="margin-right: 1rem;">Tel: {place.tel}</span>|
+                            </f:if>
+                            <f:if condition="{place.fax}">
+                                <span class="px-2">Fax: {place.tel}</span>|
+                            </f:if>
+                            <f:if condition="{place.email}">
+                                <span class="px-2">E-Mail: <a href="mailto: {place.email}">{place.email}</a></span>
+                            </f:if>
+
+                        </div>
+                        <!-- for desktop -->
+                        <div class="table-responsive d-none d-sm-block">
+                            <table class="table">
+                                <tbody>
+                                    <f:for each="{place.seminar}" as="seminar">
+                                        <tr>
+                                            <td>
+                                                <f:format.date format="%A %d. %B %Y">{seminar.date}</f:format.date>
+                                            </td>
+                                            <td><f:format.raw>{seminar.title}</f:format.raw></td>
+                                            <td>
+                                                <f:if condition="{seminar.agenda.originalResource.identifier}">
+                                                    <a href="/fileadmin{seminar.agenda.originalResource.identifier}"
+                                                        class="ww-link--download-modified" target="_blank">PDF |
+                                                        Agenda</a>#
+                                                </f:if>
+                                            </td>
+                                            <td>
+                                                <f:if condition="{seminar.application.originalResource.identifier}">
+                                                    <a href="/fileadmin{seminar.application.originalResource.identifier}"
+                                                        class="ww-link--download-modified" target="_blank">PDF |
+                                                        Anmeldung</a>
+                                                </f:if>
+                                            </td>
+                                            <td class="text-center">
+                                                <f:if condition="{seminar.bookedup}">
+                                                    <f:then>
+                                                        <span class="text-danger fw-bold">Ausgebucht</span>
+                                                    </f:then>
+                                                    <f:else>
+                                                        <f:link.action controller="Request" action="new"
+                                                            arguments="{seminar_id : seminar.uid}"
+                                                            class="ww-button ww-button--primary">Online
+                                                            anmelden</f:link.action>
+
+                                                    </f:else>
+                                                </f:if>
+
+                                            </td>
+                                        </tr>
+                                    </f:for>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- for mobile -->
+                        <div class="table-responsive  d-block d-sm-none">
+                            <table class="table seminar mobile">
+                                <tbody>
+                                    <f:for each="{place.seminar}" as="seminar">
+                                        <tr>
+                                            
+                                            <td>
+                                                {seminar.title}
+                                                <br>
+                                                <f:format.date format=" %d.%m.%Y">{seminar.date}</f:format.date>
+                                            </td>
+                                            <td>
+                                                <f:if condition="{seminar.agenda.originalResource.identifier}">
+                                                    <a href="/fileadmin{seminar.agenda.originalResource.identifier}"
+                                                        class="ww-link--download-modified" target="_blank">
+                                                        Agenda</a>#
+                                                </f:if>
+                                            </td>
+                                            <td>
+                                                <f:if condition="{seminar.application.originalResource.identifier}">
+                                                    <a href="/fileadmin{seminar.application.originalResource.identifier}"
+                                                        class="ww-link--download-modified" target="_blank">
+                                                        Anmeldung</a>
+                                                </f:if>
+                                            </td>
+                                            <td class="text-center">
+                                                <f:if condition="{seminar.bookedup}">
+                                                    <f:then>
+                                                        <span class="text-danger fw-bold">Ausgebucht</span>
+                                                    </f:then>
+                                                    <f:else>
+                                                        <f:link.action controller="Request" action="new"
+                                                            arguments="{seminar_id : seminar.uid}"
+                                                            class="ww-button ww-button--primary">Online
+                                                            anmelden</f:link.action>
+
+                                                    </f:else>
+                                                </f:if>
+
+                                            </td>
+                                        </tr>
+                                    </f:for>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </f:if>
+            </f:for>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <!-- <div class="container mt-5">
+        <div class="row gap-4">
+            <div class="col-md">
+                <h2>Technik-Seminare für Firmeninhaber, Bauleiter, Vorarbeiter und Kalkulatoren</h2>
+                <p>
+                Body copy: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et.
+                </p>
+                <button class="ww-button ww-button--primary"><Details></Details></button>
+            </div>
+            <div class="col-md">
+                <h2>Technik-Seminare für Fachverarbeiter (verarbeitende Mitarbeiter)</h2>
+                <p>
+                Body copy: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et.
+                </p>
+                <button class="ww-button ww-button--primary"><Details></Details></button>
+            </div>
+        </div>
+    </div> -->
+
+</div>

@@ -1,0 +1,33 @@
+.flex {
+	display: flex;
+    margin-bottom: 3rem;
+    align-items: flex-end;
+}
+.flex > div {
+	width: 20%;
+}
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+label {
+    font-size: 15px;
+}
+input[type="date"] {
+    padding: 2rem;
+    width: 95%;
+    
+}
+input[type="submit"] {
+    padding: 1.9rem 1rem;
+    margin-top: 1rem;
+}
+
+.statisticsContainer {
+    padding: 50px;
+}

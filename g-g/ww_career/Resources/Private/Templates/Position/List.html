@@ -1,0 +1,10 @@
+
+<div class="tx_career">
+    <f:for each="{jobs}" as="job">
+        <div class="job_row">
+            <!-- <div>{job.adverts.meta.jobtype}</div> -->
+            <div>{job.adverts.content.title}</div>
+            <div><f:link.action class="ww-button ww-button--primary" action="show" pageUid="62" arguments="{jobId:job.adverts.meta.id}">Details</f:link.action></div>
+        </div>
+    </f:for>
+</div>

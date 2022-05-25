@@ -1,0 +1,14 @@
+plugin.tx_fachverarbeitersuche_form {
+    view {
+        # cat=plugin.tx_fachverarbeitersuche_form/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:fachverarbeitersuche/Resources/Private/Templates/
+        # cat=plugin.tx_fachverarbeitersuche_form/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:fachverarbeitersuche/Resources/Private/Partials/
+        # cat=plugin.tx_fachverarbeitersuche_form/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:fachverarbeitersuche/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_fachverarbeitersuche_form//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

@@ -1,0 +1,68 @@
+<form action="" method="POST" id="newsFilters">
+
+    <div class="bg-white p-3">
+        <p class="fw-bold">Suche</p>
+        <input type="text" placeholder="Suchbegriff eingeben" name="searchterm">
+    </div>
+
+    <div class="bg-white p-3">
+        <p class="fw-bold">Kategorie</p>
+        <ul class="list-unstyled">
+            <f:for each="{categories}" as="category">
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" name="filterCategories[]" type="checkbox" value="{category.uid}"
+                            id="filtercats-{category.uid}">
+                        <label class="form-check-label" for="filtercats-{category.uid}">
+                            {category.title}
+                        </label>
+                    </div>
+                </li>
+            </f:for>
+        </ul>
+    </div>
+
+    <div class="bg-white p-3">
+        <p class="fw-bold">Einsatzgebiete</p>
+        <ul class="list-unstyled">
+            <f:for each="{aplicationareas}" as="aplicationarea">
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" name="filterAplicationareas[]" type="checkbox" value="{aplicationarea.uid}" id="filterArea-{aplicationarea.uid}">
+                        <label class="form-check-label" for="filterArea-{aplicationarea.uid}">
+                            {aplicationarea.title}
+                        </label>
+                    </div>
+                </li>
+            </f:for>
+
+        </ul>
+    </div>
+    <input type="hidden" name="check" value="1">
+    <button type="submit" class="ww-button ww-button--secondary">Filter anwenden</button>
+</form>
+
+<script>
+
+    // function getQueryVariable(variable)
+    // {
+    //    var query = window.location.search.substring(1);
+    //    var vars = query.split("&");
+    //    for (var i=0;i<vars.length;i++) {
+    //            var pair = vars[i].split("=");
+    //            if(pair[0] == variable){return pair[1];}
+    //    }
+    //    return(false);
+    // }
+
+    // console.log(getQueryVariable('filterCategories'));
+
+    // const form = document.getElementById('newsFilters');
+    // if(form){
+    //     form.querySelectorAll('input[type=checkbox]').forEach(input => {
+    //         input.addEventListener('change', function(){
+    //             form.submit()
+    //         })
+    //     })
+    // }
+</script>

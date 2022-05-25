@@ -1,0 +1,131 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<div class="col-md-4 col-xl-3">
+
+    <!-- categories filter -->
+    
+    <section class="ww-systems__toggle" v-for="category in categories">
+        <button type="button" data-bs-toggle="collapse"
+            :data-bs-target="'#ww-media__filter__categories_'+category.id" aria-expanded="false"
+            aria-controls="ww-systems__systemuebersicht" class="ww-systems__toggleButton collapsed">
+            <span>{{ category.title }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                  <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)" fill="#74b12c"/>
+                  <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none" stroke="#fff" stroke-width="2"/>
+                  <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+                </g>
+            </svg>
+        </button>
+        <div :id="'ww-media__filter__categories_'+category.id" class="collapse ww-systems__toggleContent ww-reference__filter">
+            <ul class="list-unstyled">
+                <li v-for="categorychild in category.childs">
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="checkbox" :value="categorychild.id" v-model="selected.categories" v-if="category.type == 'checkbox'">
+                        <input class="form-check-input do-as-radio" v-model="selected.categories" @click="checkRadio($event, 'ww-media__filter__categories_'+category.id)" type="checkbox" :value="categorychild.id"  v-if="category.type == 'radio'">
+                        <label class="form-check-label" for="filterBalkon">
+                            {{ categorychild.title }}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- application filter -->
+    <section class="ww-systems__toggle ">
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#ww-media__filter__applications" aria-expanded="false"
+            aria-controls="ww-systems__systemuebersicht" class="ww-systems__toggleButton collapsed">
+            <span><f:translate key="tx_wwapi_domain_model_Application_Areas" /></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                    <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)"
+                        fill="#74b12c" />
+                    <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none"
+                        stroke="#fff" stroke-width="2" />
+                    <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)"
+                        fill="none" stroke="#fff" stroke-width="2" />
+                </g>
+            </svg>
+        </button>
+        <div id="ww-media__filter__applications" class="collapse ww-systems__toggleContent ww-reference__filter">
+            <ul class="list-unstyled">
+                <li v-for="application in applications">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" :value="application.id" v-model="selected.applications">
+                        <label class="form-check-label" for="filterBalkon">
+                            {{ application.title }}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- systemgroups filter -->
+    <section class="ww-systems__toggle ">
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#ww-media__filter__systemgroups"
+            aria-expanded="false" aria-controls="ww-systems__systemuebersicht" class="ww-systems__toggleButton collapsed">
+            <span>Systeme</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                    <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)"
+                        fill="#74b12c" />
+                    <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none"
+                        stroke="#fff" stroke-width="2" />
+                    <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)"
+                        fill="none" stroke="#fff" stroke-width="2" />
+                </g>
+            </svg>
+        </button>
+        <div id="ww-media__filter__systemgroups" class="collapse ww-systems__toggleContent ww-reference__filter">
+            <ul class="list-unstyled">
+                <li v-for="systemgroup in systemgroups">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" :value="systemgroup.id"
+                            v-model="selected.systemgroups">
+                        <label class="form-check-label" for="filterBalkon">
+                            {{ systemgroup.title }}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- product levels filter -->
+    <section class="ww-systems__toggle ">
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#ww-media__filter__product__levels"
+            aria-expanded="false" aria-controls="ww-systems__systemuebersicht" class="ww-systems__toggleButton collapsed">
+            <span>Produktebene</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                <g transform="translate(-381 -1024)">
+                    <rect data-name="Rechteck 10" width="27" height="27" rx="8" transform="translate(381 1024)"
+                        fill="#74b12c" />
+                    <line class="Linie_1" data-name="Linie 1" y2="14" transform="translate(394.5 1030.5)" fill="none"
+                        stroke="#fff" stroke-width="2" />
+                    <line class="Linie_2" data-name="Linie 2" y2="14" transform="translate(401.5 1037.5) rotate(90)"
+                        fill="none" stroke="#fff" stroke-width="2" />
+                </g>
+            </svg>
+        </button>
+        <div id="ww-media__filter__product__levels" class="collapse ww-systems__toggleContent ww-reference__filter">
+            <ul class="list-unstyled">
+                <li v-for="productLevel in productLevels">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" :value="productLevel.id"
+                            v-model="selected.productLevels">
+                        <label class="form-check-label" for="filterBalkon">
+                            {{ productLevel.title }}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    
+  
+
+</div>

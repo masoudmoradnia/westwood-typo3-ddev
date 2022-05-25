@@ -1,0 +1,84 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <div class="row g-4">
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield
+        property="firma"
+        placeholder="Firma *"
+        required="true"
+      />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield
+        property="strasse"
+        placeholder="Straße *"
+        required="true"
+      />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield property="plz" placeholder="PLZ *" required="true" />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield property="ort" placeholder="Ort *" required="true" />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield
+        property="telefon"
+        placeholder="Telefon *"
+        required="true"
+      />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield property="telefax" placeholder="Telefax" />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield
+        property="email"
+        placeholder="E-Mail *"
+        required="true"
+      />
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <f:form.textfield
+        property="ansprechpartner"
+        placeholder="Ansprechpartner"
+      />
+    </div>
+    <div class="mt-5">
+      Wir melden für die oben genante Veranstaltung folgende Personen
+      verbindlich an:
+    </div>
+  </div>
+  <div id="person-container" class="row">
+    <div class="col-sm-6 mb-4">
+      <input
+        name="person[first_name][]"
+        placeholder="Vorname *"
+        required="true"
+      />
+    </div>
+    <div class="col-sm-6 mb-4">
+      <input name="person[name][]" placeholder="Name *" required="true" />
+    </div>
+  </div>
+  <div class="mt-5 d-flex justify-content-end align-items-center">
+    <span>Weitere Personen hinzufügen</span>
+    <a
+      class="ww-button ww-button--primary ms-2"
+      id="add_person"
+      @click="add_person"
+      >+</a
+    >
+  </div>
+
+  <div class="mt-4">
+    <label class="d-flex gap-2"
+      ><!--input type="checkbox" name="check1" class="mt-2 me-2" required="true" /-->
+      <p>
+         WestWood schützt persönliche Daten gewissenhaft und verwendet sie ausschließlich zu dem Zweck, zu dem sie zur Verfügung gestellt werden. Nähere Informationen zu unserer Datenverarbeitung finden Sie hier: <f:link.page pageUid="14">Datenschutz</f:link.page>
+      </p>
+    </label>
+  </div>
+</html>

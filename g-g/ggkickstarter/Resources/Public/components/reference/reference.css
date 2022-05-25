@@ -1,0 +1,374 @@
+.ww-references__container {
+  /* background-image: url("../../assets/img/beton/beton_480.jpg"); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+
+
+  background-color: #fff;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(245, 245, 245, 0.4) 0%,
+      rgba(245, 245, 245, 0.6) 10%,
+      rgba(245, 245, 245, 0.6) 50%
+    ),
+    url("../../assets/img/beton/beton_1200.jpg");
+  background-position: top center, top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto, cover;
+
+}
+
+.ww-references {
+  padding-top: 1px;
+}
+
+.ww-reference {
+  padding: 1rem;
+}
+
+.ww-reference > div {
+  background-color: #fff;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#ww-references-slider .ww-reference {
+  height: 100%;
+}
+
+#ww-references-slider .agile {
+  margin: 0 -1rem;
+  width: calc(100% + 2rem);
+}
+
+#ww-references-slider .ww-reference aside {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+#ww-references-slider .ww-reference aside a {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem
+}
+
+#ww-references-slider .ww-reference aside .ww-reference__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: transform var(--transition-duration) var(--transition-timing);
+}
+
+#ww-references-slider .ww-reference aside .ww-reference__image:hover {
+  transform: scale(1.1);
+}
+
+#ww-references-slider .ww-reference__area {
+  top: 0;
+  z-index: 2;
+}
+
+#ww-references-slider .agile__actions {
+  margin: -6rem -1.5rem 2rem;
+  display: none;
+}
+
+#ww-references-slider .agile__actions button {
+  background-color: transparent;
+  border: none;
+}
+#ww-references-slider .agile__actions button svg {
+  color: white;
+  height: 3rem;
+}
+
+
+
+/*  */
+/* START: Anwendungsbereich in Aside */
+/*  */
+.ww-reference__area {
+  align-items: flex-end;
+  display: flex;
+  font-size: 2.375rem;
+  height: 5rem;
+  justify-content: center;
+  padding: 0.5rem 0.5rem 0;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translate3d(1rem, -1rem, 0);
+  width: 3rem;
+  color: #fff;
+}
+
+/* .ww-reference--featured {
+  background-color: #fff;
+  padding: 2rem;
+} */
+
+.ww-reference--featured {
+  background-color: #fff;
+}
+
+
+/* .ww-reference--featured .ww-reference__area {
+  height: 6rem;
+  transform: translate3d(1rem, -5rem, 0);
+} */
+
+.ww-reference__area--balkon {
+  background-color: var(--ww-balkon);
+}
+.ww-reference__area--parken {
+  background-color: var(--ww-parken);
+}
+.ww-reference__area--industrie {
+  background-color: var(--ww-industrie);
+}
+.ww-reference__area--agrar {
+  background-color: var(--ww-agrar);
+}
+.ww-reference__area--gewerbe {
+  background-color: var(--ww-gewerbe);
+}
+.ww-reference__area--verkehr {
+  background-color: var(--ww-verkehr);
+}
+.ww-reference__area--tiefbau {
+  background-color: var(--ww-tiefbau);
+}
+.ww-reference__area--holzbau {
+  background-color: var(--ww-holzbau);
+}
+.ww-reference__area--wellness {
+  background-color: var(--ww-wellness);
+}
+.ww-reference__area--spezial {
+  background-color: var(--ww-spezial);
+}
+.ww-reference__area--dach {
+  background-color: var(--ww-dach);
+}
+/*  */
+/* ENDE: Anwendungsbereich in Aside */
+/*  */
+
+/*  */
+/* START: Anwendungsbereich im Header */
+/*  */
+.ww-reference header .ww-reference__area {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 0 0 0.5em;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  color: var(--gray);
+  background-color: transparent;
+  transform: none;
+  font-size: 1rem;
+  border-bottom: 3px solid transparent;
+  font-weight: var(--fontweight-bold);
+}
+
+
+
+.ww-reference header .ww-reference__area--balkon {
+  border-color: var(--ww-balkon);
+}
+.ww-reference header .ww-reference__area--parken {
+  border-color: var(--ww-parken);
+}
+.ww-reference header .ww-reference__area--industrie {
+  border-color: var(--ww-industrie);
+}
+.ww-reference header .ww-reference__area--agrar {
+  border-color: var(--ww-agrar);
+}
+.ww-reference header .ww-reference__area--gewerbe {
+  border-color: var(--ww-gewerbe);
+}
+.ww-reference header .ww-reference__area--verkehr {
+  border-color: var(--ww-verkehr);
+}
+.ww-reference header .ww-reference__area--tiefbau {
+  border-color: var(--ww-tiefbau);
+}
+.ww-reference header .ww-reference__area--holzbau {
+  border-color: var(--ww-holzbau);
+}
+.ww-reference header .ww-reference__area--wellness {
+  border-color: var(--ww-wellness);
+}
+.ww-reference header .ww-reference__area--spezial {
+  border-color: var(--ww-spezial);
+}
+.ww-reference header .ww-reference__area--dach {
+  border-color: var(--ww-dach);
+}
+
+/*  */
+/* ENDE: Anwendungsbereich im Header */
+/*  */
+
+.ww-reference__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+/* 
+#ww-references-slider {
+  margin: 3.75rem auto 1rem;
+} */
+/* #ww-references-slider .agile__track,
+#ww-references-slider .agile__slides {
+  gap: 1rem;
+} */
+
+.ww-reference__content {
+  padding: 0 1rem;
+}
+
+.ww-reference:not(.ww-reference--featured) header h1 {
+  font-size: 1.5rem;
+}
+
+.ww-reference:not(.ww-reference--featured) header h2 {
+  font-size: 1.25rem;
+}
+
+.ww-reference header h2 {
+  color: var(--light-gray);
+}
+
+.ww-reference__teaser {
+  font-size: 1.25rem;
+}
+
+.ww-reference__content p:last-child {
+  margin-bottom: 0;
+}
+
+.ww-reference footer {
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 576px) {
+  /* .ww-references__container {
+    background-image: url("../../assets/img/beton/beton_640.jpg");
+  } */
+  #ww-references-slider .agile__actions {
+    margin: -6rem -2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ww-reference--featured .ww-reference__content .ww-reference__area { display: none;}
+  #ww-reference-report-images {margin-top: 0 !important;}
+}
+@media screen and (min-width: 768px) {
+  /* .ww-references__container {
+    background-image: url("../../assets/img/beton/beton_800.jpg");
+  } */
+  /* .ww-reference--featured aside {
+    transform: translateY(-8rem);
+  } */
+
+  #ww-references-slider .agile__actions {
+    display: flex;
+  }
+
+  .ww-references__container {
+    margin-top: 6rem;
+  }
+
+  .ww-references {
+    margin-top: 6rem;
+  }
+  .ww-reference--featured {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    padding: 0;
+  }
+
+  .ww-reference--featured aside {
+    grid-column: 2/4;
+    grid-row: 1/2;
+    position: relative;
+    z-index: 2;
+    transform: translateY(-7rem);
+    overflow: hidden;
+  }
+
+  .ww-reference--featured aside img {
+    transition: transform var(--transition-duration) var(--transition-timing);
+  }
+
+  .ww-reference--featured aside img:hover {
+    transform: scale(1.1);
+  }
+
+  .ww-reference--featured .ww-reference__content {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    position: relative;
+    z-index: 1;
+    padding: 1rem 2rem;
+  }
+  .ww-reference--featured::after {
+    content: "";
+    display: block;
+    background: #fff;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ww-reference--featured aside .ww-reference__area { display: none; }
+  .ww-reference--featured .ww-reference__content .ww-reference__area { display: flex;}
+  
+}
+
+@media screen and (min-width: 992px) {
+
+  .ww-reference:not(.ww-reference--featured) {
+    padding: 2rem;
+    /* gap: 1rem; */
+  }
+  
+  #ww-references-slider .agile {
+    margin: 0 -2rem;
+    width: calc(100% + 4rem);
+  }
+
+  /* .ww-references__container {
+    background-image: url("../../assets/img/beton/beton_1200.jpg");
+  } */
+}
+
+@media screen and (min-width: 1200px) {
+  /* .ww-references__container {
+    background-image: url("../../assets/img/beton/beton_1600.jpg");
+  } */
+}
+
+@media screen and (min-width: 1400px) {
+  /* .ww-references__container {
+    background-image: url("../../assets/img/beton/beton_2000.jpg");
+  } */
+}

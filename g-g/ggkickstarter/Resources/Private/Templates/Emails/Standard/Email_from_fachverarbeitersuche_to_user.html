@@ -1,0 +1,46 @@
+<p style="margin-bottom: 15px;"><b>Guten Tag, sehr geehrte(r) {newRequests.title} {newRequests.firstname}
+        {newRequests.lastname}</b>,</p>
+
+<p style="margin-bottom: 15px;">vielen Dank für Ihren Besuch auf unserer Website und Ihre Anfrage über<br>
+    <f:if condition="{newRequests.balkon}">{newRequests.balkon} Stück Balkon</f:if>
+    <f:if condition="{newRequests.arcade}">{newRequests.arcade} Stück Laubengang</f:if>
+    <f:if condition="{newRequests.terrasse}">{newRequests.terrasse} Stück Terrasse</f:if>
+    <f:if condition="{newRequests.stairway}">{newRequests.stairway} Stück Treppe</f:if>
+    <f:if condition="{newRequests.ramp}">{newRequests.ramp} Stück Rampe</f:if>
+    <f:if condition="{newRequests.parking}">{newRequests.parking} Stück Tiefgarage</f:if>
+    <f:if condition="{newRequests.topdeck}">{newRequests.topdeck} Stück Topdeck</f:if>
+    <f:if condition="{newRequests.betweendeck}">{newRequests.betweendeck} Stück Zwischendeck</f:if>
+    <f:if condition="{newRequests.dachkuppel}">{newRequests.dachkuppel} Stück Dachkuppel</f:if>
+    <f:if condition="{newRequests.flachdach}">{newRequests.flachdach} Stück Flachdach</f:if>
+    <f:if condition="{newRequests.dachterasse}">{newRequests.dachterasse} Stück Dachterasse</f:if>
+    <f:if condition="{newRequests.keller}">{newRequests.keller} Stück Keller</f:if>
+    <f:if condition="{newRequests.konstruktion}">{newRequests.konstruktion} Stück Konstruktion</f:if>
+    <f:if condition="{newRequests.sonder}">{newRequests.sonder} Stück Sonder</f:if>
+    <f:if condition="{newRequests.betonfuge}">{newRequests.betonfuge} Stück WU-Beton-Fuge</f:if>
+
+    in {newRequests.address} mit insgesamt {newRequests.area} Quadratmetern.
+</p>
+
+<p style="margin-bottom: 15px;">Unser Partnerbetrieb wird sich umgehend mit Ihnen in Verbindung setzen und wie gewünscht
+    ein kostenloses und für Sie
+    unverbindliches Angebot unterbreiten!</p>
+
+<p style="margin-bottom: 15px;">Benötigen Sie weitere Unterstützung, z. B. bei der Ausschreibung oder der Gestaltung?
+    Sehr gerne! Ihr
+    WestWood-Ansprechpartner vor Ort, {salesRepresentative.name}, steht Ihnen gern zur Verfügung:</p>
+<p style="margin-bottom: 15px;">
+    <b>{salesRepresentative.anschreiben}</b><br />
+    {salesRepresentative.name} <br />
+    Mobil: {salesRepresentative.mobil}
+    E-Mail: <a href="mailto: {salesRepresentative.email}">{salesRepresentative.email}</a>
+</p>
+
+<p style="margin-bottom: 50px;">
+    Auf den nächsten Kontakt mit Ihnen und die Umsetzung Ihres Bauvorhabens freuen wir uns!
+</p>
+
+<p>
+    Mit freundlichen Grüßen<br />
+
+    Ihr WestWood-Team aus Petershagen
+</p>

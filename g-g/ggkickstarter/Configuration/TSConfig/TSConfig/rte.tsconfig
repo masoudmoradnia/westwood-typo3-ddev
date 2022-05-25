@@ -1,0 +1,81 @@
+#############
+#### RTE ####
+#############
+RTE {
+    default {
+        preset = gg
+        classesAnchor {
+            page {
+                class =
+                type = page
+                titleText =
+                target =
+                image =
+                #params =
+                rel =
+            }
+
+            file {
+                class = download
+                type = file
+                titleText = Open or download file in new window
+                target = _blank
+                image =
+                #params =
+                rel =
+            }
+
+            folder {
+                class = folder
+                type = folder
+                titleText = Open or download file in new window
+                target = _blank
+                image =
+                #params =
+                rel =
+            }
+
+            mail {
+                class = email
+                type = mail
+                titleText = Send email
+                image =
+                #params =
+                rel =
+            }
+
+            url {
+                class = external-link
+                type = url
+                titleText = Open external link in new window
+                target = _blank
+                image =
+                #params =
+                rel =
+            }
+        }
+        buttons.link {
+            options.removeItems = folder
+
+            file.properties {
+                class.default = download
+                title.readOnly = 1
+            }
+            folder.properties{
+                class.default = folder
+                title.readOnly = 1
+            }
+            url.properties {
+                class.default = external-link
+                title.readOnly = 1
+            }
+            mail.properties {
+                class.default = email
+                title.readOnly = 1
+            }
+            properties.class.allowedClasses = external-link,folder,email,download,ww-button ww-button--primary,phone, download--icon, plus--icon
+            queryParametersSelector.enabled = 0
+
+        }
+    }
+}

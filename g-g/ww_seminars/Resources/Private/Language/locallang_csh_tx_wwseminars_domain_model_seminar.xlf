@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ww_seminars/Resources/Private/Language/locallang_csh" date="2021-09-29T13:32:50Z" product-name="ww_seminars">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description" resname="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="date.description" resname="date.description">
+				<source>date</source>
+			</trans-unit>
+			<trans-unit id="agenda.description" resname="agenda.description">
+				<source>agenda</source>
+			</trans-unit>
+			<trans-unit id="application.description" resname="application.description">
+				<source>application</source>
+			</trans-unit>
+			<trans-unit id="place.description" resname="place.description">
+				<source>place</source>
+			</trans-unit>
+			<trans-unit id="category.description" resname="category.description">
+				<source>category</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

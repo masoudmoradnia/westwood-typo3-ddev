@@ -1,0 +1,89 @@
+.ww-news-archive,
+.ww-news-detail {
+  background-color: #fff;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255) 10%,
+      rgba(255, 255, 255) 50%
+    ),
+    url("../../assets/img/beton/beton_1200.jpg");
+  background-position: top center, top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% auto;
+}
+
+.ww-news__teaser {
+  border-bottom: 1px solid var(--gray);
+  
+}
+.ww-news__teaser img {
+	max-width:400px;
+}
+
+.ww-news__teaser aside {
+  position: relative;
+}
+.ww-news__teaser aside div {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 5%;
+  height: 90%;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ww-news__teaser aside div::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  margin: -1rem;
+}
+
+.ww-news__teaser.ww-area--dach aside div::before {
+  background-color: var(--ww-dach);
+}
+.ww-news__teaser.ww-area--parken aside div::before {
+  background-color: var(--ww-parken);
+}
+.ww-news__teaser.ww-area--balkon aside div::before {
+  background-color: var(--ww-balkon);
+}
+.ww-news__teaser.ww-area--verkehr aside div::before {
+  background-color: var(--ww-verkehr);
+}
+.ww-news__teaser.ww-area--spezial aside div::before {
+  background-color: var(--ww-spezial);
+}
+
+.ww-news__archive .form-check-input {
+  background-color: #fff;
+  border-color: var(--primary-color);
+  border-radius: 100%;
+  border-width: 2px;
+  padding: 0;
+}
+
+.ww-news__archive .form-check-input:checked {
+  border-width: 5px;
+}
+
+.ww-news__content {
+  margin-top: 4rem;
+  padding: 2rem;
+  color: white;
+  background-color: var(--gray);
+}
+
+@media screen and (min-width: 992px) {
+  .ww-news__content .img-container {
+    margin-top: -4rem;
+  }
+}

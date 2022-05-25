@@ -1,0 +1,12 @@
+<f:variable name="refPageUri" value="{f:uri.page(pageUid=38)}?cid=" />
+
+<div id="ww-referenzenFilterApp">
+    <div class="ww-referenzen p-5">
+        <div class="container">
+            <div class="row">
+                <f:render partial="References/ListFilter" arguments="{_all}"></f:render>
+                <f:render partial="References/ListResult" arguments="{_all}"></f:render>                
+            </div>
+        </div>
+    </div>
+</div>

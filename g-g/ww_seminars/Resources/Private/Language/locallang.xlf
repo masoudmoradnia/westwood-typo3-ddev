@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ww_seminars/Resources/Private/Language/locallang" date="2021-09-29T13:32:50Z" product-name="ww_seminars">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwseminars_domain_model_category" resname="tx_wwseminars_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_category.title" resname="tx_wwseminars_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_category.description" resname="tx_wwseminars_domain_model_category.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_category.introduction" resname="tx_wwseminars_domain_model_category.introduction">
+				<source>Introduction</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_category.downloads" resname="tx_wwseminars_domain_model_category.downloads">
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place" resname="tx_wwseminars_domain_model_place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place.city" resname="tx_wwseminars_domain_model_place.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place.address" resname="tx_wwseminars_domain_model_place.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place.tel" resname="tx_wwseminars_domain_model_place.tel">
+				<source>Tel</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place.fax" resname="tx_wwseminars_domain_model_place.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_place.email" resname="tx_wwseminars_domain_model_place.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar" resname="tx_wwseminars_domain_model_seminar">
+				<source>Seminar</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.title" resname="tx_wwseminars_domain_model_seminar.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.description" resname="tx_wwseminars_domain_model_seminar.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.date" resname="tx_wwseminars_domain_model_seminar.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.agenda" resname="tx_wwseminars_domain_model_seminar.agenda">
+				<source>Agenda</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.application" resname="tx_wwseminars_domain_model_seminar.application">
+				<source>Application</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.place" resname="tx_wwseminars_domain_model_seminar.place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_seminar.category" resname="tx_wwseminars_domain_model_seminar.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_request" resname="tx_wwseminars_domain_model_request">
+				<source>Request</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_request.title" resname="tx_wwseminars_domain_model_request.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_request.vorname" resname="tx_wwseminars_domain_model_request.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_request.nachname" resname="tx_wwseminars_domain_model_request.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_wwseminars_domain_model_request.seminar" resname="tx_wwseminars_domain_model_request.seminar">
+				<source>Seminar</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

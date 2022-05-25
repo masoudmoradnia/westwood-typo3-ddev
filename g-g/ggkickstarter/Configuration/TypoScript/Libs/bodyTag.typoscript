@@ -1,0 +1,45 @@
+### Body Tag ###
+lib.bodyTagCObject = COA
+lib.bodyTagCObject {
+
+    ### id of page in root level:
+    10 = TEXT
+    10.data = levelfield:1, uid
+    10.dataWrap =  id="page_{TSFE:id}" class="be-{TSFE:beUserLogin} lang-{TSFE:sys_language_isocode} rpid|
+
+    ### current level/depth of page
+    20 = TEXT
+    20.data = level:1
+    20.noTrimWrap = | level| |
+
+    ### if page has subpages
+    30 = TEXT
+    30.value = has-subs
+    30.if.isTrue.numRows {
+        table = pages
+        where = pid=this
+    }
+
+    ### if page has NO subpages
+    40 = TEXT
+    40.value = no-subs
+    40.if.negate = 1
+    40.if.isTrue.numRows {
+        table = pages
+        where = pid=this
+    }
+
+    45 = TEXT
+    45.data = FIELD:backend_layout   
+    45.ifEmpty.data = levelfield:-2, backend_layout_next_level, slide  
+    45.noTrimWrap = | blayout-| |       
+
+    46 = TEXT
+    46.value = {$land_kurz}
+    46.wrap = land_|
+
+    50 = TEXT 
+    50.value = "
+
+    stdWrap.noTrimWrap = |<body |>|   
+}

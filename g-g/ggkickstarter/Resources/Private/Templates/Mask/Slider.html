@@ -1,0 +1,77 @@
+<f:if condition="{data.tx_mask_slide}">
+  <f:if condition="{data.tx_mask_slide->f:count()} > 1">
+    <f:then>
+      <section id="ww-hero" class="ww-hero">
+        <agile
+          :nav-buttons="false"
+          :autoplay="{data.imageborder}"
+          :autoplay-speed="{data.tx_mask_slider_delay}"
+        >
+          <f:for each="{data.tx_mask_slide}" as="data_item">
+            <div class="slide">
+              <article class="ww-hero__article">
+                <aside>
+                  <f:image image="{data_item.tx_mask_image.0}"  />
+                </aside>
+                <header>
+                  <f:if condition="{data_item.tx_mask_title}">
+                    <h1>{data_item.tx_mask_title}</h1>
+                  </f:if>
+                </header>
+                <div class="ww-hero__content">
+                  <f:if condition="{data_item.tx_mask_text}">
+                    {data_item.tx_mask_text -> f:format.html()}
+                  </f:if>
+                </div>
+                <footer>
+                  <f:if condition="{data_item.tx_mask_link_text}">
+                    <f:link.typolink
+                      parameter="{data_item.tx_mask_link}"
+                      class="ww-button ww-button--lg ww-button--primary"
+                      >{data_item.tx_mask_link_text}
+                    </f:link.typolink>
+                  </f:if>
+                </footer>
+              </article>
+            </div>
+          </f:for>
+        </agile>
+      </section>
+    </f:then>
+    <f:else>
+      <section id="ww-hero" class="ww-hero">
+        <article class="ww-hero__article">
+          <aside>
+            <f:image
+              image="{data.tx_mask_slide.0.tx_mask_image.0}"
+              
+            />
+          </aside>
+        </article>
+      </section>
+    </f:else>
+  </f:if>
+</f:if>
+
+<f:if condition="{data.header} || {data.bodytext}">
+  <div class="container-md position-relative">
+    <div class="ww-notification">
+      <f:if condition="{data.header}">
+        <div class="ww-notification__title">{data.header}</div>
+      </f:if>
+      <f:if condition="{data.bodytext}">
+        <div class="ww-notification__content">
+          {data.bodytext -> f:format.html()}
+        </div>
+      </f:if>
+      <f:if condition="{data.header_link}">
+        <f:link.typolink
+          parameter="{data.header_link}"
+          class="ww-button ww-button--secondary ww-button--negative"
+        >
+          {data.tx_mask_linktile}
+        </f:link.typolink>
+      </f:if>
+    </div>
+  </div>
+</f:if>

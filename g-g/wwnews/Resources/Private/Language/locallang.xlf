@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:wwnews/Resources/Private/Language/locallang" date="2021-07-13T15:31:14Z" product-name="wwnews">
+		<header/>
+		<body>
+			<trans-unit id="tx_wwnews_domain_model_category" resname="tx_wwnews_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_category.title" resname="tx_wwnews_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_aplicationarea" resname="tx_wwnews_domain_model_aplicationarea">
+				<source>Aplication Area</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_aplicationarea.title" resname="tx_wwnews_domain_model_aplicationarea.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem" resname="tx_wwnews_domain_model_newsitem">
+				<source>News Item</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.title" resname="tx_wwnews_domain_model_newsitem.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.subtitle" resname="tx_wwnews_domain_model_newsitem.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.image" resname="tx_wwnews_domain_model_newsitem.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.introduction" resname="tx_wwnews_domain_model_newsitem.introduction">
+				<source>Introduction</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.text" resname="tx_wwnews_domain_model_newsitem.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.pdf" resname="tx_wwnews_domain_model_newsitem.pdf">
+				<source>Pdf</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.application_area" resname="tx_wwnews_domain_model_newsitem.application_area">
+				<source>Application Area</source>
+			</trans-unit>
+			<trans-unit id="tx_wwnews_domain_model_newsitem.category" resname="tx_wwnews_domain_model_newsitem.category">
+				<source>Category</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

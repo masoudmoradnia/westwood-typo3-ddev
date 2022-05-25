@@ -1,0 +1,83 @@
+<f:switch expression="{newsItem.applicationArea.uid}">
+  <f:case value="1">
+    {f:variable(name: 'class', value: 'ww-area--balkon')}
+  </f:case>
+  <f:case value="2">
+    {f:variable(name: 'class', value: 'ww-area--parken')}
+  </f:case>
+  <f:case value="3">
+    {f:variable(name: 'class', value: 'ww-area--verkehr')}
+  </f:case>
+  <f:case value="4">
+    {f:variable(name: 'class', value: 'ww-area--dach')}
+  </f:case>
+  <f:case value="5">
+    {f:variable(name: 'class', value: 'ww-area--spezial')}
+  </f:case>
+  <f:defaultCase>
+    {f:variable(name: 'class', value: 'ww-area--standard')}
+  </f:defaultCase>
+</f:switch>
+
+<article class="ww-news__teaser {class} pb-3 mb-5">
+  <f:if condition="{newsItem.cover}">
+    <aside>
+      <f:link.action
+        pageUid="21"
+        action="show"
+        pluginName="list"
+        arguments="{newsItem : newsItem}"
+      >
+        <h2 class="text-primary mb-4">{newsItem.title}</h2>
+      </f:link.action>
+      <f:link.action
+        pageUid="21"
+        action="show"
+        pluginName="list"
+        arguments="{newsItem : newsItem}"
+      >
+        <f:image
+          image="{newsItem.cover}"
+          width="640"
+          alt=""
+          class="img-cover"
+          loading="lazy"
+        />
+      </f:link.action>
+      <f:if condition="{newsItem.refplace}">
+        <div class="text-white">
+          <p class="m-0">RefrenzReport</p>
+          <p class="fs-4 m-0">{newsItem.reftype}</p>
+          <p class="m-0">{newsItem.refplace}</p>
+        </div>
+      </f:if>
+    </aside>
+  </f:if>
+
+  <div class="ww-news__archive__content">
+    <div class="my-2">
+      <span class="fw-bold text-primary"
+        >News<f:if condition="{newsItem.applicationArea.title}">
+          | {newsItem.applicationArea.title}</f:if
+        ></span
+      >
+      –
+      <span class="small text-light-gray"
+        ><f:format.date format="d.m.Y">{newsItem.crdate}</f:format.date></span
+      >
+    </div>
+
+    <h2 class="fs-4 my-4">{newsItem.subtitle}</h2>
+
+    <f:format.html>{newsItem.introduction}</f:format.html>
+
+    <f:link.action
+      pageUid="21"
+      action="show"
+      pluginName="list"
+      arguments="{newsItem : newsItem}"
+      class="ww-button ww-button--secondary button--arrow my-2"
+      >weiterlesen</f:link.action
+    >
+  </div>
+</article>
