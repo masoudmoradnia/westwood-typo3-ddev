@@ -12,31 +12,14 @@ class GetMenuDataFromApi implements DataProcessorInterface
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
     {
 
-        // $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        // $menuSlufApplicationRepository = $objectManager->get('GG\Wwapi\Domain\Repository\ApplicationRepository');
-        // $new_Application = $objectManager->get('GG\Wwapi\Domain\Model\Application');
-        // $new_Application -> setTitle('test');
-        // $refl = new \ReflectionClass("GG\Wwapi\Domain\Model\Application");
-        // $refl->getProperty('uid')->setValue($new_Application, '10101');
-
-
-        // // $new_Application -> setUid(10);
-
-        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($new_Application);
-
-
-
-
-
         
         // Set the target variable
         $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, $fieldName);
         $url = $cObj->stdWrapValue('url', $processorConfiguration, $fieldName);
         
-       
-        
         $menu = $this->getContent($url);
         $menu = json_decode($menu, true);
+        
 
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 
@@ -96,11 +79,12 @@ class GetMenuDataFromApi implements DataProcessorInterface
         }
     }
     private function getContent($url)
-    {
+    {        
+
         $requestFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Http\RequestFactory::class);
         $additionalOptions = [
             'headers' => ['Cache-Control' => 'no-cache'],
-            'Content Type' => 'application/json'
+            'Content Type' => 'application/json',
          ];
         return $requestFactory->request($url, 'GET', $additionalOptions)->getBody()->getContents();
     }
