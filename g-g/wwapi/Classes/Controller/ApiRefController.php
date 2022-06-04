@@ -26,6 +26,21 @@ class ApiRefController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function sliderAction()
     {
-        echo 1;
+        $references = $this->getContent($this->api_url.'api/reference');
+        $references = json_decode($references, true);
+        $this->view->assign('api_url', $this->api_url);
+        $this->view->assign('filesRepo', $this->files_repo);
+        $this->view->assign('references', $references);
+
+    }
+    private function getContent($url)
+    { 
+
+        $requestFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Http\RequestFactory::class);
+        $additionalOptions = [
+            'headers' => ['Cache-Control' => 'no-cache'],
+            'Content Type' => 'application/json',
+         ];
+        return $requestFactory->request($url, 'GET', $additionalOptions)->getBody()->getContents();
     }
 }
