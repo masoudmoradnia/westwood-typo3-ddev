@@ -7,6 +7,12 @@ defined('TYPO3_MODE') || die();
     'Api'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'Api__ref_slider',
+    'Referenzenkarussell'
+);
+
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
