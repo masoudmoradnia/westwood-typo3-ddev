@@ -34,7 +34,20 @@ call_user_func(static function() {
         ],
         // non-cacheable actions
         [
-            \GG\Wwapi\Controller\ApplicationController::class => 'slider'
+            \GG\Wwapi\Controller\ApplicationController::class => 'index'
+        ]
+    );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Wwapi',
+        'ApiSystemGroups',
+        [
+            \GG\Wwapi\Controller\SystemGroupController::class => 'index'
+        ],
+        // non-cacheable actions
+        [
+            \GG\Wwapi\Controller\SystemGroupController::class => 'index'
+            
         ]
     );
 

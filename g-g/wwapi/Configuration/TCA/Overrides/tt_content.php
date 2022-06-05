@@ -19,6 +19,12 @@ defined('TYPO3_MODE') || die();
     'Einsatzgebiete'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'ApiSystemGroups',
+    'System-Gruppen'
+);
+
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
