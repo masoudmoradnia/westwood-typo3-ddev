@@ -26,6 +26,18 @@ call_user_func(static function() {
         ]
     );
 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Wwapi',
+        'ApiApplications',
+        [
+            \GG\Wwapi\Controller\ApplicationController::class => 'index'
+        ],
+        // non-cacheable actions
+        [
+            \GG\Wwapi\Controller\ApplicationController::class => 'slider'
+        ]
+    );
+
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         'mod {

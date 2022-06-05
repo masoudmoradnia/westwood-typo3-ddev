@@ -13,6 +13,12 @@ defined('TYPO3_MODE') || die();
     'Referenzenkarussell'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'ApiApplications',
+    'Einsatzgebiete'
+);
+
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
@@ -20,4 +26,12 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] 
     'wwapi_api',
     // Flexform configuration schema file
     'FILE:EXT:wwapi/Configuration/FlexForms/Registration.xml'
+);
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_apiapplications'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
+    'wwapi_apiapplications',
+    // Flexform configuration schema file
+    'FILE:EXT:wwapi/Configuration/FlexForms/RegistrationApplication.xml'
 );

@@ -1,0 +1,205 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<f:variable name="agileOptions" value="myOptions" />
+
+<f:switch expression="{application.id}">
+    <f:case value="1">
+        <f:variable name="class" value="balkon" />
+        <f:variable name="identifier_letter" value="B" />
+    </f:case>
+    <f:case value="2">
+        <f:variable name="class" value="parken" />
+        <f:variable name="identifier_letter" value="P" />
+    </f:case>
+    <f:case value="3">
+        <f:variable name="class" value="verkehr" />
+        <f:variable name="identifier_letter" value="V" />
+    </f:case>
+    <f:case value="4">
+        <f:variable name="class" value="dach" />
+        <f:variable name="identifier_letter" value="D" />
+    </f:case>
+    <f:case value="5">
+        <f:variable name="class" value="spezial" />
+        <f:variable name="identifier_letter" value="S" />
+    </f:case>
+    <f:defaultCase>
+        <f:variable name="class" value="spezial" />
+        <f:variable name="identifier_letter" value="x" />
+    </f:defaultCase>
+</f:switch>
+<div class="ww-area--{class}">
+    <section id="ww-hero" class="ww-hero">
+        <article class="ww-hero__article">
+            <aside>
+                <f:image src="{api_url}api/img{application.header}?w=1400" />
+            </aside>
+        </article>
+    </section>
+
+
+
+    <div class="ww-headline container_fluid">
+
+        <div class="ww-headline__icon svg-<f:format.raw>{class}</f:format.raw>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="101" height="164" viewBox="0 0 101 164">
+                <defs>
+                    <style>
+                        <!-- .a {
+                        fill: #1e2e73;
+                        }
+                        -->
+                        .b
+                        {
+                        fill:
+                        #fff;
+                        font-size:
+                        78px;
+                        }
+                    </style>
+                </defs>
+                <g transform="translate(-760 -3808)">
+                    <rect class="a" width="101" height="164" transform="translate(760 3808)"></rect><text class="b"
+                        transform="translate(785 3953)">
+                        <tspan x="0" y="0">
+                            <wwapi:getfirstletter word="{application.title}" />
+                        </tspan>
+                    </text>
+                </g>
+            </svg>
+        </div>
+        <div class="ww-headline__text">
+            <h1>
+                <f:format.raw>{application.title}</f:format.raw>
+            </h1>
+        </div>
+
+    </div>
+
+    <section class="ww-area-teaser">
+        <div class="container-md">
+            <div class="row g-4">
+                <div class="col-md-5 d-md-flex flex-column justify-content-md-center highligts">
+                    <f:format.raw>{application.highligts}</f:format.raw>
+                </div>
+                <div class="col-md-7">
+                    <f:image src="{api_url}api/img{application.highligt_image}?w=800&fit=max" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-md mt-4">
+        <div class="row">
+            <div class="col-md-12 description ">
+                <h2 class="text-{class}">{application.highlights_title}</h2>
+                <div class="twocolumn">
+                    <f:format.raw>{application.description}</f:format.raw>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ww-references my-5">
+        <div class="ww-references__container container-fluid pb-5">
+            <div class="container-md p-4">
+                <h1 class="ww-references__headline">Aktuelle Referenzen</h1>
+            </div>
+            <div id="ww-references-slider" class="container-md">
+                <f:render partial="Application/RefCarousel" arguments="{_all}" />
+            </div>
+            <div class="container-md py-2">
+                <f:link.page pageUid="3" class="ww-button ww-button--secondary ww-button--full">
+                    Alle <f:format.raw>{application.title}</f:format.raw>-Referenzen
+                </f:link.page>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-md">
+        <section class="ww-fabricatorsearch mb-5">
+            <aside>
+                <picture>
+                    <f:if condition="{application.system_overview_bg}">
+                        <f:then>
+                            <img src="{api_url}api/img{application.system_overview_bg }?w=1400&fit=max" class="img-fluid" alt="">
+                        </f:then>
+                        <f:else>
+                            <img src="fileadmin/assets/images/systemuebersicht/systemoverview_default.jpg" class="img-fluid" alt="">
+                        </f:else>
+                    </f:if>                 
+
+                </picture>
+            </aside>
+            <div class="ww-fabricatorsearch__content container-md systemoverview">
+                <h1 class="mb-4 _text-primary _font-weight-bold">Systemübersicht</h1>
+                <div class="row row-cols-auto">
+                    <div class="col twocolumn">
+                        <ul class="lh-lg ww-list--plus">
+                            <f:for each="{application.systems}" as="system">
+                                <f:variable name="group" value="{related_system_systemgroup_array.{system.id}}" />
+                                <li>
+                                    
+                                    <f:link.action pageUid="34" arguments="{system_id:system.id, group:group}"  class="col"
+                                        noCacheHash="1">
+                                    
+                                        {system.title} 
+                                    </f:link.action>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="ww-downloadlist container-md">
+        <h1>Downloads</h1>
+        <ul class="list-unstyled mt-5">
+            <f:for each="{downloads}" as="dlCategory">
+
+                <f:for each="{dlCategory.downloads}" as="download">
+                    <li>
+                        <f:variable name="file" value="{wwapi:jsondecoder(jsonstring: download.data_file)}" />
+                        <a target="_blank" href="{api_url}{filesRepo}/{file.0.download_link}">
+                            <f:image src="{api_url}api/img{download.thumbnail}?w=350&fit=max" alt="" />
+                            <div>
+                                <span>
+                                    <f:format.raw>{download.title}</f:format.raw>
+                                </span>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" viewBox="0 0 20 20">
+                                        <defs>
+                                            <style>
+                                                .a2 {
+                                                    fill: none;
+                                                    stroke: #74b12c;
+                                                    stroke-linecap: round;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 2px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <g transform="translate(-2 -2)">
+                                            <path class="a2" d="M21,15v4a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V15"></path>
+                                            <path class="a2" d="M7,10l5,5,5-5"></path>
+                                            <line class="a2" y1="12" transform="translate(12 3)"></line>
+                                        </g>
+                                    </svg>
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </li>
+                </f:for>
+            </f:for>
+
+        </ul>
+    </section>
+    <f:if condition="{solution_categories -> f:count()}">
+        <f:render partial="Application/Solutions" arguments="{_all}" />
+    </f:if>
+
+
+
+</div>

@@ -1,11 +1,11 @@
 {namespace wwapi=GG\Wwapi\ViewHelpers}
 <agile :options="{agileOptions}">
-    <f:for each="{elements.referencesmm}" as="reference">
+    <f:for each="{application.referencesmm}" as="reference">
         <article class="ww-reference">
             <div>
                 <aside>
                     <div class="ww-reference__area ww-reference__area--{class}">
-                        <wwapi:getfirstletter word="{elements.title}" />
+                        <wwapi:getfirstletter word="{application.title}" />
                     </div>
                     <f:variable name="img" value="{wwapi:jsondecoder(jsonstring: reference.images)}" />
                     <f:link.page pageUid="38" additionalParams="{cid:reference.id}">
@@ -15,7 +15,7 @@
                 </aside>
 
                 <header>
-                    <div class="ww-reference__area ww-reference__area--{class}">{elements.title}</div>
+                    <div class="ww-reference__area ww-reference__area--{class}">{application.title}</div>
                     <h1>{reference.title}</h1>
                     <h2>{reference.subtitle}</h2>
                 </header>
