@@ -4,30 +4,36 @@ defined('TYPO3_MODE') || die();
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Wwapi',
     'Api',
-    'Api'
+    'Depricated__Api'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Wwapi',
     'Api__ref_slider',
-    'Referenzenkarussell'
+    '__Referenzenkarussell'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Wwapi',
     'ApiApplications',
-    'Einsatzgebiete'
+    '__Einsatzgebiete'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Wwapi',
     'ApiSystemGroups',
-    'System-Gruppen'
+    '__System-Gruppen'
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Wwapi',
     'ApiSystems',
-    'Systeme'
+    '__Systeme'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'ApiProductLevel',
+    '__Produktebenen'
 );
 
 

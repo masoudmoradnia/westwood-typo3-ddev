@@ -63,6 +63,19 @@ call_user_func(static function() {
         ]
     );
 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Wwapi',
+        'ApiProductLevel',
+        [
+            \GG\Wwapi\Controller\ProductLevelController::class => 'index'
+        ],
+        // non-cacheable actions
+        [
+            \GG\Wwapi\Controller\ProductLevelController::class => 'index'
+            
+        ]
+    );
+
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         'mod {
