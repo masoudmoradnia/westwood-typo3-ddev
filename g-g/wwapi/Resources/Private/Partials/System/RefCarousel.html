@@ -1,0 +1,57 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+
+<agile :options="{agile_options}">
+    <f:for each="{system.referencesmm}" as="reference">
+        <f:switch expression="{reference.applications.0.id}">
+            <f:case value="1">
+                <f:variable name="class" value="balkon" />
+            </f:case>
+            <f:case value="2">
+                <f:variable name="class" value="parken" />
+            </f:case>
+            <f:case value="3">
+                <f:variable name="class" value="verkehr" />
+            </f:case>
+            <f:case value="4">
+                <f:variable name="class" value="dach" />
+            </f:case>
+            <f:case value="5">
+                <f:variable name="class" value="spezial" />
+            </f:case>
+            <f:defaultCase>
+                <f:variable name="class" value="spezial" />
+            </f:defaultCase>
+        </f:switch>
+        <div class="px-2">
+            <article class="ww-reference">
+                <div>
+                    <aside>
+                        <div class="ww-reference__area ww-reference__area--{class}">
+                            <wwapi:getfirstletter word="{reference.applications.0.title}" />
+                        </div>
+                        <f:variable name="img" value="{wwapi:jsondecoder(jsonstring: reference.images)}" />
+                        <f:link.page pageUid="38" additionalParams="{cid:reference.id}">
+                            <img class="ww-reference__image" src='{api_url}api/img{img.0}?w=480&fit=max' alt="" loading="lazy">
+                        </f:link.page>
+                    </aside>
+                    <header>
+                        <div class="ww-reference__area ww-reference__area--{class}">{reference.applications.0.title}</div>
+                        <h1>{reference.title}</h1>
+                        <h2>{reference.subtitle}</h2>
+                    </header>
+                    <footer>
+                        <f:link.page pageUid="38" additionalParams="{cid:reference.id}"
+                            class="ww-button ww-button--secondary ww-button--arrow">weiterlesen</f:link.page>
+
+                    </footer>
+                </div>
+            </article>
+        </div>
+    </f:for>
+
+
+
+
+
+
+</agile>

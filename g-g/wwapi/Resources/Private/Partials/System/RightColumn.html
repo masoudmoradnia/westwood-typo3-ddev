@@ -4,17 +4,17 @@
   <section class="pt-1 mb-5 row">
     <div class="col-lg-6">
       <div class="fs-5">
-        <p>{elements.subtitle}</p>
+        <p>{system.subtitle}</p>
       </div>
       <div>
-        <f:format.raw>{elements.description}</f:format.raw>
+        <f:format.raw>{system.description}</f:format.raw>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="ww-systems__imageslide">
         <f:variable
           name="slides"
-          value="{wwapi:jsondecoder(jsonstring: elements.images)}"
+          value="{wwapi:jsondecoder(jsonstring: system.images)}"
         />
         <agile
           class="main"
@@ -79,7 +79,7 @@
           class="accordion-collapse collapse"
         >
           <div class="accordion-body">
-            <f:format.raw>{elements.Application}</f:format.raw>
+            <f:format.raw>{system.Application}</f:format.raw>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
         >
           <div class="accordion-body">
             <div class="ww-list">
-              <f:format.raw>{elements.properties}</f:format.raw>
+              <f:format.raw>{system.properties}</f:format.raw>
             </div>
           </div>
         </div>
@@ -200,14 +200,14 @@
   </section>
   <!-- <section class="my-5"><button class="ww-button ww-button--square ww-button--full ww-button--lg">Lorem
             Ipsum: www.ausschreiben.de</button></section> -->
-  <f:if condition="{elements.referencesmm -> f:count()} >= 1">
+  <f:if condition="{system.referencesmm -> f:count()} >= 1">
     <section class="pt-1 my-5">
       <h1 class="fs-4 text-primary mb-4 mt-5">
         Einsatz des Systems in Referenzen
       </h1>
 
       <f:variable name="agile_options" value="options3" />
-      <f:render partial="RefCarousel" arguments="{_all}" />
+      <f:render partial="System/RefCarousel" arguments="{_all}" />
 
       <div class="my-5 container-fluid">
         <f:link.page
@@ -219,10 +219,9 @@
       </div>
     </section>
   </f:if>
-
   <section class="pt-1 my-5">
-    <f:if condition="{elements.downloads -> f:count()} > 1">
-      <f:for each="{elements.downloads}" as="download" iteration="iterator">
+    <f:if condition="{system.downloads -> f:count()} > 1">
+      <f:for each="{system.downloads}" as="download" iteration="iterator">
         <f:if condition="{download.youtube_id}">
           <h1 class="fs-4 text-primary mb-4 mt-5">{download.title}</h1>
           <f:format.raw>{download.description}</f:format.raw>

@@ -1,0 +1,13 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+
+<div id="ww-systems__detail" class="ww-systems">
+    <div class="container p-5">
+        <h1 class="text-primary text-center mb-4 ww-systems__title">{system.title}</h1>
+    </div>
+    <div class="container">
+        <div class="row g-5">
+            <f:render partial="System/LeftColumn" arguments="{_all}" />
+            <f:render partial="System/RightColumn" arguments="{_all}" />            
+        </div>
+    </div>
+</div>

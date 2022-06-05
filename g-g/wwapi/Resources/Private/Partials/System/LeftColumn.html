@@ -15,9 +15,9 @@
         </button>
         <div id="ww-systems__systemuebersicht" class="show collapse ww-systems__toggleContent">
             <ul class="list-unstyled">
-                <f:for each="{all_info.systemgroups}" as="systemgroups">
+                <f:for each="{systemgroups}" as="systemgroup">
                     <li>
-                        <f:if condition="{systemgroups.id} == {elements.group}">
+                        <f:if condition="{systemgroup.id} == {systemgroupId}">
                             <f:then>
                                 <f:variable name="class" value="active" />
                             </f:then>
@@ -26,8 +26,8 @@
                             </f:else>
                         </f:if>
 
-                        <f:link.action pageUid="33" arguments="{sid:systemgroups.id}" class="{class}">
-                            {systemgroups.title}
+                        <f:link.action pageUid="33" arguments="{sid:systemgroup.id}" class="{class}">
+                            {systemgroup.title}
                         </f:link.action>
                     </li>
                 </f:for>
@@ -50,7 +50,7 @@
         </button>
         <div id="ww-systems__areas" class="show collapse ww-systems__toggleContent">
             <ul class="list-unstyled">
-                <f:for each="{elements.applications}" as="application">
+                <f:for each="{system.applications}" as="application">
                     <f:switch expression="{application.id}">
                         <f:case value="1">
                             <f:variable name="class" value="balkon" />
@@ -115,7 +115,7 @@
         </button>
         <div id="ww-systems__products" class="collapse ww-systems__toggleContent">
             <ul class="list-unstyled">
-                <f:for each="{elements.products}" as="product">
+                <f:for each="{system.products}" as="product">
                     <li>
                         <f:link.action pageUid="36" arguments="{prid:product.id}">{product.title}</f:link.action>
                     </li>
