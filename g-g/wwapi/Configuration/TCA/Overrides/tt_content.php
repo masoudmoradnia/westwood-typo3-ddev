@@ -36,6 +36,13 @@ defined('TYPO3_MODE') || die();
     '__Produktebenen'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'ApiProduct',
+    '__Produkte'
+);
+
+
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
@@ -59,4 +66,11 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_apisys
     'wwapi_apisystems',
     // Flexform configuration schema file
     'FILE:EXT:wwapi/Configuration/FlexForms/RegistrationSystem.xml'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_apiproduct'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
+    'wwapi_apiproduct',
+    // Flexform configuration schema file
+    'FILE:EXT:wwapi/Configuration/FlexForms/RegistrationProduct.xml'
 );

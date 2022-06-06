@@ -17,9 +17,9 @@
         </button>
         <div id="ww-product__ebenen" class="show collapse ww-product__toggleContent">
             <ul class="list-unstyled">
-                <f:for each="{all_info.productlevels}" as="level">
+                <f:for each="{productLevels}" as="level">
                     <li>
-                        <f:if condition="{level.id} == {elements.productlevel_id}">
+                        <f:if condition="{level.id} == {product.productlevel_id}">
                             <f:then>
                                 <f:variable name="class" value="active" />
                             </f:then>
@@ -79,7 +79,7 @@
                         </f:switch>
                         <li>
                             <f:link.page pageUid="40"
-                                additionalParams="{application:application.id , product:elements.id}">
+                                additionalParams="{application:application.id , product:product.id}">
                                 {application.title}
                                 <span class="area-icon bg-{class}">
                                     <wwapi:getfirstletter word="{application.title}" />

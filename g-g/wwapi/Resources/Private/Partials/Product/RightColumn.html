@@ -2,12 +2,12 @@
 
 <div class="col-md-7 offset-md-1 col-xl-8">
     <section class="mb-5">
-        <p class="fs-5">{elements.subtitle}</p>
+        <p class="fs-5">{product.subtitle}</p>
         <div class="row">
             <div class="col-lg-8">
-                <f:format.raw>{elements.description}</f:format.raw>
+                <f:format.raw>{product.description}</f:format.raw>
             </div>
-            <div class="col-lg-4 mt-2 mt-lg-0"><img src="{api_url}api/img{elements.image}?w=480&fit=max" alt="" loading="lazy">
+            <div class="col-lg-4 mt-2 mt-lg-0"><img src="{api_url}api/img{product.image}?w=480&fit=max" alt="" loading="lazy">
             </div>
         </div>
     </section>
@@ -23,7 +23,7 @@
                 <div id="flush-collapseOne" aria-labelledby="flush-headingOne" data-bs-parent="#ww-systems__description"
                     class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        <f:format.raw>{elements.material}</f:format.raw>
+                        <f:format.raw>{product.material}</f:format.raw>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     class="accordion-collapse collapse">
                     <div class="accordion-body">
                         <ul class="ww-list list-unstyled">
-                            <f:for each="{elements.colors}" as="color">
+                            <f:for each="{product.colors}" as="color">
                                 <li class="mt-2"><img src="{api_url}{filesRepo}{color.icon}" class="ww__color__icon"
                                         alt="">{color.title}</li>
                             </f:for>
@@ -55,7 +55,7 @@
                 <div id="flush-collapseThree" aria-labelledby="flush-headingThree"
                     data-bs-parent="#ww-systems__description" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        <f:format.raw>{elements.area_of_application}</f:format.raw>
+                        <f:format.raw>{product.area_of_application}</f:format.raw>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div id="flush-collapseFour" aria-labelledby="flush-headingFour"
                     data-bs-parent="#ww-systems__description" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        <f:format.raw>{elements.properties}</f:format.raw>
+                        <f:format.raw>{product.properties}</f:format.raw>
                     </div>
                 </div>
             </div>
@@ -107,11 +107,11 @@
         </div>
     </section>
 
-    <f:if condition="{elements.referencesmm -> f:count()} > 1">
+    <f:if condition="{product.referencesmm -> f:count()} > 1">
     <section class="my-5">
         <h1 class="fs-4 text-primary my-3">Einsatz des Produktes in Referenzen</h1>
         <f:variable name="agile_options" value="options1" />
-        <f:render partial="RefCarousel" arguments="{_all}" />
+        <f:render partial="Product/RefCarousel" arguments="{_all}" />
         <div class="my-5 container-fluid">
             <f:link.page pageUid="39" class="ww-button ww-button--secondary ww-button--full">
                 Alle Referenzen
@@ -121,8 +121,8 @@
     </f:if>
 
     <section class="my-5">
-        <f:if condition="{elements.downloads -> f:count()} > 1">
-            <f:for each="{elements.downloads}" as="download" iteration="iterator">
+        <f:if condition="{product.downloads -> f:count()} > 1">
+            <f:for each="{product.downloads}" as="download" iteration="iterator">
                 <f:if condition="{download.youtube_id != null}">
                     <f:if condition="{iterator.isLast}">
 
