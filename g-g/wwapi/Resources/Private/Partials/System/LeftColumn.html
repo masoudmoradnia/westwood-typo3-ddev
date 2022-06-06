@@ -26,7 +26,7 @@
                             </f:else>
                         </f:if>
 
-                        <f:link.action pageUid="33" arguments="{sid:systemgroup.id}" class="{class}">
+                        <f:link.action pluginName="api" pageUid="33" arguments="{sid:systemgroup.id}" class="{class}">
                             {systemgroup.title}
                         </f:link.action>
                     </li>
@@ -72,7 +72,7 @@
                         </f:defaultCase>
                     </f:switch>
                     <li>
-                        <f:link.action pageUid="32" arguments="{application_id:application.id}">
+                        <f:link.action  pluginName="api" pageUid="32" arguments="{application_id:application.id}">
                             {application.title}
                             <span class="area-icon bg-{class}">
                                 <wwapi:getfirstletter word="{application.title}" />
@@ -117,7 +117,7 @@
             <ul class="list-unstyled">
                 <f:for each="{system.products}" as="product">
                     <li>
-                        <f:link.action pageUid="36" arguments="{prid:product.id}">{product.title}</f:link.action>
+                        <f:link.action pluginName="api" pageUid="36" arguments="{prid:product.id}">{product.title}</f:link.action>
                     </li>
                 </f:for>
             </ul>

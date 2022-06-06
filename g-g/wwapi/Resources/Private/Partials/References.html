@@ -65,7 +65,7 @@
                                 <f:for each="{elements.systems}" as="system">
                                     <f:variable name="group" value="{related_system_systemgroup_array.{system.id}}" />
                                     <li>
-                                        <f:link.action pageUid="34" arguments="{system_id:system.id, group:group}">
+                                        <f:link.action pageUid="34" pluginName="api" arguments="{system_id:system.id, group:group}">
                                             {system.title}
                                         </f:link.action>
                                     </li>

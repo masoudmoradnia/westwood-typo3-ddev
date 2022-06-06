@@ -29,8 +29,8 @@ class SystemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     public function IndexAction()
     {
         $download_category_id = $this->settings['dlCatsegories'];        
-        $systemgroupId =  $_GET['tx_wwapi_apisystemgroups']['group'];
-        $systemId =  $_GET['tx_wwapi_apisystemgroups']['system_id'];
+        $systemgroupId =  $_GET['tx_wwapi_api']['group'];
+        $systemId =  $_GET['tx_wwapi_api']['system_id'];
 
         $system =  $this->getContent($this->api_url . 'api/systems/' . $systemId . '?load[]=applications&load[]=products&load[]=referencesmm&load[]=downloads');
         $system = json_decode($system , true);
