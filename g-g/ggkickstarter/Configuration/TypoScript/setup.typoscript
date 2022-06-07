@@ -198,7 +198,7 @@ revisit-after = 7 days
         }
         50 = GG\Ggkickstarter\DataProcessing\GetMenuDataFromApi
         50 {        
-          url = https://api.westwood.de/api/menu
+          url = https://ggapi.westwood.de/api/wwmenu
           as = apimenu
           
         }
@@ -257,7 +257,8 @@ revisit-after = 7 days
 
     jq = EXT:ggkickstarter/Resources/Public/vendor/jquery/jquery-3.6.0.min.js
     env = EXT:ggkickstarter/Resources/Public/assets/js/enviroment.js
-    vue = EXT:ggkickstarter/Resources/Public/vendor/vue/vue.min.js
+    #vue = EXT:ggkickstarter/Resources/Public/vendor/vue/vue.min.js
+    vue = EXT:ggkickstarter/Resources/Public/vendor/vue/vue.js
     vueAagile = EXT:ggkickstarter/Resources/Public/vendor/vue-agile/VueAgile.umd.min.js
 
     bootstrap = EXT:ggkickstarter/Resources/Public/vendor/bootstrap/bootstrap.min.js
