@@ -107,7 +107,7 @@
 
         let that = this
         $.get(
-          this.api_url + 'api/reference',
+          this.api_url + 'api/reference?filter=1',
           this.selected,
           function (data, status) {
             for (var index = 0; index < data.length; index++) {
