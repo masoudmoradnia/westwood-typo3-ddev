@@ -78,13 +78,15 @@
                             </f:defaultCase>
                         </f:switch>
                         <li>
-                            <f:link.page pageUid="40"
+
+                            <f:link.action pageUid="40"
+                                 controller="Solution" action="index" pluginName="ApiSolution"
                                 additionalParams="{application:application.id , product:product.id}">
                                 {application.title}
                                 <span class="area-icon bg-{class}">
                                     <wwapi:getfirstletter word="{application.title}" />
                                 </span>
-                            </f:link.page>
+                            </f:link.action>
                         </li>
 
                     </f:for>

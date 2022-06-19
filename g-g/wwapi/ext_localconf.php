@@ -87,6 +87,18 @@ call_user_func(static function() {
             
         ]
     );
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Wwapi',
+        'ApiSolution',
+        [
+            \GG\Wwapi\Controller\SolutionController::class => 'index,show'
+        ],
+        // non-cacheable actions
+        [
+            \GG\Wwapi\Controller\SolutionController::class => 'index,show'
+            
+        ]
+    );
 
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(

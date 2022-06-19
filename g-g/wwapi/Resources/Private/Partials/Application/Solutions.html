@@ -9,14 +9,14 @@
         <div class="col-md">
             <div class="d-flex justify-content-evenly gap-4">
                 <f:for each="{solution_categories}" key="key" as="category">
-                    <f:link.page pageUid="40" additionalParams="{category: key, application:elements.id}"
+                    <f:link.action pageUid="40" controller="Solution" action="index" pluginName="ApiSolution" additionalParams="{category: key, application:application.id}"
                         class="text-center">
                         <img class="w-24" src="/typo3conf/ext/ggkickstarter/Resources/Public/assets/img/{key}.png"
                             alt="{key}" loading="lazy">
                         <p class="text-primary fw-bold text-center pt-2">
                             <f:translate key="tx_wwapi_domain_model_{key}" />
                         </p>
-                    </f:link.page>
+                    </f:link.action>
                 </f:for>
             </div>
         </div>

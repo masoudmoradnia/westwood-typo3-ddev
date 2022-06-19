@@ -42,6 +42,12 @@ defined('TYPO3_MODE') || die();
     '__Produkte'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Wwapi',
+    'ApiSolution',
+    '__Detaillösungen'
+);
+
 
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['wwapi_api'] = 'pi_flexform';

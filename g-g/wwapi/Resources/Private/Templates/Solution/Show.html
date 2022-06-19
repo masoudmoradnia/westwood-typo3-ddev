@@ -1,0 +1,233 @@
+{namespace wwapi=GG\Wwapi\ViewHelpers}
+<div id="ww-systems__detail" class="ww-systems">
+  <div class="container p-5">
+    <h1 class="text-primary text-center mb-4 ww-systems__title">
+      {solution.title}
+    </h1>
+    <p class="text-center fs-5">{solution.subtitle}</p>
+  </div>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-4 col-xl-3">
+        <section class="ww-systems__toggle">
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#ww-systems__verwendetessystem"
+            aria-expanded="false"
+            aria-controls="ww-systems__verwendetessystem"
+            class="ww-systems__toggleButton"
+          >
+            <span>Verwendetes System</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="27"
+              height="27"
+              viewBox="0 0 27 27"
+            >
+              <g transform="translate(-381 -1024)">
+                <rect
+                  data-name="Rechteck 10"
+                  width="27"
+                  height="27"
+                  rx="8"
+                  transform="translate(381 1024)"
+                  fill="#74b12c"
+                ></rect>
+                <line
+                  data-name="Linie 1"
+                  y2="14"
+                  transform="translate(394.5 1030.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  class="Linie_1"
+                ></line>
+                <line
+                  data-name="Linie 2"
+                  y2="14"
+                  transform="translate(401.5 1037.5) rotate(90)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  class="Linie_2"
+                ></line>
+              </g>
+            </svg>
+          </button>
+          <div
+            id="ww-systems__verwendetessystem"
+            class="show collapse ww-systems__toggleContent"
+          >
+            <ul class="list-unstyled">
+              <f:for each="{solution.systems}" as="system">
+                <f:variable
+                  name="group"
+                  value="{related_system_systemgroup_array.{system.id}}"
+                />
+
+                <li>
+                  <f:link.action
+                    pageUid="34"
+                    arguments="{system_id:system.id, group:solution.id}"
+                    class="col"
+                    noCacheHash="1"
+                  >
+                    {system.title}
+                  </f:link.action>
+                </li>
+              </f:for>
+            </ul>
+          </div>
+        </section>
+        <section class="ww-systems__toggle">
+          <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#ww-systems__products"
+            aria-expanded="false"
+            aria-controls="ww-systems__products"
+            class="ww-systems__toggleButton collapsed"
+          >
+            <span>Verwendete Produkte</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="27"
+              height="27"
+              viewBox="0 0 27 27"
+            >
+              <g transform="translate(-381 -1024)">
+                <rect
+                  data-name="Rechteck 10"
+                  width="27"
+                  height="27"
+                  rx="8"
+                  transform="translate(381 1024)"
+                  fill="#74b12c"
+                ></rect>
+                <line
+                  data-name="Linie 1"
+                  y2="14"
+                  transform="translate(394.5 1030.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  class="Linie_1"
+                ></line>
+                <line
+                  data-name="Linie 2"
+                  y2="14"
+                  transform="translate(401.5 1037.5) rotate(90)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  class="Linie_2"
+                ></line>
+              </g>
+            </svg>
+          </button>
+          <div
+            id="ww-systems__products"
+            class="collapse ww-systems__toggleContent"
+          >
+            <ul class="list-unstyled">
+              <f:for each="{solution.products}" as="product">
+                <li>
+                  <f:link.action
+                    pageUid="36"
+                    arguments="{prid:product.id}"
+                    class="col"
+                    noCacheHash="1"
+                  >
+                    {product.title}
+                  </f:link.action>
+                </li>
+              </f:for>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-7 offset-md-1 col-xl-8">
+        <section class="pt-1 mb-5">
+          <f:image
+            src="{api_url}api/img{solution.image}?w=480&fit=max"
+            class="d-block mw-100 h-auto"
+            alt=""
+            loading="lazy"
+          />
+        </section>
+        <section class="pt-1 my-5">
+          <div id="ww-systems__description" class="accordion accordion-flush">
+            <h1 class="fs-4 text-primary mb-4 mt-5">Details</h1>
+            <div class="accordion-item mb-4">
+              <h2 id="flush-headingOne" class="accordion-header">
+                <button
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                  class="accordion-button fs-5"
+                >
+                  Legende
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#ww-systems__description"
+                class="accordion-collapse collapse show"
+              >
+                <div class="accordion-body">
+                  <div class="twocolumn">
+                    <f:format.raw>{solution.legende}</f:format.raw>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mb-4">
+              <h2 id="flush-headingTwo" class="accordion-header">
+                <button
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo"
+                  class="accordion-button collapsed fs-5"
+                >
+                  Dokumente &amp; Downloads
+                </button>
+              </h2>
+              <div
+                id="flush-collapseTwo"
+                aria-labelledby="flush-headingTwo"
+                data-bs-parent="#ww-systems__description"
+                class="accordion-collapse collapse"
+              >
+                <div class="accordion-body">
+                  <div>
+                    <ul class="ww-list ww-list--download mt-2">
+                      <f:for each="{solution.downloads}" as="download">
+                        <li>
+                          <f:variable
+                            name="file"
+                            value="{wwapi:jsondecoder(jsonstring: download.data_file)}"
+                          />
+                          <a
+                            target="_blank"
+                            href="{api_url}{filesRepo}{file.0.download_link}"
+                            >{download.title}</a
+                          >
+                        </li>
+                      </f:for>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
