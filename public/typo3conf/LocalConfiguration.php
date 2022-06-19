@@ -70,7 +70,6 @@ return [
             'options' => [],
         ],
     ],
-    
     'GFX' => [
         'processor' => 'ImageMagick',
         'processor_allowTemporaryMasksAsPng' => false,
