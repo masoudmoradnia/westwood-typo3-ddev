@@ -306,9 +306,9 @@ config {
   uniqueLinkVars = 1
 
   // Compression and concatenation of CSS and JS Files
-  compressCss = 0
-  compressJs = 0
-  concatenateCss = 0
+  compressCss = 1
+  compressJs = 1
+  concatenateCss = 1
   concatenateJs = 0
 }
 
